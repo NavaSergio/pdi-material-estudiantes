@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -74,10 +77,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f670ab49fb9634e9dab58972b11477cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4e663f3a4ff1a491e18bd6a28adf0390.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -147,6 +150,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Recursos</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./datasets.html"> 
+<span class="menu-text">Datasets</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./Unidad1/lectura_imagenes_opencv.html"> 
 <span class="menu-text">Unidades</span></a>
   </li>  
@@ -211,9 +218,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#software-recomendado" id="toc-software-recomendado" class="nav-link" data-scroll-target="#software-recomendado"><span class="header-section-number">1.1</span> Software recomendado</a></li>
   <li><a href="#librerias-base" id="toc-librerias-base" class="nav-link" data-scroll-target="#librerias-base"><span class="header-section-number">1.2</span> Librerias base</a></li>
   <li><a href="#material-del-curso-en-este-repositorio" id="toc-material-del-curso-en-este-repositorio" class="nav-link" data-scroll-target="#material-del-curso-en-este-repositorio"><span class="header-section-number">1.3</span> Material del curso en este repositorio</a></li>
-  <li><a href="#bibliografia-sugerida" id="toc-bibliografia-sugerida" class="nav-link" data-scroll-target="#bibliografia-sugerida"><span class="header-section-number">1.4</span> Bibliografia sugerida</a></li>
-  <li><a href="#recursos-en-linea" id="toc-recursos-en-linea" class="nav-link" data-scroll-target="#recursos-en-linea"><span class="header-section-number">1.5</span> Recursos en linea</a></li>
-  <li><a href="#buenas-practicas" id="toc-buenas-practicas" class="nav-link" data-scroll-target="#buenas-practicas"><span class="header-section-number">1.6</span> Buenas practicas</a></li>
+  <li><a href="#repositorio-oficial-de-datasets-del-curso" id="toc-repositorio-oficial-de-datasets-del-curso" class="nav-link" data-scroll-target="#repositorio-oficial-de-datasets-del-curso"><span class="header-section-number">1.4</span> Repositorio oficial de datasets del curso</a></li>
+  <li><a href="#bibliografia-sugerida" id="toc-bibliografia-sugerida" class="nav-link" data-scroll-target="#bibliografia-sugerida"><span class="header-section-number">1.5</span> Bibliografia sugerida</a></li>
+  <li><a href="#recursos-en-linea" id="toc-recursos-en-linea" class="nav-link" data-scroll-target="#recursos-en-linea"><span class="header-section-number">1.6</span> Recursos en linea</a></li>
+  <li><a href="#buenas-practicas" id="toc-buenas-practicas" class="nav-link" data-scroll-target="#buenas-practicas"><span class="header-section-number">1.7</span> Buenas practicas</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -266,16 +274,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Unidad 5: actividades de reconocimiento e integracion final.</li>
 </ul>
 </section>
-<section id="bibliografia-sugerida" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="bibliografia-sugerida"><span class="header-section-number">1.4</span> Bibliografia sugerida</h2>
+<section id="repositorio-oficial-de-datasets-del-curso" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="repositorio-oficial-de-datasets-del-curso"><span class="header-section-number">1.4</span> Repositorio oficial de datasets del curso</h2>
+<ul>
+<li>GitHub: <a href="https://github.com/NavaSergio/pdi-datasets" class="uri">https://github.com/NavaSergio/pdi-datasets</a></li>
+<li>Contiene imagenes originales organizadas por unidad para reproducir practicas y ejemplos.</li>
+</ul>
+</section>
+<section id="bibliografia-sugerida" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="bibliografia-sugerida"><span class="header-section-number">1.5</span> Bibliografia sugerida</h2>
 <ol type="1">
 <li>Gonzalez, R. C. y Woods, R. E. Digital Image Processing.</li>
 <li>Szeliski, R. Computer Vision: Algorithms and Applications.</li>
 <li>Bradski, G. y Kaehler, A. Learning OpenCV.</li>
 </ol>
 </section>
-<section id="recursos-en-linea" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="recursos-en-linea"><span class="header-section-number">1.5</span> Recursos en linea</h2>
+<section id="recursos-en-linea" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="recursos-en-linea"><span class="header-section-number">1.6</span> Recursos en linea</h2>
 <ul>
 <li>Documentacion de OpenCV: <a href="https://docs.opencv.org/" class="uri">https://docs.opencv.org/</a></li>
 <li>Documentacion de scikit-image: <a href="https://scikit-image.org/docs/stable/" class="uri">https://scikit-image.org/docs/stable/</a></li>
@@ -283,8 +298,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Documentacion de Quarto: <a href="https://quarto.org/docs/websites/" class="uri">https://quarto.org/docs/websites/</a></li>
 </ul>
 </section>
-<section id="buenas-practicas" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="buenas-practicas"><span class="header-section-number">1.6</span> Buenas practicas</h2>
+<section id="buenas-practicas" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="buenas-practicas"><span class="header-section-number">1.7</span> Buenas practicas</h2>
 <ul>
 <li>Versionar cambios en Git por actividad.</li>
 <li>Documentar experimentos y parametros usados.</li>
