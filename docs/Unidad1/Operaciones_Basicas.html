@@ -4227,7 +4227,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Unidad1/lectura_imagenes_opencv.html">Unidad 1</a></li><li class="breadcrumb-item"><a href="../Unidad1/Operaciones_Basicas.html">Operaciones basicas</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Unidad1/Unidad1_00_Conceptos_Basicos.html">Unidad 1</a></li><li class="breadcrumb-item"><a href="../Unidad1/Operaciones_Basicas.html">Operaciones basicas</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -4248,6 +4248,12 @@ window.Quarto = {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad1/Unidad1_00_Conceptos_Basicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conceptos básicos de imágenes</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Unidad1/lectura_imagenes_opencv.html" class="sidebar-item-text sidebar-link">
@@ -4295,7 +4301,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Unidad1/lectura_imagenes_opencv.html">Unidad 1</a></li><li class="breadcrumb-item"><a href="../Unidad1/Operaciones_Basicas.html">Operaciones basicas</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Unidad1/Unidad1_00_Conceptos_Basicos.html">Unidad 1</a></li><li class="breadcrumb-item"><a href="../Unidad1/Operaciones_Basicas.html">Operaciones basicas</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Transformaciones básicas con OpenCV</h1>
 </div>
@@ -4329,7 +4335,7 @@ Estas operaciones son esenciales en el preprocesamiento de imágenes antes de ap
 </section>
 <section id="configuración-inicial" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="configuración-inicial"><span class="header-section-number">2</span> Configuración inicial</h2>
-<div id="fa6c4eae" class="cell" data-execution_count="1">
+<div id="6d788db1" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
@@ -4544,7 +4550,7 @@ y=\frac{15}{1.5}=10.
 <li>el mapeo inverso determina qué posición original corresponde a cada celda nueva;</li>
 <li>la interpolación decide qué intensidad o color debe asignarse.</li>
 </ul>
-<div id="4279129d" class="cell" data-execution_count="2">
+<div id="a0a2241c" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Imagen al doble de tamaño</span></span>
@@ -4647,7 +4653,7 @@ h&#39; = y_1 - y_0,\qquad w&#39; = x_1 - x_0
 \]</span></p>
 <section id="implementación-numpyopencv" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="implementación-numpyopencv"><span class="header-section-number">4.1</span> Implementación (NumPy/OpenCV)</h3>
-<div id="0f0f62f7" class="cell" data-execution_count="3">
+<div id="ee6e0bff" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recorte de una región específica (y1:y2, x1:x2)</span></span>
@@ -4722,7 +4728,7 @@ c = -s\sin\theta,\quad d = s\cos\theta
 t_x = (1-a)c_x - b c_y,\qquad
 t_y = b c_x + (1-d)c_y
 \]</span></p>
-<div id="c24e89da" class="cell" data-execution_count="4">
+<div id="c2b62256" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtener dimensiones</span></span>
@@ -4759,7 +4765,7 @@ M =
 0 &amp; 1 &amp; 30
 \end{bmatrix}
 \]</span></p>
-<div id="bf90f31b" class="cell" data-execution_count="5">
+<div id="6ae507ea" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de traslación: mover 50 px a la derecha y 30 px abajo</span></span>
