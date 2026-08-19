@@ -4187,7 +4187,7 @@ Trabajaremos en un entorno local con <strong>Anaconda</strong>, lo que nos permi
 </section>
 <section id="configuración-inicial" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="configuración-inicial"><span class="header-section-number">2</span> Configuración inicial</h2>
-<div id="7622881b" class="cell" data-execution_count="1">
+<div id="c06d2767" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
@@ -4214,7 +4214,7 @@ Trabajaremos en un entorno local con <strong>Anaconda</strong>, lo que nos permi
 </section>
 <section id="lectura-de-imágenes-comunes-con-opencv" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="lectura-de-imágenes-comunes-con-opencv"><span class="header-section-number">3</span> Lectura de imágenes comunes con OpenCV</h2>
-<div id="80bcd490" class="cell" data-execution_count="2">
+<div id="9cf6564c" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ruta a las imágenes (ajustar según tu carpeta local)</span></span>
@@ -4270,7 +4270,7 @@ Trabajaremos en un entorno local con <strong>Anaconda</strong>, lo que nos permi
 <section id="ejercicio-profundidad-de-bits-y-paginas-tiff" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="ejercicio-profundidad-de-bits-y-paginas-tiff"><span class="header-section-number">4</span> Ejercicio: profundidad de bits y paginas TIFF</h2>
 <p>Los archivos <code>DPP*.TIF</code> del repositorio de datasets son TIFF de una sola pagina y 8 bits por canal. Por ello, sirven para practicar la lectura del formato, pero no para demostrar una profundidad alta ni una secuencia multipagina. El siguiente ejercicio crea ambos casos a partir de <code>DPP0357.TIF</code>.</p>
-<div id="55327a0f" class="cell" data-execution_count="3">
+<div id="0b1b0778" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ruta_tiff <span class="op">=</span> carpeta <span class="op">/</span> <span class="st">&quot;DPP0357.TIF&quot;</span></span>
@@ -4290,7 +4290,7 @@ dtype en NumPy/OpenCV: uint8
 Rango de valores: [0, 255]</code></pre>
 </div>
 </div>
-<div id="763e9bbc" class="cell" data-execution_count="4">
+<div id="4bd4b4aa" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una version TIFF real de 16 bits en una carpeta de salida local.</span></span>
@@ -4325,7 +4325,7 @@ Rango TIFF de 16 bits: [0, 65535]</code></pre>
 </div>
 </div>
 </div>
-<div id="b84588df" class="cell" data-execution_count="5">
+<div id="c409f499" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear y leer un TIFF multipagina: original, espejo horizontal y negativo.</span></span>
@@ -4364,7 +4364,7 @@ Rango TIFF de 16 bits: [0, 65535]</code></pre>
 <section id="lectura-de-imágenes-raw" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="lectura-de-imágenes-raw"><span class="header-section-number">5</span> Lectura de imágenes RAW</h2>
 <p>OpenCV no puede leer directamente formatos RAW de cámaras digitales. Usaremos <code>rawpy</code> para convertirlos a un arreglo NumPy.</p>
-<div id="a9cd8407" class="cell" data-execution_count="6">
+<div id="bcdd2888" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo con un archivo RAW (CR3 de Canon, NEF de Nikon, etc.)</span></span>
