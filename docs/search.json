@@ -689,8 +689,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#fin-de-aprendizaje",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#fin-de-aprendizaje",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Fin de aprendizaje",
-    "text": "Fin de aprendizaje\n\nAplicar técnicas de mejora y restauración de imágenes digitales.\n\nUtilizar operaciones matriciales y filtros en OpenCV.\n\nComprender fundamentos matemáticos de histogramas y filtrado.\n\nPreparar imágenes para tareas avanzadas de análisis visual.",
+    "section": "",
+    "text": "Aplicar técnicas de mejora y restauración de imágenes digitales.\n\nUtilizar operaciones matriciales y filtros en OpenCV.\n\nComprender fundamentos matemáticos de histogramas y filtrado.\n\nPreparar imágenes para tareas avanzadas de análisis visual.",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -701,8 +701,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#introducción",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#introducción",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Introducción",
-    "text": "Introducción\n\nEl realce mejora la apariencia visual de las imágenes.\n\nFacilita tareas como:\n\nDetección de objetos\n\nReconocimiento de texturas (ej. imágenes médicas)\n\nSegmentación y clasificación",
+    "section": "2 Introducción",
+    "text": "2 Introducción\n\nEl realce mejora la apariencia visual de las imágenes.\n\nFacilita tareas como:\n\nDetección de objetos\n\nReconocimiento de texturas (ej. imágenes médicas)\n\nSegmentación y clasificación",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -713,8 +713,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#descomposición-en-canales-rgb",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#descomposición-en-canales-rgb",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Descomposición en canales RGB",
-    "text": "Descomposición en canales RGB\n\n\n\nUna imagen en color puede verse como tres matrices en escala de grises:\n\nCanal R (Rojo)\n\nCanal G (Verde)\n\nCanal B (Azul)\n\nCada canal almacena intensidades entre 0 y 255.\n\nLa combinación de los tres forma la imagen en color.\n\n\n\n\n\n\n\n\n\nCanal R\n\n\n\n\n\n\n\nCanal G\n\n\n\n\n\n\n\nCanal B\n\n\n\n\n\n\n\n\n\nImagen combinada",
+    "section": "3 Descomposición en canales RGB",
+    "text": "3 Descomposición en canales RGB\n\n\n\nUna imagen en color puede verse como tres matrices en escala de grises:\n\nCanal R (Rojo)\n\nCanal G (Verde)\n\nCanal B (Azul)\n\nCada canal almacena intensidades entre 0 y 255.\n\nLa combinación de los tres forma la imagen en color.\n\n\n\n\n\n\n\n\n\nCanal R\n\n\n\n\n\n\n\nCanal G\n\n\n\n\n\n\n\nCanal B\n\n\n\n\n\n\n\n\n\nImagen combinada",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -725,8 +725,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#representación-de-imágenes",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#representación-de-imágenes",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Representación de imágenes",
-    "text": "Representación de imágenes\n\nUna imagen digital en escala de grises puede representarse como una matriz \\(I\\) de tamaño \\(M \\times N\\):\n\n\\[\nI = \\begin{bmatrix}\ni_{11} & i_{12} & \\cdots & i_{1N} \\\\\ni_{21} & i_{22} & \\cdots & i_{2N} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\ni_{M1} & i_{M2} & \\cdots & i_{MN}\n\\end{bmatrix}\n\\]\n\nCada elemento \\(i_{mn}\\) es un valor de intensidad (0–255 en imágenes de 8 bits).",
+    "section": "4 Representación de imágenes",
+    "text": "4 Representación de imágenes\n\nUna imagen digital en escala de grises puede representarse como una matriz \\(I\\) de tamaño \\(M \\times N\\):\n\n\\[\nI = \\begin{bmatrix}\ni_{11} & i_{12} & \\cdots & i_{1N} \\\\\ni_{21} & i_{22} & \\cdots & i_{2N} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\ni_{M1} & i_{M2} & \\cdots & i_{MN}\n\\end{bmatrix}\n\\]\n\nCada elemento \\(i_{mn}\\) es un valor de intensidad (0–255 en imágenes de 8 bits).",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -737,8 +737,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#visualización-de-un-patch-en-rgb-y-sus-canales",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#visualización-de-un-patch-en-rgb-y-sus-canales",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Visualización de un patch en RGB y sus canales",
-    "text": "Visualización de un patch en RGB y sus canales\n\n\nCode\nimport cv2\nimport matplotlib.pyplot as plt\nimport numpy as np\nfrom IPython.display import display, Markdown\n\n# Cargar imagen en color (OpenCV usa BGR)\nimg_bgr = cv2.imread(\"imagenes/frutas.jpg\", cv2.IMREAD_COLOR)\nimg_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)\n\n# Seleccionar un patch pequeño (5x5 píxeles)\npatch = img_rgb[0:5, 0:5, :]\n\n# Separar los canales\nR = patch[:,:,0]\nG = patch[:,:,1]\nB = patch[:,:,2]\n\n# Mostrar el patch en color y guardarlo\nplt.figure(figsize=(2.5,2.5))\nplt.imshow(patch)\nplt.axis('off')\nplt.title(\"Patch 5x5 RGB\")\nplt.savefig(\"patch_rgb.png\", bbox_inches=\"tight\")\nplt.close()\n\n# Convertir las matrices a strings\nR_str = np.array2string(R, max_line_width=40)\nG_str = np.array2string(G, max_line_width=40)\nB_str = np.array2string(B, max_line_width=40)\n# Mostrar en formato columnas\ndisplay(Markdown(f\"\"\"\n&lt;div style=\"display:flex; gap:25px;\"&gt;\n&lt;div style=\"font-size:15px; white-space:pre;\"&gt;\n&lt;b&gt;Canal R&lt;/b&gt;&lt;br&gt;{R_str}&lt;br&gt;&lt;br&gt;\n&lt;b&gt;Canal G&lt;/b&gt;&lt;br&gt;{G_str}&lt;br&gt;&lt;br&gt;\n&lt;b&gt;Canal B&lt;/b&gt;&lt;br&gt;{B_str}&lt;br&gt;&lt;br&gt;\n&lt;b&gt;Juntos&lt;/b&gt;&lt;br&gt;{patch}\n&lt;/div&gt;\n&lt;div style=\"flex:1; text-align:center;\"&gt;\n&lt;img src='patch_rgb.png' style=\"width:100%; height:auto;\"&gt;\n&lt;/div&gt;\n\n&lt;/div&gt;\n\"\"\"))\n\n\n\n\nCanal R[[171 137 145 137 130] [151 137 136 123 105] [142 158 154 141 112] [160 182 157 141 114] [173 170 122 106 99]] Canal G[[124 94 105 105 104] [104 94 99 91 82] [ 97 117 119 111 89] [118 143 125 114 93] [132 134 91 81 80]] Canal B[[70 41 53 54 55] [50 39 46 40 32] [40 61 65 57 37] [60 86 68 59 40] [76 76 34 25 24]] Juntos[[[171 124 70] [137 94 41] [145 105 53] [137 105 54] [130 104 55]]\n[[151 104 50] [137 94 39] [136 99 46] [123 91 40] [105 82 32]]\n[[142 97 40] [158 117 61] [154 119 65] [141 111 57] [112 89 37]]\n[[160 118 60] [182 143 86] [157 125 68] [141 114 59] [114 93 40]]\n[[173 132 76] [170 134 76] [122 91 34] [106 81 25] [ 99 80 24]]]",
+    "section": "5 Visualización de un patch en RGB y sus canales",
+    "text": "5 Visualización de un patch en RGB y sus canales\n\nimport cv2\nimport matplotlib.pyplot as plt\nimport numpy as np\nfrom IPython.display import display, Markdown\n\n# Cargar imagen en color (OpenCV usa BGR)\nimg_bgr = cv2.imread(\"imagenes/frutas.jpg\", cv2.IMREAD_COLOR)\nimg_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)\n\n# Seleccionar un patch pequeño (5x5 píxeles)\npatch = img_rgb[0:5, 0:5, :]\n\n# Separar los canales\nR = patch[:,:,0]\nG = patch[:,:,1]\nB = patch[:,:,2]\n\n# Mostrar el patch en color y guardarlo\nplt.figure(figsize=(2.5,2.5))\nplt.imshow(patch)\nplt.axis('off')\nplt.title(\"Patch 5x5 RGB\")\nplt.savefig(\"patch_rgb.png\", bbox_inches=\"tight\")\nplt.close()\n\n# Convertir las matrices a strings\nR_str = np.array2string(R, max_line_width=40)\nG_str = np.array2string(G, max_line_width=40)\nB_str = np.array2string(B, max_line_width=40)\n# Mostrar en formato columnas\ndisplay(Markdown(f\"\"\"\n&lt;div style=\"display:flex; gap:25px;\"&gt;\n&lt;div style=\"font-size:15px; white-space:pre;\"&gt;\n&lt;b&gt;Canal R&lt;/b&gt;&lt;br&gt;{R_str}&lt;br&gt;&lt;br&gt;\n&lt;b&gt;Canal G&lt;/b&gt;&lt;br&gt;{G_str}&lt;br&gt;&lt;br&gt;\n&lt;b&gt;Canal B&lt;/b&gt;&lt;br&gt;{B_str}&lt;br&gt;&lt;br&gt;\n&lt;b&gt;Juntos&lt;/b&gt;&lt;br&gt;{patch}\n&lt;/div&gt;\n&lt;div style=\"flex:1; text-align:center;\"&gt;\n&lt;img src='patch_rgb.png' style=\"width:100%; height:auto;\"&gt;\n&lt;/div&gt;\n\n&lt;/div&gt;\n\"\"\"))\n\n\n\nCanal R[[171 137 145 137 130] [151 137 136 123 105] [142 158 154 141 112] [160 182 157 141 114] [173 170 122 106 99]] Canal G[[124 94 105 105 104] [104 94 99 91 82] [ 97 117 119 111 89] [118 143 125 114 93] [132 134 91 81 80]] Canal B[[70 41 53 54 55] [50 39 46 40 32] [40 61 65 57 37] [60 86 68 59 40] [76 76 34 25 24]] Juntos[[[171 124 70] [137 94 41] [145 105 53] [137 105 54] [130 104 55]]\n[[151 104 50] [137 94 39] [136 99 46] [123 91 40] [105 82 32]]\n[[142 97 40] [158 117 61] [154 119 65] [141 111 57] [112 89 37]]\n[[160 118 60] [182 143 86] [157 125 68] [141 114 59] [114 93 40]]\n[[173 132 76] [170 134 76] [122 91 34] [106 81 25] [ 99 80 24]]]",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -749,8 +749,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#mezcla-aditiva-de-colores-modelo-rgb",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#mezcla-aditiva-de-colores-modelo-rgb",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Mezcla aditiva de colores – Modelo RGB",
-    "text": "Mezcla aditiva de colores – Modelo RGB\n\n\n\n\n\nRGB color model venn diagram\n\n\n\nExplicación:\n\nEl modelo RGB (Red, Green, Blue) es aditivo.\n\nCombinaciones:\n\nRojo + Verde = Amarillo\n\nVerde + Azul = Cian\n\nAzul + Rojo = Magenta\n\nRojo + Verde + Azul (máxima intensidad) = Blanco\n\n\nCada canal varía de 0 a 255, permitiendo representar millones de colores.\n\nEs el modelo usado en pantallas, cámaras y procesamiento digital de imágenes.",
+    "section": "6 Mezcla aditiva de colores – Modelo RGB",
+    "text": "6 Mezcla aditiva de colores – Modelo RGB\n\n\n\n\n\nRGB color model venn diagram\n\n\n\nExplicación:\n\nEl modelo RGB (Red, Green, Blue) es aditivo.\n\nCombinaciones:\n\nRojo + Verde = Amarillo\n\nVerde + Azul = Cian\n\nAzul + Rojo = Magenta\n\nRojo + Verde + Azul (máxima intensidad) = Blanco\n\n\nCada canal varía de 0 a 255, permitiendo representar millones de colores.\n\nEs el modelo usado en pantallas, cámaras y procesamiento digital de imágenes.",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -761,8 +761,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#visualización-de-valores-en-escala-de-grises",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#visualización-de-valores-en-escala-de-grises",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Visualización de valores en escala de grises",
-    "text": "Visualización de valores en escala de grises\n\n\nCode\nimport cv2\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# Cargar imagen en escala de grises\nimg = cv2.imread(\"imagenes/frutas.jpg\", cv2.IMREAD_GRAYSCALE)\n\n# Seleccionar una sección pequeña (ej. 10x10 píxeles desde la esquina superior izquierda)\npatch = img[0:10, 0:10]\n\n# Mostrar la sección ampliada como imagen\nplt.figure(figsize=(3,3))\nplt.imshow(patch, cmap='gray', vmin=0, vmax=255)\nplt.title(\"Sección 10x10 en escala de grises\")\nplt.axis('off')\nplt.show()\n\n# Convertir la matriz a string\nmatriz_str = np.array2string(patch, max_line_width=80)\n\n# Mostrar en formato markdown con letra pequeña\nfrom IPython.display import display, Markdown\ndisplay(Markdown(f\"&lt;pre style='font-size:15px'&gt;{matriz_str}&lt;/pre&gt;\"))\n\n\n\n\n\n\n\n\n\n[[132 101 111 109 106  88  39  37  45  48]\n [112 101 104  95  83  76  72  91  41  46]\n [104 123 123 114  90  80 110 131 116 104]\n [124 148 128 116  93  85 128 139 165 145]\n [138 138  94  82  79  89 135 140 129 118]\n [111 100  78  84 101 117 140 141 130 114]\n [ 72  67  88 109 127 134 126 134 158 128]\n [ 58  51  90 105 111 115 100 126 135 107]\n [ 49  70  67  74  99  93 102 152 128  79]\n [ 82  99  81  62  73  77  99 150 128  96]]",
+    "section": "7 Visualización de valores en escala de grises",
+    "text": "7 Visualización de valores en escala de grises\n\nimport cv2\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# Cargar imagen en escala de grises\nimg = cv2.imread(\"imagenes/frutas.jpg\", cv2.IMREAD_GRAYSCALE)\n\n# Seleccionar una sección pequeña (ej. 10x10 píxeles desde la esquina superior izquierda)\npatch = img[0:10, 0:10]\n\n# Mostrar la sección ampliada como imagen\nplt.figure(figsize=(3,3))\nplt.imshow(patch, cmap='gray', vmin=0, vmax=255)\nplt.title(\"Sección 10x10 en escala de grises\")\nplt.axis('off')\nplt.show()\n\n# Convertir la matriz a string\nmatriz_str = np.array2string(patch, max_line_width=80)\n\n# Mostrar en formato markdown con letra pequeña\nfrom IPython.display import display, Markdown\ndisplay(Markdown(f\"&lt;pre style='font-size:15px'&gt;{matriz_str}&lt;/pre&gt;\"))\n\n\n\n\n\n\n\n\n[[132 101 111 109 106  88  39  37  45  48]\n [112 101 104  95  83  76  72  91  41  46]\n [104 123 123 114  90  80 110 131 116 104]\n [124 148 128 116  93  85 128 139 165 145]\n [138 138  94  82  79  89 135 140 129 118]\n [111 100  78  84 101 117 140 141 130 114]\n [ 72  67  88 109 127 134 126 134 158 128]\n [ 58  51  90 105 111 115 100 126 135 107]\n [ 49  70  67  74  99  93 102 152 128  79]\n [ 82  99  81  62  73  77  99 150 128  96]]",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -773,8 +773,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#histograma-de-una-imagen",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#histograma-de-una-imagen",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Histograma de una imagen",
-    "text": "Histograma de una imagen\n\nEl histograma es la frecuencia de aparición de intensidades.\n\nFormalmente:\n\n\\[\nh(r_k) = n_k\n\\]\ndonde \\(r_k\\) es un nivel de gris y \\(n_k\\) el número de píxeles con ese valor.",
+    "section": "8 Histograma de una imagen",
+    "text": "8 Histograma de una imagen\n\nEl histograma es la frecuencia de aparición de intensidades.\n\nFormalmente:\n\n\\[\nh(r_k) = n_k\n\\]\ndonde \\(r_k\\) es un nivel de gris y \\(n_k\\) el número de píxeles con ese valor.\n\n\n8.1 Código: Construcción del histograma\n\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Cargar imagen en escala de grises\nimg = cv2.imread( \"imagenes/DPP0357.TIF\", cv2.IMREAD_GRAYSCALE)\ncrop = img[:256, :256]\n\n# Calcular histograma con OpenCV\nhist = cv2.calcHist([crop], [0], None, [256], [0,256])\n\n# Crear una figura con dos subplots lado a lado\nplt.figure(figsize=(12,4))\nplt.subplot(1,2,1)\nplt.imshow(crop, cmap='gray')\nplt.title(\"Imagen 256x256\")\nplt.axis('off')\n\nplt.subplot(1,2,2) \nplt.bar(np.arange(256), hist.flatten(), color='gray')\nplt.title(\"Histograma\")\nplt.xlabel(\"Intensidad\")\nplt.ylabel(\"Frecuencia\")\nplt.show()",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -785,8 +785,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#ecualización-de-histograma",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#ecualización-de-histograma",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Ecualización de histograma",
-    "text": "Ecualización de histograma\n\nBusca redistribuir los niveles de gris para mejorar el contraste.\n\nFunción de transformación acumulativa:\n\n\\[\ns_k = (L-1)\\sum_{j=0}^k \\frac{n_j}{MN}\n\\]\ndonde:\n- \\(L\\) = número de niveles (256 en 8 bits).\n- \\(M \\times N\\) = número total de píxeles.",
+    "section": "9 Ecualización de histograma",
+    "text": "9 Ecualización de histograma\n\nBusca redistribuir los niveles de gris para mejorar el contraste.\n\nFunción de transformación acumulativa:\n\n\\[\ns_k = (L-1)\\sum_{j=0}^k \\frac{n_j}{MN}\n\\]\ndonde:\n- \\(L\\) = número de niveles (256 en 8 bits).\n- \\(M \\times N\\) = número total de píxeles.",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -797,8 +797,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#ejemplo-de-ecualización-de-histograma",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#ejemplo-de-ecualización-de-histograma",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Ejemplo de ecualización de histograma",
-    "text": "Ejemplo de ecualización de histograma\n\n\nConsideremos una imagen de\n\\[M \\times N = 8\\]\npíxeles, con intensidades de 3 bits\n(\\(L = 8\\) niveles, de 0 a 7):\n\\[\nI = [3, 3, 4, 5, 6, 6, 6, 7]\n\\]\n\n\nHistograma de frecuencias\n\n\n\n\nIntensidad (\\(r_k\\))\nFrecuencia (\\(n_k\\))\n\n\n\n\n0\n0\n\n\n1\n0\n\n\n2\n0\n\n\n3\n2\n\n\n4\n1\n\n\n5\n1\n\n\n6\n3\n\n\n7\n1",
+    "section": "10 Ejemplo de ecualización de histograma",
+    "text": "10 Ejemplo de ecualización de histograma\n\n\nConsideremos una imagen de\n\\[M \\times N = 8\\]\npíxeles, con intensidades de 3 bits\n(\\(L = 8\\) niveles, de 0 a 7):\n\\[\nI = [3, 3, 4, 5, 6, 6, 6, 7]\n\\]\n\n\nHistograma de frecuencias\n\n\n\n\nIntensidad (\\(r_k\\))\nFrecuencia (\\(n_k\\))\n\n\n\n\n0\n0\n\n\n1\n0\n\n\n2\n0\n\n\n3\n2\n\n\n4\n1\n\n\n5\n1\n\n\n6\n3\n\n\n7\n1\n\n\n\n\n\n\n\n10.1 2. Probabilidades y acumuladas\nProbabilidad: \\(p(r_k) = n_k / 8\\)\n\n\n\n\n\\(r_k\\)\n\\(p(r_k)\\)\nCDF \\(\\sum_{j=0}^k p(r_j)\\)\n\n\n\n\n3\n0.25\n0.25\n\n\n4\n0.125\n0.375\n\n\n5\n0.125\n0.500\n\n\n6\n0.375\n0.875\n\n\n7\n0.125\n1.000\n\n\n\n\n\n\n\n10.2 3. Nueva asignación de intensidades\n\n\n\\[\ns_k = (L-1)\\sum_{j=0}^k p(r_j)\n\\]\n\nCon \\(L-1 = 7\\):\n\n\n\n\\(r_k\\)\nCDF\n\\(s_k\\)\n\n\n\n\n3\n0.25\n\\(7 \\cdot 0.25 = 1.75 \\approx 2\\)\n\n\n4\n0.375\n\\(7 \\cdot 0.375 = 2.63 \\approx 3\\)\n\n\n5\n0.50\n\\(7 \\cdot 0.50 = 3.50 \\approx 4\\)\n\n\n6\n0.875\n\\(7 \\cdot 0.875 = 6.13 \\approx 6\\)\n\n\n7\n1.00\n\\(7 \\cdot 1.00 = 7.00\\)\n\n\n\n\n\n\n\n\n10.3 4. Imagen ecualizada\nImagen original:\n\\[\n[3, 3, 4, 5, 6, 6, 6, 7]\n\\]\nImagen ecualizada:\n\\[\n[2, 2, 3, 4, 6, 6, 6, 7]\n\\]\nConclusión: La ecualización redistribuyó los valores, extendiendo mejor el contraste entre 2 y 7.\n\n\n\n10.4 Código: Ecualización con OpenCV\n\n# Ecualización de histograma\neq = cv2.equalizeHist(crop)\n\n# Calcular histogramas\nhist_orig = cv2.calcHist([crop], [0], None, [256], [0,256])\nhist_eq = cv2.calcHist([eq], [0], None, [256], [0,256])\n\n# Mostrar comparación\nplt.figure(figsize=(9,6))\n\n# Imagen original y su histograma\nplt.subplot(2,2,1)\nplt.imshow(crop, cmap='gray')\nplt.title(\"Imagen original\")\nplt.axis('off')\n\nplt.subplot(2,2,3)\nplt.bar(np.arange(256), hist_orig.flatten(), color='gray')\nplt.title(\"Histograma original\")\nplt.xlabel(\"Intensidad\")\nplt.ylabel(\"Frecuencia\")\n\n# Imagen ecualizada y su histograma\nplt.subplot(2,2,2)\nplt.imshow(eq, cmap='gray')\nplt.title(\"Imagen ecualizada\")\nplt.axis('off')\n\nplt.subplot(2,2,4)\nplt.bar(np.arange(256), hist_eq.flatten(), color='gray')\nplt.title(\"Histograma ecualizado\")\nplt.xlabel(\"Intensidad\")\nplt.ylabel(\"Frecuencia\")\n\nplt.tight_layout()\nplt.show()",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -809,8 +809,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#convolución-en-imágenes",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#convolución-en-imágenes",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Convolución en imágenes",
-    "text": "Convolución en imágenes\n\nLa convolución es la operación matemática que permite aplicar un kernel o máscara sobre una imagen.\nCada píxel resultante se obtiene como combinación ponderada de sus vecinos:\n\n\\[\ng(x,y) = \\sum_{s=-a}^{a} \\sum_{t=-b}^{b} H(s,t) \\cdot f(x+s, y+t)\n\\]\n\nDonde:\n\n\\(f(x,y)\\) = imagen original\n\\(g(x,y)\\) = imagen filtrada\n\\(H\\) = kernel o máscara (ej. 3x3, 5x5)\n\nEs la base de los filtros espaciales:\n\nSuavizado\n\nRealce de bordes\n\nDetección de patrones",
+    "section": "11 Convolución en imágenes",
+    "text": "11 Convolución en imágenes\n\nLa convolución es la operación matemática que permite aplicar un kernel o máscara sobre una imagen.\nCada píxel resultante se obtiene como combinación ponderada de sus vecinos:\n\n\\[\ng(x,y) = \\sum_{s=-a}^{a} \\sum_{t=-b}^{b} H(s,t) \\cdot f(x+s, y+t)\n\\]\n\nDonde:\n\n\\(f(x,y)\\) = imagen original\n\\(g(x,y)\\) = imagen filtrada\n\\(H\\) = kernel o máscara (ej. 3x3, 5x5)\n\nEs la base de los filtros espaciales:\n\nSuavizado\n\nRealce de bordes\n\nDetección de patrones",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -821,8 +821,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#filtrado-espacial",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#filtrado-espacial",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Filtrado espacial",
-    "text": "Filtrado espacial\n\nConsiste en aplicar una máscara o kernel \\(H\\) a la imagen:\n\n\\[\ng(x,y) = \\sum_{s=-a}^{a} \\sum_{t=-b}^{b} H(s,t) \\cdot f(x+s, y+t)\n\\]\n\nDonde:\n\n\\(f(x,y)\\) = imagen original\n\n\\(g(x,y)\\) = imagen filtrada\n\n\\(H\\) = kernel de tamaño \\((2a+1) \\times (2b+1)\\)",
+    "section": "12 Filtrado espacial",
+    "text": "12 Filtrado espacial\n\nConsiste en aplicar una máscara o kernel \\(H\\) a la imagen:\n\n\\[\ng(x,y) = \\sum_{s=-a}^{a} \\sum_{t=-b}^{b} H(s,t) \\cdot f(x+s, y+t)\n\\]\n\nDonde:\n\n\\(f(x,y)\\) = imagen original\n\n\\(g(x,y)\\) = imagen filtrada\n\n\\(H\\) = kernel de tamaño \\((2a+1) \\times (2b+1)\\)\n\n\n\n\n12.1 Ejemplo de kernel promedio 3x3\n\\[\nH = \\frac{1}{9}\n\\begin{bmatrix}\n1 & 1 & 1 \\\\\n1 & 1 & 1 \\\\\n1 & 1 & 1\n\\end{bmatrix}\n\\]",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -833,8 +833,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#filtro-promedio-blur",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#filtro-promedio-blur",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Filtro Promedio (Blur)",
-    "text": "Filtro Promedio (Blur)\n\nEl valor del píxel se reemplaza por el promedio aritmético de los píxeles en una ventana \\(k \\times k\\).\n\n\\[\ng(x,y) = \\frac{1}{k^2} \\sum_{s=-a}^{a} \\sum_{t=-b}^{b} f(x+s, y+t)\n\\]\n\nKernel:\n\n\\[\nH = \\frac{1}{k^2}\n\\begin{bmatrix}\n1 & 1 & \\cdots & 1 \\\\\n1 & 1 & \\cdots & 1 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\n1 & 1 & \\cdots & 1\n\\end{bmatrix}\n\\]",
+    "section": "13 Filtro Promedio (Blur)",
+    "text": "13 Filtro Promedio (Blur)\n\nEl valor del píxel se reemplaza por el promedio aritmético de los píxeles en una ventana \\(k \\times k\\).\n\n\\[\ng(x,y) = \\frac{1}{k^2} \\sum_{s=-a}^{a} \\sum_{t=-b}^{b} f(x+s, y+t)\n\\]\n\nKernel:\n\n\\[\nH = \\frac{1}{k^2}\n\\begin{bmatrix}\n1 & 1 & \\cdots & 1 \\\\\n1 & 1 & \\cdots & 1 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\n1 & 1 & \\cdots & 1\n\\end{bmatrix}\n\\]",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -845,8 +845,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#ejemplo-paso-a-paso",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#ejemplo-paso-a-paso",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Ejemplo paso a paso",
-    "text": "Ejemplo paso a paso\nImagen local (parche 3x3):\n\\[\n\\begin{bmatrix}\n10 & 20 & 30 \\\\\n40 & 50 & 60 \\\\\n70 & 80 & 90\n\\end{bmatrix}\n\\]\nKernel de suavizado:\n\\[\n\\frac{1}{9}\n\\begin{bmatrix}\n1 & 1 & 1 \\\\\n1 & 1 & 1 \\\\\n1 & 1 & 1\n\\end{bmatrix}\n\\]\nResultado para el píxel central = \\(\\tfrac{1}{9}(10+20+\\cdots+90)=50\\).",
+    "section": "14 Ejemplo paso a paso",
+    "text": "14 Ejemplo paso a paso\n\nDescargar ejemplo de kernels en Excel\n\nImagen local (parche 3x3):\n\\[\n\\begin{bmatrix}\n10 & 20 & 30 \\\\\n40 & 50 & 60 \\\\\n70 & 80 & 90\n\\end{bmatrix}\n\\]\nKernel de suavizado:\n\\[\n\\frac{1}{9}\n\\begin{bmatrix}\n1 & 1 & 1 \\\\\n1 & 1 & 1 \\\\\n1 & 1 & 1\n\\end{bmatrix}\n\\]\nResultado para el píxel central = \\(\\tfrac{1}{9}(10+20+\\cdots+90)=50\\).",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -857,8 +857,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#qué-pasa-en-los-bordes",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#qué-pasa-en-los-bordes",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "¿Qué pasa en los bordes?",
-    "text": "¿Qué pasa en los bordes?\n\nAl aplicar un kernel, algunos vecinos quedan fuera de la imagen.\nEstrategias comunes de relleno (padding):\n\nZero padding: rellena con ceros.\nReplicate padding: repite el valor de la orilla.\nReflect padding: refleja los valores como en un espejo.\nValid convolution: solo se calculan píxeles donde el kernel cabe completo.",
+    "section": "15 ¿Qué pasa en los bordes?",
+    "text": "15 ¿Qué pasa en los bordes?\n\nAl aplicar un kernel, algunos vecinos quedan fuera de la imagen.\nEstrategias comunes de relleno (padding):\n\nZero padding: rellena con ceros.\nReplicate padding: repite el valor de la orilla.\nReflect padding: refleja los valores como en un espejo.\nValid convolution: solo se calculan píxeles donde el kernel cabe completo.\n\n\n\n\n15.1 Ejemplo en OpenCV\n\nimport cv2\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# Cargar imagen en escala de grises\n#img = cv2.imread(\"imagenes/frutas.jpg\", cv2.IMREAD_GRAYSCALE)\ncrop = img[:256,:256]\n\n# Kernel promedio 3x3\nkernel = np.ones((3,3), np.float32) / 9\n\n# Distintos modos de borde\nres_zero = cv2.filter2D(crop, -1, kernel, borderType=cv2.BORDER_CONSTANT)   # cero\nres_replicate = cv2.filter2D(crop, -1, kernel, borderType=cv2.BORDER_REPLICATE)\nres_reflect = cv2.filter2D(crop, -1, kernel, borderType=cv2.BORDER_REFLECT)\n\n# Mostrar resultados\ntitles = [\"Original\", \"Zero Padding\", \"Replicate\", \"Reflect\"]\nimages = [crop, res_zero, res_replicate, res_reflect]\n\nplt.figure(figsize=(12,6))\nfor i, (im, title) in enumerate(zip(images, titles)):\n    plt.subplot(2,2,i+1)\n    plt.imshow(im, cmap='gray')\n    plt.title(title)\n    plt.axis('off')\nplt.tight_layout()\nplt.show()",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -869,8 +869,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#filtro-gaussiano",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#filtro-gaussiano",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Filtro Gaussiano",
-    "text": "Filtro Gaussiano\n\n\n\nUtiliza una función Gaussiana bidimensional como kernel.\n\n\\[\nG(s,t) = \\frac{1}{2\\pi\\sigma^2} \\exp\\left(-\\frac{s^2+t^2}{2\\sigma^2}\\right)\n\\]\n\nOperación de filtrado:\n\n\\[\ng(x,y) = \\sum_{s=-a}^{a} \\sum_{t=-b}^{b} G(s,t)\\, f(x+s, y+t)\n\\]\n\nNormalizado:\n\n\\[\n\\sum_{s,t} G(s,t) = 1\n\\]\n\n\\[\n\\frac{1}{9}\n\\begin{bmatrix}\n1 & 2 & 1 \\\\\n2 & 4 & 2 \\\\\n1 & 2 & 1\n\\end{bmatrix}\n\\]",
+    "section": "16 Filtro Gaussiano",
+    "text": "16 Filtro Gaussiano\n\n\n\nUtiliza una función Gaussiana bidimensional como kernel.\n\n\\[\nG(s,t) = \\frac{1}{2\\pi\\sigma^2} \\exp\\left(-\\frac{s^2+t^2}{2\\sigma^2}\\right)\n\\]\n\nOperación de filtrado:\n\n\\[\ng(x,y) = \\sum_{s=-a}^{a} \\sum_{t=-b}^{b} G(s,t)\\, f(x+s, y+t)\n\\]\n\nNormalizado:\n\n\\[\n\\sum_{s,t} G(s,t) = 1\n\\]\n\n\\[\n\\frac{1}{9}\n\\begin{bmatrix}\n1 & 2 & 1 \\\\\n2 & 4 & 2 \\\\\n1 & 2 & 1\n\\end{bmatrix}\n\\]",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -881,8 +881,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#filtro-de-mediana",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#filtro-de-mediana",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Filtro de Mediana",
-    "text": "Filtro de Mediana\n\nEs un método no lineal.\n\nEn una ventana \\(k \\times k\\), reemplaza el valor del píxel por la mediana de los valores en esa ventana.\n\n\\[\ng(x,y) = \\operatorname{mediana}\\{ f(x+s, y+t) \\mid -a \\leq s,t \\leq a \\}\n\\]\n\nPreserva bordes mejor que los filtros lineales.\n\nMuy eficaz contra ruido impulsivo (“sal y pimienta”).",
+    "section": "17 Filtro de Mediana",
+    "text": "17 Filtro de Mediana\n\nEs un método no lineal.\n\nEn una ventana \\(k \\times k\\), reemplaza el valor del píxel por la mediana de los valores en esa ventana.\n\n\\[\ng(x,y) = \\operatorname{mediana}\\{ f(x+s, y+t) \\mid -a \\leq s,t \\leq a \\}\n\\]\n\nPreserva bordes mejor que los filtros lineales.\n\nMuy eficaz contra ruido impulsivo (“sal y pimienta”).",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -893,8 +893,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#resumen-comparativo",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#resumen-comparativo",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Resumen Comparativo",
-    "text": "Resumen Comparativo\n\n\n\n\n\n\n\n\n\n\nFiltro\nFórmula\nNaturaleza\nVentajas\nDesventajas\n\n\n\n\nPromedio (Blur)\nPromedio aritmético\nLineal\nSimple, rápido\nBorra bordes y detalles\n\n\nGaussiano\nPonderación con distribución normal\nLineal\nSuavizado natural, controlado por \\(\\sigma\\)\nMás costoso computacionalmente\n\n\nMediana\nMediana de intensidades\nNo lineal\nPreserva bordes, elimina ruido impulsivo\nMenos eficiente en ventanas grandes",
+    "section": "18 Resumen Comparativo",
+    "text": "18 Resumen Comparativo\n\n\n\n\n\n\n\n\n\n\nFiltro\nFórmula\nNaturaleza\nVentajas\nDesventajas\n\n\n\n\nPromedio (Blur)\nPromedio aritmético\nLineal\nSimple, rápido\nBorra bordes y detalles\n\n\nGaussiano\nPonderación con distribución normal\nLineal\nSuavizado natural, controlado por \\(\\sigma\\)\nMás costoso computacionalmente\n\n\nMediana\nMediana de intensidades\nNo lineal\nPreserva bordes, elimina ruido impulsivo\nMenos eficiente en ventanas grandes\n\n\n\n\n\n18.1 Código: Filtros en OpenCV\n\n# Filtros espaciales\nblur3 = cv2.blur(crop, (3,3))\ngauss11 = cv2.GaussianBlur(crop, (11,11), 0)\nmedian5 = cv2.medianBlur(crop, 5)\n\n# Mostrar resultados\ntitles = [\"Original\", \"Blur 3x3\", \"Gaussian 11x11\", \"Median 5\"]\nimages = [crop, blur3, gauss11, median5]\n\nplt.figure(figsize=(12,4))\nfor i, (img, title) in enumerate(zip(images, titles)):\n    plt.subplot(1,4,i+1)\n    plt.imshow(img, cmap='gray')\n    plt.title(title)\n    plt.axis('off')\nplt.show()",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -905,8 +905,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#comparación-visual-y-análisis",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#comparación-visual-y-análisis",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Comparación visual y análisis",
-    "text": "Comparación visual y análisis\n\nEl filtro blur suaviza pero genera pérdida de detalle.\n\nEl filtro gaussiano suaviza de forma más natural.\n\nEl filtro mediana elimina ruido tipo “sal y pimienta” y preserva bordes.",
+    "section": "19 Comparación visual y análisis",
+    "text": "19 Comparación visual y análisis\n\nEl filtro blur suaviza pero genera pérdida de detalle.\n\nEl filtro gaussiano suaviza de forma más natural.\n\nEl filtro mediana elimina ruido tipo “sal y pimienta” y preserva bordes.",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -917,8 +917,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#aprende",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#aprende",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Aprende",
-    "text": "Aprende\nConsulta y toma notas de los siguientes materiales:\n\nPeguero Núñez, P. D. Realce y restauración de imágenes\n\nGiménez-Palomares, F. et al. (2016). Convolución y filtrado de imágenes\n\nLeón-Batallas, A. et al. (2020). Revisión de métricas\n\nMazet, V. (2021). Histogram transformations\n\nMazet, V. (2021). Filtering\n\nOpenCV. (s.f.). Operaciones aritméticas",
+    "section": "20 Aprende",
+    "text": "20 Aprende\nConsulta y toma notas de los siguientes materiales:\n\nPeguero Núñez, P. D. Realce y restauración de imágenes\n\nGiménez-Palomares, F. et al. (2016). Convolución y filtrado de imágenes\n\nLeón-Batallas, A. et al. (2020). Revisión de métricas\n\nMazet, V. (2021). Histogram transformations\n\nMazet, V. (2021). Filtering\n\nOpenCV. (s.f.). Operaciones aritméticas",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -929,8 +929,8 @@
     "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html#conclusión",
     "href": "Unidad2/Unidad2_01_Realce_Imagenes.html#conclusión",
     "title": "Unidad 2 – Realce y Restauración de Imágenes",
-    "section": "Conclusión",
-    "text": "Conclusión\n\nEl histograma describe la distribución de intensidades.\n\nLa ecualización mejora el contraste redistribuyendo los niveles.\n\nLos filtros espaciales suavizan o reducen ruido:\n\nMedia → suaviza más, pero pierde bordes.\n\nGaussiano → transición suave, natural.\n\nMediana → preserva bordes, elimina ruido impulsivo.\n\n\nComprender la matemática de matrices y convolución es clave para usar y diseñar filtros.",
+    "section": "21 Conclusión",
+    "text": "21 Conclusión\n\nEl histograma describe la distribución de intensidades.\n\nLa ecualización mejora el contraste redistribuyendo los niveles.\n\nLos filtros espaciales suavizan o reducen ruido:\n\nMedia → suaviza más, pero pierde bordes.\n\nGaussiano → transición suave, natural.\n\nMediana → preserva bordes, elimina ruido impulsivo.\n\n\nComprender la matemática de matrices y convolución es clave para usar y diseñar filtros.",
     "crumbs": [
       "Inicio",
       "Unidad 2",
@@ -2884,5 +2884,17 @@
     "title": "Unidad 5.5: Evaluación del desempeño de modelos de clasificación",
     "section": "7.3 5.3. Evitar overfitting durante búsqueda",
     "text": "7.3 5.3. Evitar overfitting durante búsqueda\n⚠️ Importante: evaluar en test completamente separado:\n\nX_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=0.2, random_state=42, stratify=y\n)\n\ngrid = GridSearchCV(model, param_grid, cv=5)\ngrid.fit(X_train, y_train)\n\ny_pred = grid.predict(X_test)\nfinal_score = accuracy_score(y_test, y_pred)"
+  },
+  {
+    "objectID": "Unidad2/Unidad2_01_Realce_Imagenes.html",
+    "href": "Unidad2/Unidad2_01_Realce_Imagenes.html",
+    "title": "Unidad 2 – Realce y Restauración de Imágenes",
+    "section": "",
+    "text": "Aplicar técnicas de mejora y restauración de imágenes digitales.\n\nUtilizar operaciones matriciales y filtros en OpenCV.\n\nComprender fundamentos matemáticos de histogramas y filtrado.\n\nPreparar imágenes para tareas avanzadas de análisis visual.",
+    "crumbs": [
+      "Inicio",
+      "Unidad 2",
+      "Realce de imágenes"
+    ]
   }
 ]
