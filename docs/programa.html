@@ -195,6 +195,53 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Transformaciones de intensidad</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Unidad2/Unidad2_04_Operaciones_Morfologicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Operadores morfológicos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Unidad2/metricas_procesamiento_imagenes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Métricas de procesamiento</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Unidad2/Unidad2_Practica_Integradora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Práctica integradora</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Unidad3/Unidad3_01_Deteccion_Bordes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Detección de bordes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Unidad3/Unidad3_02_Umbralizacion_y_Mascaras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Umbralización y máscaras</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Unidad3/Unidad3_03_Agrupamiento_KMeans.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Segmentación por K-means</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -221,7 +268,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#unidad-5.-reconocimiento" id="toc-unidad-5.-reconocimiento" class="nav-link" data-scroll-target="#unidad-5.-reconocimiento"><span class="header-section-number">1.4.5</span> Unidad 5. Reconocimiento</a></li>
   </ul></li>
   <li><a href="#metodologia" id="toc-metodologia" class="nav-link" data-scroll-target="#metodologia"><span class="header-section-number">1.5</span> Metodologia</a></li>
-  <li><a href="#evaluacion-sugerida" id="toc-evaluacion-sugerida" class="nav-link" data-scroll-target="#evaluacion-sugerida"><span class="header-section-number">1.6</span> Evaluacion sugerida</a></li>
+  <li><a href="#evaluacion" id="toc-evaluacion" class="nav-link" data-scroll-target="#evaluacion"><span class="header-section-number">1.6</span> Evaluacion</a></li>
   <li><a href="#politicas-de-trabajo" id="toc-politicas-de-trabajo" class="nav-link" data-scroll-target="#politicas-de-trabajo"><span class="header-section-number">1.7</span> Politicas de trabajo</a></li>
   </ul></li>
   </ul>
@@ -290,15 +337,18 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Realce de contraste y transformaciones de intensidad.</li>
 <li>Ruido, filtrado espacial y suavizado.</li>
-<li>Operaciones morfologicas y deteccion de bordes.</li>
+<li>Operaciones morfologicas.</li>
+<li>Metricas de calidad de imagen: MSE, PSNR y SSIM.</li>
 </ul>
 </section>
 <section id="unidad-3.-segmentacion" class="level3" data-number="1.4.3">
 <h3 data-number="1.4.3" class="anchored" data-anchor-id="unidad-3.-segmentacion"><span class="header-section-number">1.4.3</span> Unidad 3. Segmentacion</h3>
 <ul>
+<li>Deteccion de bordes como analisis de discontinuidades: Sobel y Canny.</li>
 <li>Umbralizacion global y adaptativa.</li>
 <li>Mascaras y operaciones logicas.</li>
 <li>Agrupamiento K-means para segmentacion.</li>
+<li>Evaluacion de segmentaciones mediante Jaccard (IoU).</li>
 </ul>
 </section>
 <section id="unidad-4.-descriptores" class="level3" data-number="1.4.4">
@@ -327,8 +377,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Retroalimentacion con reporte tecnico corto.</li>
 </ul>
 </section>
-<section id="evaluacion-sugerida" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="evaluacion-sugerida"><span class="header-section-number">1.6</span> Evaluacion sugerida</h2>
+<section id="evaluacion" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="evaluacion"><span class="header-section-number">1.6</span> Evaluacion</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -338,23 +388,59 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>Practicas de laboratorio (Unidad 1 a 4)</td>
-<td style="text-align: right;">40%</td>
+<td>Actividad 1A: Introduccion y manipulacion basica</td>
+<td style="text-align: right;">10%</td>
 </tr>
 <tr class="even">
-<td>Mini-proyecto por equipos</td>
-<td style="text-align: right;">20%</td>
+<td>Actividad 2A: Preprocesamiento de imagenes</td>
+<td style="text-align: right;">15%</td>
 </tr>
 <tr class="odd">
-<td>Examen practico individual</td>
+<td>Actividad 3A: Segmentacion de imagenes</td>
 <td style="text-align: right;">20%</td>
 </tr>
 <tr class="even">
-<td>Proyecto integrador final (Unidad 5)</td>
-<td style="text-align: right;">20%</td>
+<td>Actividad 4A: Descriptores y representacion</td>
+<td style="text-align: right;">25%</td>
+</tr>
+<tr class="odd">
+<td>Actividad 5A: Flujo completo y reconocimiento</td>
+<td style="text-align: right;">30%</td>
 </tr>
 </tbody>
 </table>
+<p>Las actividades se entregan en las siguientes fechas:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Actividad</th>
+<th>Fecha de entrega</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1A</td>
+<td>23 de agosto de 2026</td>
+</tr>
+<tr class="even">
+<td>2A</td>
+<td>6 de septiembre de 2026</td>
+</tr>
+<tr class="odd">
+<td>3A</td>
+<td>4 de octubre de 2026</td>
+</tr>
+<tr class="even">
+<td>4A</td>
+<td>1 de noviembre de 2026</td>
+</tr>
+<tr class="odd">
+<td>5A</td>
+<td>22 de noviembre de 2026</td>
+</tr>
+</tbody>
+</table>
+<p>Cada actividad incluye un notebook ejecutable y un reporte en PDF. La evaluacion considera la implementacion tecnica, la interpretacion de resultados, la reproducibilidad y la calidad de la presentacion, de acuerdo con la rubrica correspondiente.</p>
 </section>
 <section id="politicas-de-trabajo" class="level2" data-number="1.7">
 <h2 data-number="1.7" class="anchored" data-anchor-id="politicas-de-trabajo"><span class="header-section-number">1.7</span> Politicas de trabajo</h2>
