@@ -4518,7 +4518,7 @@ F1 = 2 * (0.875 * 0.824) / (0.875 + 0.824) ≈ 0.848</code></pre>
 </ul>
 <section id="implementación-en-scikit-learn" class="level3" data-number="4.4.1">
 <h3 data-number="4.4.1" class="anchored" data-anchor-id="implementación-en-scikit-learn"><span class="header-section-number">4.4.1</span> Implementación en scikit-learn</h3>
-<div id="af925182" class="cell">
+<div id="1f9976f2" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> (</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    confusion_matrix,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    accuracy_score,</span>
@@ -4583,7 +4583,7 @@ F1 = 2 * (0.875 * 0.824) / (0.875 + 0.824) ≈ 0.848</code></pre>
 </section>
 <section id="implementación" class="level3" data-number="5.2.3">
 <h3 data-number="5.2.3" class="anchored" data-anchor-id="implementación"><span class="header-section-number">5.2.3</span> Implementación</h3>
-<div id="475361f1" class="cell">
+<div id="01fc4ea5" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score, cross_validate</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LogisticRegression(max_iter<span class="op">=</span><span class="dv">1000</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
@@ -4606,7 +4606,7 @@ F1 = 2 * (0.875 * 0.824) / (0.875 + 0.824) ≈ 0.848</code></pre>
 <li><strong>Leave-One-Out (LOO)</strong>: cada muestra es un fold (costoso pero sin sesgo, para <span class="math inline">n</span> muy pequeño).</li>
 <li><strong>Time Series Split</strong>: para datos temporales.</li>
 </ul>
-<div id="de7b0e44" class="cell">
+<div id="1c9cf8ea" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> StratifiedKFold</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>skf <span class="op">=</span> StratifiedKFold(n_splits<span class="op">=</span><span class="dv">5</span>, shuffle<span class="op">=</span><span class="va">True</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
@@ -4643,7 +4643,7 @@ F1 = 2 * (0.875 * 0.824) / (0.875 + 0.824) ≈ 0.848</code></pre>
 <li>Debes elegir un umbral de decisión.</li>
 <li>Desbalance de clases moderado.</li>
 </ul>
-<div id="6163711e" class="cell">
+<div id="0eaab169" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> roc_curve, auc, RocCurveDisplay</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtener probabilidades predichas para clase positiva</span></span>
@@ -4687,7 +4687,7 @@ F1 = 2 * (0.875 * 0.824) / (0.875 + 0.824) ≈ 0.848</code></pre>
 <li>Desbalance severo.</li>
 <li>Cuando importan los costos de FP y FN.</li>
 </ul>
-<div id="daf13a6f" class="cell">
+<div id="613c24ad" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> precision_recall_curve, PrecisionRecallDisplay</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>precision, recall, _ <span class="op">=</span> precision_recall_curve(y_test, y_proba)</span>
@@ -4708,7 +4708,7 @@ F1 = 2 * (0.875 * 0.824) / (0.875 + 0.824) ≈ 0.848</code></pre>
 <section id="gridsearchcv" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="gridsearchcv"><span class="header-section-number">7.1</span> 5.1. GridSearchCV</h2>
 <p>Realiza búsqueda exhaustiva sobre una grilla de parámetros.</p>
-<div id="f5e7c28d" class="cell">
+<div id="b37f10a1" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>param_grid <span class="op">=</span> {</span>
@@ -4736,7 +4736,7 @@ F1 = 2 * (0.875 * 0.824) / (0.875 + 0.824) ≈ 0.848</code></pre>
 <section id="randomizedsearchcv" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="randomizedsearchcv"><span class="header-section-number">7.2</span> 5.2. RandomizedSearchCV</h2>
 <p>Para espacios grandes, búsqueda aleatoria es eficiente:</p>
-<div id="9438cd1a" class="cell">
+<div id="e2d3da95" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> RandomizedSearchCV</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> uniform, loguniform</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -4760,7 +4760,7 @@ F1 = 2 * (0.875 * 0.824) / (0.875 + 0.824) ≈ 0.848</code></pre>
 <section id="evitar-overfitting-durante-búsqueda" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="evitar-overfitting-durante-búsqueda"><span class="header-section-number">7.3</span> 5.3. Evitar overfitting durante búsqueda</h2>
 <p>⚠️ Importante: evaluar en test completamente separado:</p>
-<div id="236ea0e0" class="cell">
+<div id="2811cbef" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>, stratify<span class="op">=</span>y</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>)</span>
@@ -4775,7 +4775,7 @@ F1 = 2 * (0.875 * 0.824) / (0.875 + 0.824) ≈ 0.848</code></pre>
 </section>
 <section id="flujo-completo-de-evaluación" class="level1" data-number="8">
 <h1 data-number="8"><span class="header-section-number">8</span> 6. Flujo completo de evaluación</h1>
-<div id="9a309876" class="cell">
+<div id="1730d8be" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split, GridSearchCV</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>

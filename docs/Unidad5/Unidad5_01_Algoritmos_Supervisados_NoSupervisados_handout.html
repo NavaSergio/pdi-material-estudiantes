@@ -4475,7 +4475,7 @@ P(y=1 | x) = \frac{1}{1 + e^{-(\beta_0 + \beta^T x)}}
 </section>
 <section id="implementación-en-scikit-learn" class="level3" data-number="4.2.4">
 <h3 data-number="4.2.4" class="anchored" data-anchor-id="implementación-en-scikit-learn"><span class="header-section-number">4.2.4</span> Implementación en scikit-learn</h3>
-<div id="056797a3" class="cell">
+<div id="e6fb6a14" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LogisticRegression(</span>
@@ -4517,7 +4517,7 @@ P(y=1 | x) = \frac{1}{1 + e^{-(\beta_0 + \beta^T x)}}
 </section>
 <section id="implementación-en-scikit-learn-1" class="level3" data-number="4.3.4">
 <h3 data-number="4.3.4" class="anchored" data-anchor-id="implementación-en-scikit-learn-1"><span class="header-section-number">4.3.4</span> Implementación en scikit-learn</h3>
-<div id="2116f05b" class="cell">
+<div id="ef83b67f" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.svm <span class="im">import</span> SVC</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> SVC(kernel<span class="op">=</span><span class="st">&#39;rbf&#39;</span>, C<span class="op">=</span><span class="fl">1.0</span>, gamma<span class="op">=</span><span class="st">&#39;scale&#39;</span>, random_state<span class="op">=</span><span class="dv">42</span>, probability<span class="op">=</span><span class="va">True</span>)</span>
@@ -4558,7 +4558,7 @@ P(y=1 | x) = \frac{1}{1 + e^{-(\beta_0 + \beta^T x)}}
 </section>
 <section id="implementación-en-scikit-learn-2" class="level3" data-number="4.4.4">
 <h3 data-number="4.4.4" class="anchored" data-anchor-id="implementación-en-scikit-learn-2"><span class="header-section-number">4.4.4</span> Implementación en scikit-learn</h3>
-<div id="3b7543eb" class="cell">
+<div id="97c6525e" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> DecisionTreeClassifier(</span>
@@ -4599,7 +4599,7 @@ P(y=1 | x) = \frac{1}{1 + e^{-(\beta_0 + \beta^T x)}}
 </section>
 <section id="implementación-en-scikit-learn-3" class="level3" data-number="4.5.4">
 <h3 data-number="4.5.4" class="anchored" data-anchor-id="implementación-en-scikit-learn-3"><span class="header-section-number">4.5.4</span> Implementación en scikit-learn</h3>
-<div id="3c032f76" class="cell">
+<div id="cce6b5cc" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> RandomForestClassifier(</span>
@@ -4636,7 +4636,7 @@ P(y=1 | x) = \frac{1}{1 + e^{-(\beta_0 + \beta^T x)}}
 <p>Donde <span class="math inline">\mu_k</span> es el centroide del cluster <span class="math inline">k</span>.</p>
 <section id="implementación-en-scikit-learn-4" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="implementación-en-scikit-learn-4"><span class="header-section-number">5.2.1</span> Implementación en scikit-learn</h3>
-<div id="fa18de86" class="cell">
+<div id="a40f7f82" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">3</span>, random_state<span class="op">=</span><span class="dv">42</span>, n_init<span class="op">=</span><span class="dv">10</span>)</span>
@@ -4688,7 +4688,7 @@ P(y=1 | x) = \frac{1}{1 + e^{-(\beta_0 + \beta^T x)}}
 </section>
 <section id="implementación-en-scikit-learn-5" class="level3" data-number="5.3.4">
 <h3 data-number="5.3.4" class="anchored" data-anchor-id="implementación-en-scikit-learn-5"><span class="header-section-number">5.3.4</span> Implementación en scikit-learn</h3>
-<div id="ee44f6d9" class="cell">
+<div id="d21f675d" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> AgglomerativeClustering</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> AgglomerativeClustering(</span>
@@ -4698,7 +4698,7 @@ P(y=1 | x) = \frac{1}{1 + e^{-(\beta_0 + \beta^T x)}}
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> model.fit_predict(X)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Para visualizar el dendrograma:</p>
-<div id="a4162c87" class="cell">
+<div id="2dad8127" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.cluster.hierarchy <span class="im">import</span> dendrogram, linkage</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> linkage(X, method<span class="op">=</span><span class="st">&#39;ward&#39;</span>)</span>
@@ -4738,7 +4738,7 @@ P(y=1 | x) = \frac{1}{1 + e^{-(\beta_0 + \beta^T x)}}
 </section>
 <section id="implementación" class="level3" data-number="6.1.2">
 <h3 data-number="6.1.2" class="anchored" data-anchor-id="implementación"><span class="header-section-number">6.1.2</span> Implementación</h3>
-<div id="d053c685" class="cell">
+<div id="d7fd4385" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">2</span>)  <span class="co"># o n_components=0.95 para mantener 95% varianza</span></span>
@@ -4768,7 +4768,7 @@ P(y=1 | x) = \frac{1}{1 + e^{-(\beta_0 + \beta^T x)}}
 </section>
 <section id="implementación-1" class="level3" data-number="6.2.2">
 <h3 data-number="6.2.2" class="anchored" data-anchor-id="implementación-1"><span class="header-section-number">6.2.2</span> Implementación</h3>
-<div id="66c2f022" class="cell">
+<div id="3f5edad5" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.manifold <span class="im">import</span> TSNE</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>tsne <span class="op">=</span> TSNE(n_components<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">42</span>, perplexity<span class="op">=</span><span class="dv">30</span>, n_iter<span class="op">=</span><span class="dv">1000</span>)</span>
@@ -4779,7 +4779,7 @@ P(y=1 | x) = \frac{1}{1 + e^{-(\beta_0 + \beta^T x)}}
 </section>
 <section id="pipeline-típico-de-características-a-predicción" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> 4. Pipeline típico: de características a predicción</h1>
-<div id="b9e7afa0" class="cell">
+<div id="7dabc6ea" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -4896,7 +4896,7 @@ P(y=1 | x) = \frac{1}{1 + e^{-(\beta_0 + \beta^T x)}}
 <section id="escalamiento" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="escalamiento"><span class="header-section-number">9.1</span> Escalamiento</h2>
 <p>Siempre escalar antes de entrenar la mayoría de algoritmos (excepto árboles):</p>
-<div id="aa863f82" class="cell">
+<div id="6ff5690b" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
@@ -4907,7 +4907,7 @@ P(y=1 | x) = \frac{1}{1 + e^{-(\beta_0 + \beta^T x)}}
 <section id="selección-de-hiperparámetros" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="selección-de-hiperparámetros"><span class="header-section-number">9.2</span> Selección de hiperparámetros</h2>
 <p>Usar <strong>validación cruzada</strong> + <strong>búsqueda en grilla</strong> (en próxima clase):</p>
-<div id="486b5166" class="cell">
+<div id="4e18b963" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>param_grid <span class="op">=</span> {<span class="st">&#39;C&#39;</span>: [<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">10</span>], <span class="st">&#39;max_iter&#39;</span>: [<span class="dv">500</span>, <span class="dv">1000</span>]}</span>
@@ -4919,7 +4919,7 @@ P(y=1 | x) = \frac{1}{1 + e^{-(\beta_0 + \beta^T x)}}
 <section id="evitar-data-leakage" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="evitar-data-leakage"><span class="header-section-number">9.3</span> Evitar data leakage</h2>
 <p>📌 <strong>Importante</strong>: ajustar <code>StandardScaler</code> y otros transformadores <strong>solo en datos de entrenamiento</strong>, luego aplicar a prueba:</p>
-<div id="c2e234cf" class="cell">
+<div id="b0c5b91a" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✗ INCORRECTO:</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>X_scaled <span class="op">=</span> scaler.fit_transform(X)  <span class="co"># en </span><span class="al">TODO</span><span class="co">, incluyendo test</span></span>

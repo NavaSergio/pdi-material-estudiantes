@@ -441,7 +441,15 @@ window.Quarto = {
 </ul>
 </section>
 </div><div class="column" style="width:40%;">
-
+<div id="70d947e4" class="cell" data-fig-height="3" data-fig-width="4" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="metricas_procesamiento_imagenes_files/figure-html/cell-3-output-1.png" width="838" height="290" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 <ul>
@@ -460,7 +468,7 @@ window.Quarto = {
 </section>
 <section id="ejemplo-base-en-python" class="level2" data-number="0.3">
 <h2 data-number="0.3" class="anchored" data-anchor-id="ejemplo-base-en-python"><span class="header-section-number">0.3</span> Ejemplo base en Python</h2>
-<div id="28a53002" class="cell">
+<div id="0fc0b1b2" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
@@ -482,8 +490,15 @@ window.Quarto = {
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].imshow(ruido, cmap<span class="op">=</span><span class="st">"gray"</span>)<span class="op">;</span> axes[<span class="dv">1</span>].set_title(<span class="st">"Con ruido"</span>)</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="metricas_procesamiento_imagenes_files/figure-html/cell-4-output-1.png" width="803" height="400" class="figure-img"></p>
+</figure>
 </div>
-<div id="e35aac80" class="cell">
+</div>
+</div>
+<div id="cb118bc2" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mse <span class="op">=</span> mean_squared_error(original, ruido)</span>
@@ -491,6 +506,10 @@ window.Quarto = {
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"MSE: </span><span class="sc">{</span>mse<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"PSNR: </span><span class="sc">{</span>psnr<span class="sc">:.2f}</span><span class="ss"> dB"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>MSE: 0.002413
+PSNR: 26.17 dB</code></pre>
+</div>
 </div>
 <hr>
 </section>
@@ -566,27 +585,40 @@ PSNR = 10 \cdot \log_{10}\left(\frac{(maxI)^2}{MSE}\right)
 </section>
 <section id="ejemplo-compresión-jpeg" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="ejemplo-compresión-jpeg"><span class="header-section-number">1.3</span> Ejemplo: Compresión JPEG</h2>
-<div id="4f00f1b7" class="cell">
+<div id="3d62138d" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardamos y leemos con compresión JPEG</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>cv2.imwrite(<span class="st">"temp.jpg"</span>, (original<span class="op">*</span><span class="dv">255</span>).astype(np.uint8), [<span class="bu">int</span>(cv2.IMWRITE_JPEG_QUALITY), <span class="dv">20</span>])</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>jpeg <span class="op">=</span> cv2.imread(<span class="st">"temp.jpg"</span>, cv2.IMREAD_GRAYSCALE)<span class="op">/</span><span class="fl">255.0</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].imshow(original, cmap<span class="op">=</span><span class="st">"gray"</span>)<span class="op">;</span> axes[<span class="dv">0</span>].set_title(<span class="st">"Original"</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].imshow(jpeg, cmap<span class="op">=</span><span class="st">"gray"</span>)<span class="op">;</span> axes[<span class="dv">1</span>].set_title(<span class="st">"JPEG Q=20"</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>mse_jpeg <span class="op">=</span> mean_squared_error(original, jpeg)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>psnr_jpeg <span class="op">=</span> peak_signal_noise_ratio(original, jpeg, data_range<span class="op">=</span><span class="fl">1.0</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Métricas para compresión JPEG:"</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"MSE: </span><span class="sc">{</span>mse_jpeg<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"PSNR: </span><span class="sc">{</span>psnr_jpeg<span class="sc">:.2f}</span><span class="ss"> dB"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardamos y leemos con compresión JPEG</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>cv2.imwrite(<span class="st">"temp.jpg"</span>, (original<span class="op">*</span><span class="dv">255</span>).astype(np.uint8), [<span class="bu">int</span>(cv2.IMWRITE_JPEG_QUALITY), <span class="dv">20</span>])</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>jpeg <span class="op">=</span> cv2.imread(<span class="st">"temp.jpg"</span>, cv2.IMREAD_GRAYSCALE)<span class="op">/</span><span class="fl">255.0</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].imshow(original, cmap<span class="op">=</span><span class="st">"gray"</span>)<span class="op">;</span> axes[<span class="dv">0</span>].set_title(<span class="st">"Original"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].imshow(jpeg, cmap<span class="op">=</span><span class="st">"gray"</span>)<span class="op">;</span> axes[<span class="dv">1</span>].set_title(<span class="st">"JPEG Q=20"</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>mse_jpeg <span class="op">=</span> mean_squared_error(original, jpeg)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>psnr_jpeg <span class="op">=</span> peak_signal_noise_ratio(original, jpeg, data_range<span class="op">=</span><span class="fl">1.0</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Métricas para compresión JPEG:"</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"MSE: </span><span class="sc">{</span>mse_jpeg<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"PSNR: </span><span class="sc">{</span>psnr_jpeg<span class="sc">:.2f}</span><span class="ss"> dB"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="metricas_procesamiento_imagenes_files/figure-html/cell-6-output-1.png" width="803" height="400" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Métricas para compresión JPEG:
+MSE: 0.000947
+PSNR: 30.24 dB</code></pre>
+</div>
 </div>
 <hr>
 </section>
@@ -632,57 +664,77 @@ J(A,B) = \frac{|A \cap B|}{|A \cup B|}
 </section>
 <section id="ejemplo-práctico-coeficiente-de-jaccard" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="ejemplo-práctico-coeficiente-de-jaccard"><span class="header-section-number">1.5</span> Ejemplo práctico: Coeficiente de Jaccard</h2>
-<div id="580a3c53" class="cell">
+<div id="b85dad40" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> jaccard_score</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Máscara de referencia (círculo)</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> np.ogrid[:<span class="dv">100</span>, :<span class="dv">100</span>]</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>mask_ref <span class="op">=</span> (x<span class="op">-</span><span class="dv">50</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y<span class="op">-</span><span class="dv">50</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">&lt;=</span> <span class="dv">30</span><span class="op">**</span><span class="dv">2</span>   <span class="co"># círculo en el centro</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Máscara predicha (círculo desplazado)</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>mask_pred <span class="op">=</span> (x<span class="op">-</span><span class="dv">55</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y<span class="op">-</span><span class="dv">50</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">&lt;=</span> <span class="dv">30</span><span class="op">**</span><span class="dv">2</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo del coeficiente de Jaccard</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>jaccard <span class="op">=</span> jaccard_score(mask_ref.ravel(), mask_pred.ravel())</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Coeficiente de Jaccard:"</span>, jaccard)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">3</span>))</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].imshow(mask_ref, cmap<span class="op">=</span><span class="st">"gray"</span>)<span class="op">;</span> axes[<span class="dv">0</span>].set_title(<span class="st">"Máscara real (A)"</span>)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].imshow(mask_pred, cmap<span class="op">=</span><span class="st">"gray"</span>)<span class="op">;</span> axes[<span class="dv">1</span>].set_title(<span class="st">"Máscara predicha (B)"</span>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].imshow(mask_ref <span class="op">&amp;</span> mask_pred, cmap<span class="op">=</span><span class="st">"gray"</span>)<span class="op">;</span> axes[<span class="dv">2</span>].set_title(<span class="st">"Intersección A∩B"</span>)</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> jaccard_score</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Máscara de referencia (círculo)</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> np.ogrid[:<span class="dv">100</span>, :<span class="dv">100</span>]</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>mask_ref <span class="op">=</span> (x<span class="op">-</span><span class="dv">50</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y<span class="op">-</span><span class="dv">50</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">&lt;=</span> <span class="dv">30</span><span class="op">**</span><span class="dv">2</span>   <span class="co"># círculo en el centro</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Máscara predicha (círculo desplazado)</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>mask_pred <span class="op">=</span> (x<span class="op">-</span><span class="dv">55</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y<span class="op">-</span><span class="dv">50</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">&lt;=</span> <span class="dv">30</span><span class="op">**</span><span class="dv">2</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo del coeficiente de Jaccard</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>jaccard <span class="op">=</span> jaccard_score(mask_ref.ravel(), mask_pred.ravel())</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Coeficiente de Jaccard:"</span>, jaccard)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">3</span>))</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].imshow(mask_ref, cmap<span class="op">=</span><span class="st">"gray"</span>)<span class="op">;</span> axes[<span class="dv">0</span>].set_title(<span class="st">"Máscara real (A)"</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].imshow(mask_pred, cmap<span class="op">=</span><span class="st">"gray"</span>)<span class="op">;</span> axes[<span class="dv">1</span>].set_title(<span class="st">"Máscara predicha (B)"</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].imshow(mask_ref <span class="op">&amp;</span> mask_pred, cmap<span class="op">=</span><span class="st">"gray"</span>)<span class="op">;</span> axes[<span class="dv">2</span>].set_title(<span class="st">"Intersección A∩B"</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Coeficiente de Jaccard: 0.809493264913406</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="metricas_procesamiento_imagenes_files/figure-html/cell-7-output-2.png" width="790" height="282" class="figure-img"></p>
+</figure>
+</div>
+</div>
 </div>
 <hr>
-<div id="73d09922" class="cell">
+<div id="455cade6" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage.filters <span class="im">import</span> threshold_otsu</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Umbralado Otsu</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>thresh <span class="op">=</span> threshold_otsu(original)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>mask_ref <span class="op">=</span> original <span class="op">&gt;</span> thresh  <span class="co"># máscara de referencia</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>mask_pred <span class="op">=</span> ruido <span class="op">&gt;</span> thresh    <span class="co"># máscara sobre imagen ruidosa</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">3</span>))</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].imshow(mask_ref, cmap<span class="op">=</span><span class="st">"gray"</span>)<span class="op">;</span> axes[<span class="dv">0</span>].set_title(<span class="st">"Máscara real (A)"</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].imshow(mask_pred, cmap<span class="op">=</span><span class="st">"gray"</span>)<span class="op">;</span> axes[<span class="dv">1</span>].set_title(<span class="st">"Máscara predicha (B)"</span>)</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].imshow(mask_ref <span class="op">&amp;</span> mask_pred, cmap<span class="op">=</span><span class="st">"gray"</span>)<span class="op">;</span> axes[<span class="dv">2</span>].set_title(<span class="st">"Intersección A∩B"</span>)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Jaccard</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> jaccard_score</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>jaccard <span class="op">=</span> jaccard_score(mask_ref.ravel(), mask_pred.ravel())</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Coeficiente de Jaccard: </span><span class="sc">{</span>jaccard<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage.filters <span class="im">import</span> threshold_otsu</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Umbralado Otsu</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>thresh <span class="op">=</span> threshold_otsu(original)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>mask_ref <span class="op">=</span> original <span class="op">&gt;</span> thresh  <span class="co"># máscara de referencia</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>mask_pred <span class="op">=</span> ruido <span class="op">&gt;</span> thresh    <span class="co"># máscara sobre imagen ruidosa</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">3</span>))</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].imshow(mask_ref, cmap<span class="op">=</span><span class="st">"gray"</span>)<span class="op">;</span> axes[<span class="dv">0</span>].set_title(<span class="st">"Máscara real (A)"</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].imshow(mask_pred, cmap<span class="op">=</span><span class="st">"gray"</span>)<span class="op">;</span> axes[<span class="dv">1</span>].set_title(<span class="st">"Máscara predicha (B)"</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].imshow(mask_ref <span class="op">&amp;</span> mask_pred, cmap<span class="op">=</span><span class="st">"gray"</span>)<span class="op">;</span> axes[<span class="dv">2</span>].set_title(<span class="st">"Intersección A∩B"</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Jaccard</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> jaccard_score</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>jaccard <span class="op">=</span> jaccard_score(mask_ref.ravel(), mask_pred.ravel())</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Coeficiente de Jaccard: </span><span class="sc">{</span>jaccard<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="metricas_procesamiento_imagenes_files/figure-html/cell-8-output-1.png" width="798" height="282" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Coeficiente de Jaccard: 0.9866</code></pre>
+</div>
 </div>
 <hr>
 </section>
@@ -721,22 +773,32 @@ SSIM(x,y) = \frac{(2\mu_x\mu_y + c_1)(2\sigma_{xy} + c_2)}{(\mu_x^2 + \mu_y^2 + 
 <section id="ejmplo-práctico-calidad-perceptual-ssim" class="level2 smaller scrollable" data-number="1.7">
 <h2 class="smaller scrollable anchored" data-number="1.7" data-anchor-id="ejmplo-práctico-calidad-perceptual-ssim"><span class="header-section-number">1.7</span> Ejmplo práctico calidad perceptual: SSIM</h2>
 <p>Calidad perceptual entre original y jpeg</p>
-<div id="4368dc92" class="cell">
+<div id="73a20e47" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ssim, diff <span class="op">=</span> structural_similarity(original, jpeg, full<span class="op">=</span><span class="va">True</span>, data_range<span class="op">=</span><span class="fl">1.0</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ssim</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ssim, diff <span class="op">=</span> structural_similarity(original, jpeg, full<span class="op">=</span><span class="va">True</span>, data_range<span class="op">=</span><span class="fl">1.0</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ssim</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>np.float64(0.8545161159906697)</code></pre>
 </div>
-<div id="5496f385" class="cell">
+</div>
+<div id="7d38b639" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar mapa de diferencias SSIM</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(diff, cmap<span class="op">=</span><span class="st">"hot"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Mapa de similitud estructural"</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar mapa de diferencias SSIM</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(diff, cmap<span class="op">=</span><span class="st">"hot"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Mapa de similitud estructural"</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="metricas_procesamiento_imagenes_files/figure-html/cell-10-output-1.png" width="499" height="432" class="figure-img"></p>
+</figure>
+</div>
+</div>
 </div>
 <hr>
 </section>
@@ -744,41 +806,52 @@ SSIM(x,y) = \frac{(2\mu_x\mu_y + c_1)(2\sigma_{xy} + c_2)}{(\mu_x^2 + \mu_y^2 + 
 <h2 class="smaller scrollable anchored" data-number="1.8" data-anchor-id="limitaciones-del-mse-y-psnr"><span class="header-section-number">1.8</span> Limitaciones del MSE y PSNR</h2>
 <div class="columns">
 <div class="column" style="width:25%;">
-<div id="bcf4b76a" class="cell">
+<div id="7fad2ff0" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear dos imágenes con mismo MSE pero distinta percepción</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage.metrics <span class="im">import</span> mean_squared_error</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>img1 <span class="op">=</span> np.zeros((<span class="dv">100</span>, <span class="dv">100</span>))</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>img1[<span class="dv">45</span>:<span class="dv">55</span>, <span class="dv">45</span>:<span class="dv">55</span>] <span class="op">=</span> <span class="dv">1</span>  <span class="co"># cuadrado blanco</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>img2 <span class="op">=</span> img1.copy()</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>img2 <span class="op">+=</span> <span class="fl">0.1</span> <span class="op">*</span> np.random.randn(<span class="dv">100</span>, <span class="dv">100</span>)  <span class="co"># ruido gaussiano</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>img2 <span class="op">=</span> np.clip(img2, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>img3 <span class="op">=</span> np.roll(img1, <span class="dv">5</span>, axis<span class="op">=</span><span class="dv">1</span>)  <span class="co"># desplazamiento horizontal</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>mse1 <span class="op">=</span> mean_squared_error(img1, img2)</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>mse2 <span class="op">=</span> mean_squared_error(img1, img3)</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"MSE ruido: </span><span class="sc">{</span>mse1<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"MSE desplazamiento: </span><span class="sc">{</span>mse2<span class="sc">:.6f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear dos imágenes con mismo MSE pero distinta percepción</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage.metrics <span class="im">import</span> mean_squared_error</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>img1 <span class="op">=</span> np.zeros((<span class="dv">100</span>, <span class="dv">100</span>))</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>img1[<span class="dv">45</span>:<span class="dv">55</span>, <span class="dv">45</span>:<span class="dv">55</span>] <span class="op">=</span> <span class="dv">1</span>  <span class="co"># cuadrado blanco</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>img2 <span class="op">=</span> img1.copy()</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>img2 <span class="op">+=</span> <span class="fl">0.1</span> <span class="op">*</span> np.random.randn(<span class="dv">100</span>, <span class="dv">100</span>)  <span class="co"># ruido gaussiano</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>img2 <span class="op">=</span> np.clip(img2, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>img3 <span class="op">=</span> np.roll(img1, <span class="dv">5</span>, axis<span class="op">=</span><span class="dv">1</span>)  <span class="co"># desplazamiento horizontal</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>mse1 <span class="op">=</span> mean_squared_error(img1, img2)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>mse2 <span class="op">=</span> mean_squared_error(img1, img3)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"MSE ruido: </span><span class="sc">{</span>mse1<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"MSE desplazamiento: </span><span class="sc">{</span>mse2<span class="sc">:.6f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>MSE ruido: 0.004934
+MSE desplazamiento: 0.010000</code></pre>
+</div>
 </div>
 </div><div class="column" style="width:75%;">
-<div id="24f95135" class="cell">
+<div id="7d670a1a" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>))</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].imshow(img1, cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> axes[<span class="dv">0</span>].set_title(<span class="st">"Original"</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].imshow(img2, cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> axes[<span class="dv">1</span>].set_title(<span class="st">"Con ruido"</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].imshow(img3, cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> axes[<span class="dv">2</span>].set_title(<span class="st">"Desplazado"</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].imshow(img1, cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> axes[<span class="dv">0</span>].set_title(<span class="st">"Original"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].imshow(img2, cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> axes[<span class="dv">1</span>].set_title(<span class="st">"Con ruido"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].imshow(img3, cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span> axes[<span class="dv">2</span>].set_title(<span class="st">"Desplazado"</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="metricas_procesamiento_imagenes_files/figure-html/cell-12-output-1.png" width="1143" height="401" class="figure-img"></p>
+</figure>
+</div>
+</div>
 </div>
 <p><strong>Observación</strong>:<br>
 - <span class="math inline">\(MSE\)</span> valores similares en ambas imágenes.<br>
@@ -853,66 +926,84 @@ Recall = \frac{TP}{TP+FN}
 </section>
 <section id="matriz-de-confusión" class="level3" data-number="2.1.3">
 <h3 data-number="2.1.3" class="anchored" data-anchor-id="matriz-de-confusión"><span class="header-section-number">2.1.3</span> Matriz de confusión</h3>
-<div id="627c9e9e" class="cell">
+<div id="08f0dcc0" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix, classification_report</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear ejemplo de segmentación</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>y_true <span class="op">=</span> mask_ref.ravel()</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> mask_pred.ravel()</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> confusion_matrix(y_true, y_pred)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar matriz de confusión</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>sns.heatmap(cm, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">'d'</span>, cmap<span class="op">=</span><span class="st">'Blues'</span>)</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Matriz de Confusión'</span>)</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Verdadero'</span>)</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Predicho'</span>)</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Métricas derivadas</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> precision_score, recall_score, f1_score</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>precision <span class="op">=</span> precision_score(y_true, y_pred)</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>recall <span class="op">=</span> recall_score(y_true, y_pred)</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>f1 <span class="op">=</span> f1_score(y_true, y_pred)</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Precisión: </span><span class="sc">{</span>precision<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sensibilidad (Recall): </span><span class="sc">{</span>recall<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F1-Score: </span><span class="sc">{</span>f1<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix, classification_report</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear ejemplo de segmentación</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>y_true <span class="op">=</span> mask_ref.ravel()</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> mask_pred.ravel()</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> confusion_matrix(y_true, y_pred)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar matriz de confusión</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>sns.heatmap(cm, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">'d'</span>, cmap<span class="op">=</span><span class="st">'Blues'</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Matriz de Confusión'</span>)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Verdadero'</span>)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Predicho'</span>)</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Métricas derivadas</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> precision_score, recall_score, f1_score</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>precision <span class="op">=</span> precision_score(y_true, y_pred)</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>recall <span class="op">=</span> recall_score(y_true, y_pred)</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>f1 <span class="op">=</span> f1_score(y_true, y_pred)</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Precisión: </span><span class="sc">{</span>precision<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sensibilidad (Recall): </span><span class="sc">{</span>recall<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F1-Score: </span><span class="sc">{</span>f1<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="metricas_procesamiento_imagenes_files/figure-html/cell-13-output-1.png" width="515" height="378" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Precisión: 0.9947
+Sensibilidad (Recall): 0.9919
+F1-Score: 0.9933</code></pre>
+</div>
 </div>
 <hr>
 </section>
 </section>
 <section id="comparación-de-métricas" class="level2 smaller" data-number="2.2">
 <h2 class="smaller anchored" data-number="2.2" data-anchor-id="comparación-de-métricas"><span class="header-section-number">2.2</span> Comparación de Métricas</h2>
-<div id="ab1aea82" class="cell">
+<div id="12323d60" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla comparativa de diferentes degradaciones</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>degradaciones <span class="op">=</span> {</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Original'</span>: original,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Ruido Gaussiano'</span>: ruido,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'JPEG Q=20'</span>: jpeg,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Blur'</span>: cv2.GaussianBlur(original, (<span class="dv">15</span>,<span class="dv">15</span>), <span class="dv">5</span>)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>resultados <span class="op">=</span> []</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nombre, img <span class="kw">in</span> degradaciones.items():</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> nombre <span class="op">!=</span> <span class="st">'Original'</span>:</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        mse_val <span class="op">=</span> mean_squared_error(original, img)</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        psnr_val <span class="op">=</span> peak_signal_noise_ratio(original, img, data_range<span class="op">=</span><span class="fl">1.0</span>)</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        ssim_val, _ <span class="op">=</span> structural_similarity(original, img, full<span class="op">=</span><span class="va">True</span>, data_range<span class="op">=</span><span class="fl">1.0</span>)</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        resultados.append([nombre, mse_val, psnr_val, ssim_val])</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(resultados, columns<span class="op">=</span>[<span class="st">'Degradación'</span>, <span class="st">'MSE'</span>, <span class="st">'PSNR (dB)'</span>, <span class="st">'SSIM'</span>])</span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.to_string(index<span class="op">=</span><span class="va">False</span>, float_format<span class="op">=</span><span class="st">'</span><span class="sc">%.4f</span><span class="st">'</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla comparativa de diferentes degradaciones</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>degradaciones <span class="op">=</span> {</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Original'</span>: original,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Ruido Gaussiano'</span>: ruido,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'JPEG Q=20'</span>: jpeg,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Blur'</span>: cv2.GaussianBlur(original, (<span class="dv">15</span>,<span class="dv">15</span>), <span class="dv">5</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>resultados <span class="op">=</span> []</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nombre, img <span class="kw">in</span> degradaciones.items():</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> nombre <span class="op">!=</span> <span class="st">'Original'</span>:</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>        mse_val <span class="op">=</span> mean_squared_error(original, img)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>        psnr_val <span class="op">=</span> peak_signal_noise_ratio(original, img, data_range<span class="op">=</span><span class="fl">1.0</span>)</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>        ssim_val, _ <span class="op">=</span> structural_similarity(original, img, full<span class="op">=</span><span class="va">True</span>, data_range<span class="op">=</span><span class="fl">1.0</span>)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>        resultados.append([nombre, mse_val, psnr_val, ssim_val])</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(resultados, columns<span class="op">=</span>[<span class="st">'Degradación'</span>, <span class="st">'MSE'</span>, <span class="st">'PSNR (dB)'</span>, <span class="st">'SSIM'</span>])</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.to_string(index<span class="op">=</span><span class="va">False</span>, float_format<span class="op">=</span><span class="st">'</span><span class="sc">%.4f</span><span class="st">'</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Degradación    MSE  PSNR (dB)   SSIM
+Ruido Gaussiano 0.0024    26.1737 0.5218
+      JPEG Q=20 0.0009    30.2380 0.8545
+           Blur 0.0050    22.9801 0.6454</code></pre>
+</div>
 </div>
 <section id="interpretación-4" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="interpretación-4"><span class="header-section-number">2.2.1</span> Interpretación:</h3>
