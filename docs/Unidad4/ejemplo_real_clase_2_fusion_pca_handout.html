@@ -4221,6 +4221,12 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
  <span class="menu-text">Segmentación por K-means</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad3/Unidad3_Practica_Integradora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Práctica integradora</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -4306,7 +4312,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 </section>
 <section id="librerias" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> 0. Librerias</h1>
-<div id="0c0ec13d" class="cell" data-execution_count="1">
+<div id="7d5fe2ca" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tarfile</span>
@@ -4329,7 +4335,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 </section>
 <section id="descargar-dataset-real-flowers" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> 1. Descargar dataset real (Flowers)</h1>
-<div id="9ce239e0" class="cell" data-execution_count="2">
+<div id="596b61ce" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>DATA_DIR <span class="op">=</span> Path(<span class="st">&quot;datos_ejemplo&quot;</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>FLOWERS_DIR <span class="op">=</span> DATA_DIR <span class="op">/</span> <span class="st">&quot;flower_photos&quot;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FLOWERS_URL <span class="op">=</span> <span class="st">&quot;https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz&quot;</span></span>
@@ -4348,7 +4354,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>ensure_flowers_dataset()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="d0bbeb7a" class="cell" data-execution_count="3">
+<div id="ea456b9d" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_flower_paths(classes<span class="op">=</span>(<span class="st">&quot;daisy&quot;</span>, <span class="st">&quot;sunflowers&quot;</span>, <span class="st">&quot;roses&quot;</span>), max_per_class<span class="op">=</span><span class="dv">160</span>, seed<span class="op">=</span><span class="dv">7</span>):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> random.Random(seed)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    paths <span class="op">=</span> []</span>
@@ -4377,7 +4383,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 <section id="vista-rapida-de-imagenes-por-clase" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="vista-rapida-de-imagenes-por-clase"><span class="header-section-number">3.1</span> Vista rapida de imagenes por clase</h2>
-<div id="1632bcc8" class="cell" data-execution_count="4">
+<div id="f102162f" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># IDs fijos por clase (posiciones dentro de la lista ordenada de archivos)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>FLOWER_SAMPLE_POS <span class="op">=</span> {</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;daisy&quot;</span>: [<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">40</span>],</span>
@@ -4428,7 +4434,7 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="extractores" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> 2. Extractores</h1>
-<div id="40d606b1" class="cell" data-execution_count="5">
+<div id="71afb8fd" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_rgb(path, size<span class="op">=</span>(<span class="dv">160</span>, <span class="dv">160</span>)):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    img_bgr <span class="op">=</span> cv2.imread(<span class="bu">str</span>(path))</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> img_bgr <span class="kw">is</span> <span class="va">None</span>:</span>
@@ -4508,7 +4514,7 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="matrices-de-caracteristicas" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> 3. Matrices de caracteristicas</h1>
-<div id="73dc71a2" class="cell" data-execution_count="6">
+<div id="21ed7cc7" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_matrix(paths, extractor, input_type<span class="op">=</span><span class="st">&quot;rgb&quot;</span>):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    rows <span class="op">=</span> []</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> p <span class="kw">in</span> paths:</span>
@@ -4532,7 +4538,7 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="comparacion-de-rendimiento-base" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> 4. Comparacion de rendimiento base</h1>
-<div id="c05c8ada" class="cell" data-execution_count="7">
+<div id="5682a87c" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate_accuracy(X, y, test_size<span class="op">=</span><span class="fl">0.25</span>, random_state<span class="op">=</span><span class="dv">42</span>):</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        X, y, test_size<span class="op">=</span>test_size, stratify<span class="op">=</span>y, random_state<span class="op">=</span>random_state</span>
@@ -4600,7 +4606,7 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="pca-sobre-espacio-fusionado" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> 5. PCA sobre espacio fusionado</h1>
-<div id="c0ca81a8" class="cell" data-execution_count="8">
+<div id="f06b6913" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>X_fused_scaled <span class="op">=</span> scaler.fit_transform(X_fused)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -4617,7 +4623,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 <section id="visualizacion-2d" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="visualizacion-2d"><span class="header-section-number">7.1</span> Visualizacion 2D</h2>
-<div id="8301ee3e" class="cell" data-execution_count="9">
+<div id="77cea119" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cls <span class="kw">in</span> np.unique(y):</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    idx <span class="op">=</span> y <span class="op">==</span> cls</span>
@@ -4640,7 +4646,7 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="visualizacion-3d" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="visualizacion-3d"><span class="header-section-number">7.2</span> Visualizacion 3D</h2>
-<div id="fe855627" class="cell" data-execution_count="10">
+<div id="a1147b10" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">7</span>))</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>, projection<span class="op">=</span><span class="st">&quot;3d&quot;</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>

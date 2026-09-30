@@ -4285,6 +4285,12 @@ window.Quarto = {
  <span class="menu-text">Segmentación por K-means</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad3/Unidad3_Practica_Integradora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Práctica integradora</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -4424,7 +4430,7 @@ window.Quarto = {
 </section>
 <section id="librerías" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Librerías</h1>
-<div id="9be42993" class="cell" data-execution_count="1">
+<div id="65b671e7" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -4445,7 +4451,7 @@ window.Quarto = {
 <section id="funciones-de-extracción" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> 1. Funciones de extracción</h1>
 <p>En esta clase reutilizamos la idea de la clase anterior, pero dejaremos las funciones listas para un flujo más completo.</p>
-<div id="e882c893" class="cell" data-execution_count="2">
+<div id="849b4ec7" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_glcm_features(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    image_gray,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    levels<span class="op">=</span><span class="dv">32</span>,</span>
@@ -4515,7 +4521,7 @@ window.Quarto = {
 </section>
 <section id="carga-del-conjunto-de-imágenes" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> 2. Carga del conjunto de imágenes</h1>
-<div id="849817f0" class="cell" data-execution_count="3">
+<div id="3d8635b2" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_image(path):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    img_bgr <span class="op">=</span> cv2.imread(<span class="bu">str</span>(path))</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> img_bgr <span class="kw">is</span> <span class="va">None</span>:</span>
@@ -4556,12 +4562,12 @@ window.Quarto = {
 </section>
 <section id="construcción-de-la-matriz-de-características" class="level1" data-number="8">
 <h1 data-number="8"><span class="header-section-number">8</span> 3. Construcción de la matriz de características</h1>
-<div id="a21ba741" class="cell" data-execution_count="4">
+<div id="4c67d9ab" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo de uso con un conjunto de imágenes organizado por carpetas</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># X, y, feature_names, meta = build_dataset_from_folders(&quot;dataset&quot;)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Si todavía no se ejecuta esta parte, puede revisarse la estructura esperada de salida:</p>
-<div id="a727c0c9" class="cell" data-execution_count="5">
+<div id="8df01bda" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Salida esperada:&quot;</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;X -&gt; matriz numérica de tamaño (n_imágenes, n_características)&quot;</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;y -&gt; vector de etiquetas&quot;</span>)</span>
@@ -4585,7 +4591,7 @@ meta -&gt; tabla con ruta y clase</code></pre>
 <li>presencia de valores faltantes o infinitos;</li>
 <li>rangos y escalas muy distintas entre variables.</li>
 </ul>
-<div id="6eae4786" class="cell" data-execution_count="6">
+<div id="a6f259d0" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> inspect_feature_matrix(X, y, feature_names):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame(X, columns<span class="op">=</span>feature_names)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Dimensión de X:&quot;</span>, X.shape)</span>
@@ -4629,7 +4635,7 @@ meta -&gt; tabla con ruta y clase</code></pre>
 <p><span class="math display">
 z = \frac{x - \mu}{\sigma}
 </span></p>
-<div id="343710ec" class="cell" data-execution_count="7">
+<div id="acc82c44" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo de uso una vez que exista X:</span></span>
@@ -4640,7 +4646,7 @@ z = \frac{x - \mu}{\sigma}
 <h1 data-number="12"><span class="header-section-number">12</span> 7. PCA para visualización</h1>
 <section id="pca-en-dos-dimensiones" class="level2" data-number="12.1">
 <h2 data-number="12.1" class="anchored" data-anchor-id="pca-en-dos-dimensiones"><span class="header-section-number">12.1</span> PCA en dos dimensiones</h2>
-<div id="f237596e" class="cell" data-execution_count="8">
+<div id="b20b88d2" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pca_2d_projection(X):</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    scaler <span class="op">=</span> StandardScaler()</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
@@ -4652,7 +4658,7 @@ z = \frac{x - \mu}{\sigma}
 </section>
 <section id="pca-en-tres-dimensiones" class="level2" data-number="12.2">
 <h2 data-number="12.2" class="anchored" data-anchor-id="pca-en-tres-dimensiones"><span class="header-section-number">12.2</span> PCA en tres dimensiones</h2>
-<div id="d6d39a8b" class="cell" data-execution_count="9">
+<div id="dddd0799" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pca_3d_projection(X):</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    scaler <span class="op">=</span> StandardScaler()</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">3</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
@@ -4665,7 +4671,7 @@ z = \frac{x - \mu}{\sigma}
 </section>
 <section id="visualización-de-separabilidad-en-2d" class="level1" data-number="13">
 <h1 data-number="13"><span class="header-section-number">13</span> 8. Visualización de separabilidad en 2D</h1>
-<div id="dd2163f7" class="cell" data-execution_count="10">
+<div id="c0816e3d" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_pca_2d(Z, y, pca):</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> cls <span class="kw">in</span> np.unique(y):</span>
@@ -4688,7 +4694,7 @@ z = \frac{x - \mu}{\sigma}
 </section>
 <section id="visualización-de-separabilidad-en-3d" class="level1" data-number="14">
 <h1 data-number="14"><span class="header-section-number">14</span> 9. Visualización de separabilidad en 3D</h1>
-<div id="15c3b980" class="cell" data-execution_count="11">
+<div id="b44ab095" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_pca_3d(Z, y, pca):</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">7</span>))</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>, projection<span class="op">=</span><span class="st">&quot;3d&quot;</span>)</span>
@@ -4707,7 +4713,7 @@ z = \frac{x - \mu}{\sigma}
 </section>
 <section id="flujo-completo-recomendado" class="level1" data-number="15">
 <h1 data-number="15"><span class="header-section-number">15</span> 10. Flujo completo recomendado</h1>
-<div id="a153c4a4" class="cell" data-execution_count="12">
+<div id="efe6b20b" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_pca_workflow(root_dir):</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    X, y, feature_names, meta <span class="op">=</span> build_dataset_from_folders(root_dir)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -4738,7 +4744,7 @@ z = \frac{x - \mu}{\sigma}
 </section>
 <section id="ejemplo-con-un-clasificador-base" class="level1" data-number="17">
 <h1 data-number="17"><span class="header-section-number">17</span> 12. Ejemplo con un clasificador base</h1>
-<div id="a5cd0e52" class="cell" data-execution_count="13">
+<div id="aad3a4e4" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluate_baseline_classifier(X, y, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">42</span>):</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> np.nan_to_num(X, nan<span class="op">=</span><span class="fl">0.0</span>, posinf<span class="op">=</span><span class="fl">0.0</span>, neginf<span class="op">=</span><span class="fl">0.0</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -4779,7 +4785,7 @@ z = \frac{x - \mu}{\sigma}
 </section>
 <section id="ejemplo-de-tabla-final-de-características" class="level1" data-number="19">
 <h1 data-number="19"><span class="header-section-number">19</span> 14. Ejemplo de tabla final de características</h1>
-<div id="d2465a59" class="cell" data-execution_count="14">
+<div id="7c8575ec" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_feature_dataframe(X, y, feature_names):</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame(X, columns<span class="op">=</span>feature_names)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    df.insert(<span class="dv">0</span>, <span class="st">&quot;label&quot;</span>, y)</span>
@@ -4844,7 +4850,7 @@ z = \frac{x - \mu}{\sigma}
 <li><a href="ejemplo_real_clase_2_fusion_pca_handout.html">ejemplo_real_clase_2_fusion_pca_handout.html</a></li>
 </ul>
 <p>Vista compacta de muestras por clase (con <code>datos_ejemplo/flower_photos</code> disponible):</p>
-<div id="c880e890" class="cell" data-execution_count="15">
+<div id="c684b2fe" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>FLOWERS_DIR <span class="op">=</span> Path(<span class="st">&quot;datos_ejemplo&quot;</span>) <span class="op">/</span> <span class="st">&quot;flower_photos&quot;</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>classes <span class="op">=</span> [<span class="st">&quot;daisy&quot;</span>, <span class="st">&quot;sunflowers&quot;</span>, <span class="st">&quot;roses&quot;</span>]</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>

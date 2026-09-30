@@ -4221,6 +4221,12 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
  <span class="menu-text">Segmentación por K-means</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad3/Unidad3_Practica_Integradora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Práctica integradora</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -4305,7 +4311,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 </section>
 <section id="librerias" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> 0. Librerias</h1>
-<div id="8cb97b38" class="cell" data-execution_count="1">
+<div id="ad093b68" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tarfile</span>
@@ -4328,7 +4334,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 </section>
 <section id="descargar-y-preparar-dataset-de-flores" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> 1. Descargar y preparar dataset de flores</h1>
-<div id="aeaca48b" class="cell" data-execution_count="2">
+<div id="dc524c76" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>DATA_DIR <span class="op">=</span> Path(<span class="st">&quot;datos_ejemplo&quot;</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>FLOWERS_DIR <span class="op">=</span> DATA_DIR <span class="op">/</span> <span class="st">&quot;flower_photos&quot;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FLOWERS_URL <span class="op">=</span> <span class="st">&quot;https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz&quot;</span></span>
@@ -4351,7 +4357,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 <pre><code>WindowsPath(&#39;datos_ejemplo/flower_photos&#39;)</code></pre>
 </div>
 </div>
-<div id="47ceb2ff" class="cell" data-execution_count="3">
+<div id="e0ac8b40" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_flower_paths(classes<span class="op">=</span>(<span class="st">&quot;daisy&quot;</span>, <span class="st">&quot;sunflowers&quot;</span>, <span class="st">&quot;roses&quot;</span>), max_per_class<span class="op">=</span><span class="dv">150</span>, seed<span class="op">=</span><span class="dv">42</span>):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> random.Random(seed)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    paths <span class="op">=</span> []</span>
@@ -4377,7 +4383,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 </div>
 <section id="vista-rapida-de-imagenes-del-dataset-de-flores" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="vista-rapida-de-imagenes-del-dataset-de-flores"><span class="header-section-number">3.1</span> Vista rapida de imagenes del dataset de flores</h2>
-<div id="98b67ee0" class="cell" data-execution_count="4">
+<div id="0e7a92a3" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># IDs fijos por clase (posiciones dentro de la lista ordenada de archivos)</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>FLOWER_SAMPLE_POS <span class="op">=</span> {</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;daisy&quot;</span>: [<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">40</span>],</span>
@@ -4428,7 +4434,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 </section>
 <section id="funciones-de-descriptores" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> 2. Funciones de descriptores</h1>
-<div id="82b9e255" class="cell" data-execution_count="5">
+<div id="ae257586" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_rgb(path, size<span class="op">=</span>(<span class="dv">160</span>, <span class="dv">160</span>)):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    img_bgr <span class="op">=</span> cv2.imread(<span class="bu">str</span>(path))</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> img_bgr <span class="kw">is</span> <span class="va">None</span>:</span>
@@ -4501,7 +4507,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 <section id="caso-real-1-momentos-de-color-en-flores" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> 3. Caso real 1: Momentos de color en flores</h1>
 <p>Pregunta concreta: “Podemos separar flores por su distribucion cromatica global?”</p>
-<div id="74a0e954" class="cell" data-execution_count="6">
+<div id="a3ed52cd" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_matrix_from_paths(paths, extractor, input_type<span class="op">=</span><span class="st">&quot;rgb&quot;</span>):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    rows <span class="op">=</span> []</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> p <span class="kw">in</span> paths:</span>
@@ -4530,7 +4536,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 <pre><code>0.6666666666666666</code></pre>
 </div>
 </div>
-<div id="06b5465d" class="cell" data-execution_count="7">
+<div id="2add4686" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Accuracy color moments:&quot;</span>, <span class="bu">round</span>(acc_color, <span class="dv">4</span>))</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_test, y_pred_color))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -4551,7 +4557,7 @@ weighted avg       0.67      0.67      0.67       105
 <section id="caso-real-2-glcm-en-flores" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> 4. Caso real 2: GLCM en flores</h1>
 <p>Pregunta concreta: “Si el color se parece entre clases, la textura aporta separacion adicional?”</p>
-<div id="e670e692" class="cell" data-execution_count="8">
+<div id="b4580397" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>X_glcm <span class="op">=</span> build_matrix_from_paths(paths_flowers, extract_glcm_features, input_type<span class="op">=</span><span class="st">&quot;gray&quot;</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    X_glcm, y_flowers, test_size<span class="op">=</span><span class="fl">0.25</span>, random_state<span class="op">=</span><span class="dv">42</span>, stratify<span class="op">=</span>y_flowers</span>
@@ -4570,7 +4576,7 @@ weighted avg       0.67      0.67      0.67       105
 <pre><code>0.47619047619047616</code></pre>
 </div>
 </div>
-<div id="e1fdf00f" class="cell" data-execution_count="9">
+<div id="30ff121a" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Accuracy GLCM:&quot;</span>, <span class="bu">round</span>(acc_glcm, <span class="dv">4</span>))</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_test, y_pred_glcm))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -4591,7 +4597,7 @@ weighted avg       0.47      0.48      0.47       105
 <section id="caso-real-3-hu-en-mnist-forma" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> 5. Caso real 3: Hu en MNIST (forma)</h1>
 <p>Pregunta concreta: “Cuando la forma domina, Hu captura senales utiles?”</p>
-<div id="89105bf5" class="cell" data-execution_count="10">
+<div id="e19bf66e" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mnist <span class="op">=</span> fetch_openml(<span class="st">&quot;mnist_784&quot;</span>, version<span class="op">=</span><span class="dv">1</span>, as_frame<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>X_mnist <span class="op">=</span> mnist.data.astype(np.float32)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>y_mnist <span class="op">=</span> mnist.target.astype(<span class="bu">str</span>)</span>
@@ -4671,7 +4677,7 @@ weighted avg       0.47      0.48      0.47       105
 <pre><code>0.8405</code></pre>
 </div>
 </div>
-<div id="d973424f" class="cell" data-execution_count="11">
+<div id="d5d29181" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Accuracy Hu (MNIST 0-3):&quot;</span>, <span class="bu">round</span>(acc_hu, <span class="dv">4</span>))</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_test, y_pred_hu))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -4692,7 +4698,7 @@ weighted avg       0.84      0.84      0.84      2000
 </section>
 <section id="resumen-didactico-de-resultados" class="level1" data-number="8">
 <h1 data-number="8"><span class="header-section-number">8</span> 6. Resumen didactico de resultados</h1>
-<div id="ba1c4280" class="cell" data-execution_count="12">
+<div id="876098e6" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    {</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;descriptor&quot;</span>: [<span class="st">&quot;Color moments&quot;</span>, <span class="st">&quot;GLCM&quot;</span>, <span class="st">&quot;Hu moments&quot;</span>],</span>

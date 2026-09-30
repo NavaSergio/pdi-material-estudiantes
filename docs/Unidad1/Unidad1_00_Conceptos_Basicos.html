@@ -4342,6 +4342,12 @@ window.Quarto = {
  <span class="menu-text">Segmentación por K-means</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad3/Unidad3_Practica_Integradora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Práctica integradora</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -4490,7 +4496,7 @@ window.Quarto = {
 </section>
 <section id="ejemplo-práctico-con-opencv" class="level2" data-number="7">
 <h2 data-number="7" class="anchored" data-anchor-id="ejemplo-práctico-con-opencv"><span class="header-section-number">7</span> 6. Ejemplo práctico con OpenCV</h2>
-<div id="601eba85" class="cell" data-execution_count="1">
+<div id="7fdcafe1" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
@@ -4534,7 +4540,7 @@ Maximo: 255</code></pre>
 <section id="acceso-a-píxeles" class="level2" data-number="8">
 <h2 data-number="8" class="anchored" data-anchor-id="acceso-a-píxeles"><span class="header-section-number">8</span> 7. Acceso a píxeles</h2>
 <p>Podemos acceder a un píxel concreto usando sus coordenadas <code>(fila, columna)</code>.</p>
-<div id="431d1e55" class="cell" data-execution_count="2">
+<div id="e916ba98" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pixel <span class="op">=</span> img[<span class="dv">100</span>, <span class="dv">150</span>]</span>
@@ -4549,7 +4555,7 @@ Maximo: 255</code></pre>
 </section>
 <section id="separación-de-canales" class="level2" data-number="9">
 <h2 data-number="9" class="anchored" data-anchor-id="separación-de-canales"><span class="header-section-number">9</span> 8. Separación de canales</h2>
-<div id="810eb1ad" class="cell" data-execution_count="3">
+<div id="73c5671f" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>b, g, r <span class="op">=</span> cv2.split(img)</span>
@@ -4587,7 +4593,7 @@ Maximo: 255</code></pre>
 </section>
 <section id="conversión-a-escala-de-grises" class="level2" data-number="10">
 <h2 data-number="10" class="anchored" data-anchor-id="conversión-a-escala-de-grises"><span class="header-section-number">10</span> 9. Conversión a escala de grises</h2>
-<div id="0fc8bfce" class="cell" data-execution_count="4">
+<div id="e41c3387" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>gray <span class="op">=</span> cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span>
@@ -4617,7 +4623,7 @@ Maximo: 255</code></pre>
 <h2 data-number="11" class="anchored" data-anchor-id="tiff-multipágina-y-profundidad-de-16-bits"><span class="header-section-number">11</span> 10. TIFF multipágina y profundidad de 16 bits</h2>
 <p>Una imagen puede contener más información que una matriz RGB de 8 bits. El ejemplo siguiente usa un archivo TIFF multipágina real que se descarga desde una fuente pública y luego se inspecciona con <code>tifffile</code>.</p>
 <p>Este enfoque es reproducible y no depende de una ruta local del equipo. La idea es mostrar qué estructura tiene un volumen multiframe y cómo se representa en NumPy.</p>
-<div id="166bb55c" class="cell" data-execution_count="5">
+<div id="785bd9d3" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request</span>
@@ -4657,7 +4663,7 @@ Rango dinámico: [0, 65535]</code></pre>
 <p>En este ejemplo se usa una descarga externa para mostrar un TIFF real multipágina y de 16 bits.</p>
 </blockquote>
 <p>En este archivo, las dimensiones siguen el orden <code>(z, canal, alto, ancho)</code>: cada valor de <code>z</code> es una sección del volumen y los dos canales son adquisiciones independientes, no los canales RGB de una fotografía convencional.</p>
-<div id="16f3ce93" class="cell" data-execution_count="6">
+<div id="facac035" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>indice_z <span class="op">=</span> data.shape[<span class="dv">0</span>] <span class="op">//</span> <span class="dv">2</span></span>
@@ -4679,7 +4685,7 @@ Rango dinámico: [0, 65535]</code></pre>
 </div>
 </div>
 <p>En este archivo, las dimensiones siguen el orden <code>(z, canal, alto, ancho)</code>: cada valor de <code>z</code> es una sección del volumen y los dos canales son adquisiciones independientes, no los canales RGB de una fotografía convencional.</p>
-<div id="896b2a1a" class="cell" data-execution_count="7">
+<div id="d3961eaa" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>indice_z <span class="op">=</span> data.shape[<span class="dv">0</span>] <span class="op">//</span> <span class="dv">2</span></span>
@@ -4712,7 +4718,7 @@ Rango dinámico: [0, 65535]</code></pre>
 <section id="ejercicio-1-inspección-básica-de-la-imagen" class="level3" data-number="12.1">
 <h3 data-number="12.1" class="anchored" data-anchor-id="ejercicio-1-inspección-básica-de-la-imagen"><span class="header-section-number">12.1</span> Ejercicio 1: inspección básica de la imagen</h3>
 <p>Imprime la forma, el tipo de dato y el valor mínimo y máximo de la imagen.</p>
-<div id="f6141404" class="cell" data-execution_count="8">
+<div id="c362bc38" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Forma:&quot;</span>, img.shape)</span>
@@ -4731,7 +4737,7 @@ Máximo: 255</code></pre>
 <section id="ejercicio-2-píxel-concreto" class="level3" data-number="12.2">
 <h3 data-number="12.2" class="anchored" data-anchor-id="ejercicio-2-píxel-concreto"><span class="header-section-number">12.2</span> Ejercicio 2: píxel concreto</h3>
 <p>Accedé a un píxel en una posición dada y observá sus valores.</p>
-<div id="69a7bae5" class="cell" data-execution_count="9">
+<div id="9caedd81" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> <span class="dv">200</span>, <span class="dv">150</span></span>
@@ -4746,7 +4752,7 @@ Máximo: 255</code></pre>
 <section id="ejercicio-3-canal-rojo" class="level3" data-number="12.3">
 <h3 data-number="12.3" class="anchored" data-anchor-id="ejercicio-3-canal-rojo"><span class="header-section-number">12.3</span> Ejercicio 3: canal rojo</h3>
 <p>Extraé el canal rojo y observá cómo cambia la visualización.</p>
-<div id="500da5a8" class="cell" data-execution_count="10">
+<div id="8ec1c261" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>red_channel <span class="op">=</span> img[:, :, <span class="dv">2</span>]</span>
@@ -4768,7 +4774,7 @@ Máximo: 255</code></pre>
 <section id="ejercicio-4-comparación-entre-canales" class="level3" data-number="12.4">
 <h3 data-number="12.4" class="anchored" data-anchor-id="ejercicio-4-comparación-entre-canales"><span class="header-section-number">12.4</span> Ejercicio 4: comparación entre canales</h3>
 <p>Visualizá por separado los canales B, G y R.</p>
-<div id="dd0342bd" class="cell" data-execution_count="11">
+<div id="488b6f57" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>b, g, r <span class="op">=</span> cv2.split(img)</span>
@@ -4801,7 +4807,7 @@ Máximo: 255</code></pre>
 <section id="ejercicio-5-conversión-a-escala-de-grises" class="level3" data-number="12.5">
 <h3 data-number="12.5" class="anchored" data-anchor-id="ejercicio-5-conversión-a-escala-de-grises"><span class="header-section-number">12.5</span> Ejercicio 5: conversión a escala de grises</h3>
 <p>Convertí la imagen a escala de grises y compará la estructura.</p>
-<div id="034f52c7" class="cell" data-execution_count="12">
+<div id="35883f58" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>gray <span class="op">=</span> cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span>
@@ -4828,7 +4834,7 @@ Máximo: 255</code></pre>
 <section id="ejercicio-6-región-de-interés-roi" class="level3" data-number="12.6">
 <h3 data-number="12.6" class="anchored" data-anchor-id="ejercicio-6-región-de-interés-roi"><span class="header-section-number">12.6</span> Ejercicio 6: región de interés (ROI)</h3>
 <p>Seleccioná una porción de la imagen y mostrándola por separado.</p>
-<div id="be33565c" class="cell" data-execution_count="13">
+<div id="6074b4fb" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>roi <span class="op">=</span> img[<span class="dv">50</span>:<span class="dv">250</span>, <span class="dv">100</span>:<span class="dv">300</span>]</span>
@@ -4855,7 +4861,7 @@ Máximo: 255</code></pre>
 <section id="ejercicio-7-guardar-una-roi-como-jpg-o-png" class="level3" data-number="12.7">
 <h3 data-number="12.7" class="anchored" data-anchor-id="ejercicio-7-guardar-una-roi-como-jpg-o-png"><span class="header-section-number">12.7</span> Ejercicio 7: guardar una ROI como JPG o PNG</h3>
 <p>Una región de interés también puede guardarse como una imagen independiente. <code>cv2.imwrite</code> conserva el orden BGR de OpenCV, por lo que <code>roi</code> puede escribirse directamente.</p>
-<div id="8933f0bf" class="cell" data-execution_count="14">
+<div id="73a51adf" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>salida <span class="op">=</span> Path(<span class="st">&quot;salida_imagenes&quot;</span>)</span>
@@ -4880,7 +4886,7 @@ PNG guardado: True -&gt; salida_imagenes\roi.png</code></pre>
 <section id="ejercicio-8-cambiar-un-píxel" class="level3" data-number="12.8">
 <h3 data-number="12.8" class="anchored" data-anchor-id="ejercicio-8-cambiar-un-píxel"><span class="header-section-number">12.8</span> Ejercicio 8: cambiar un píxel</h3>
 <p>Cambiá manualmente el valor de un píxel y verificá qué pasa en la imagen.</p>
-<div id="70c9c77e" class="cell" data-execution_count="15">
+<div id="1e736377" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>img_modificada <span class="op">=</span> img.copy()</span>
@@ -4904,7 +4910,7 @@ PNG guardado: True -&gt; salida_imagenes\roi.png</code></pre>
 <section id="ejercicio-9-análisis-de-intensidades" class="level3" data-number="12.9">
 <h3 data-number="12.9" class="anchored" data-anchor-id="ejercicio-9-análisis-de-intensidades"><span class="header-section-number">12.9</span> Ejercicio 9: análisis de intensidades</h3>
 <p>Observá los valores de los canales y contestá: ¿cuál es el canal dominante en una zona determinada?</p>
-<div id="d1f07b8f" class="cell" data-execution_count="16">
+<div id="6db4aab9" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elegimos un píxel central</span></span>
@@ -4920,7 +4926,7 @@ PNG guardado: True -&gt; salida_imagenes\roi.png</code></pre>
 <section id="ejercicio-10-canal-promedio" class="level3" data-number="12.10">
 <h3 data-number="12.10" class="anchored" data-anchor-id="ejercicio-10-canal-promedio"><span class="header-section-number">12.10</span> Ejercicio 10: canal promedio</h3>
 <p>Promediá los tres canales para obtener una representación aproximada de intensidad.</p>
-<div id="72a92acf" class="cell" data-execution_count="17">
+<div id="397e5c52" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>img_promedio <span class="op">=</span> np.mean(img, axis<span class="op">=</span><span class="dv">2</span>).astype(np.uint8)</span>
@@ -4949,7 +4955,7 @@ PNG guardado: True -&gt; salida_imagenes\roi.png</code></pre>
 <li>extraiga el canal rojo,</li>
 <li>muestre los tres resultados en una figura con 3 subplots.</li>
 </ol>
-<div id="c9d903b5" class="cell" data-execution_count="18">
+<div id="a84344e3" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Desafío: completa este bloque</span></span>

@@ -4343,6 +4343,12 @@ window.Quarto = {
  <span class="menu-text">Segmentación por K-means</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad3/Unidad3_Practica_Integradora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Práctica integradora</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -4410,7 +4416,7 @@ window.Quarto = {
 </li>
 <li>Detectar bordes es un paso clave en <strong>segmentación</strong> y <strong>reconocimiento</strong>.</li>
 </ul>
-<div id="788f37eb" class="cell" data-fig-height="3" data-fig-width="8" data-execution_count="1">
+<div id="b503b217" class="cell" data-fig-height="3" data-fig-width="8" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -4434,7 +4440,7 @@ window.Quarto = {
 <span class="math display">\[\theta(x,y)=\operatorname{atan2}\left(\frac{\partial I}{\partial y},\frac{\partial I}{\partial x}\right)\]</span></li>
 <li>En Canny, <span class="math inline">\(\theta\)</span> suele cuantizarse a <span class="math inline">\(0^\circ, 45^\circ, 90^\circ, 135^\circ\)</span> para aplicar <strong>NMS</strong>.</li>
 </ul>
-<div id="003c2082" class="cell" data-fig-height="3" data-fig-width="10" data-execution_count="2">
+<div id="794ffa33" class="cell" data-fig-height="3" data-fig-width="10" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -4462,7 +4468,7 @@ S_x = \begin{bmatrix} -1 &amp; 0 &amp; 1 \\ -2 &amp; 0 &amp; 2 \\ -1 &amp; 0 &am
 S_y = \begin{bmatrix} -1 &amp; -2 &amp; -1 \\ 0 &amp; 0 &amp; 0 \\ 1 &amp; 2 &amp; 1 \end{bmatrix}
 \]</span></p></li>
 </ul>
-<div id="8b302cb6" class="cell" data-fig-height="3" data-fig-width="10" data-execution_count="3">
+<div id="1f502024" class="cell" data-fig-height="3" data-fig-width="10" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -4482,7 +4488,7 @@ S_y = \begin{bmatrix} -1 &amp; -2 &amp; -1 \\ 0 &amp; 0 &amp; 0 \\ 1 &amp; 2 &am
 </li>
 <li>Luego se calcula la magnitud del gradiente.</li>
 </ul>
-<div id="c0e96260" class="cell" data-fig-height="3" data-fig-width="10" data-execution_count="4">
+<div id="1e992b89" class="cell" data-fig-height="3" data-fig-width="10" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -4504,7 +4510,7 @@ S_y = \begin{bmatrix} -1 &amp; -2 &amp; -1 \\ 0 &amp; 0 &amp; 0 \\ 1 &amp; 2 &am
 </li>
 <li><strong>Hysteresis thresholding</strong> (clasifica píxeles como borde fuerte, débil o no borde).</li>
 </ol>
-<div id="5024d951" class="cell" data-fig-height="3" data-fig-width="12" data-execution_count="5">
+<div id="a88970bd" class="cell" data-fig-height="3" data-fig-width="12" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -4558,7 +4564,7 @@ G(x,y), &amp; \text{si } G(x,y) \text{ es máximo local en } \theta(x,y)\\
 </li>
 <li>Canny: más elaborado, produce bordes finos y continuos.</li>
 </ul>
-<div id="5f8a691a" class="cell" data-fig-height="4" data-fig-width="11" data-execution_count="6">
+<div id="c8345bb7" class="cell" data-fig-height="4" data-fig-width="11" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -4569,7 +4575,7 @@ G(x,y), &amp; \text{si } G(x,y) \text{ es máximo local en } \theta(x,y)\\
 </div>
 <section id="comparación-adicional-con-imagen-real-frutas.jpg" class="level3" data-number="6.1">
 <h3 data-number="6.1" class="anchored" data-anchor-id="comparación-adicional-con-imagen-real-frutas.jpg"><span class="header-section-number">6.1</span> Comparación adicional con imagen real (<code>frutas.jpg</code>)</h3>
-<div id="b34458e3" class="cell" data-fig-height="6" data-fig-width="12" data-execution_count="7">
+<div id="c513a411" class="cell" data-fig-height="6" data-fig-width="12" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -4583,7 +4589,7 @@ G(x,y), &amp; \text{si } G(x,y) \text{ es máximo local en } \theta(x,y)\\
 </section>
 <section id="ejemplo-en-python-opencv" class="level2 smaller scrollable" data-number="7">
 <h2 class="smaller scrollable anchored" data-number="7" data-anchor-id="ejemplo-en-python-opencv"><span class="header-section-number">7</span> Ejemplo en Python (OpenCV)</h2>
-<div id="133cd0d2" class="cell" data-fig-height="6" data-fig-width="12" data-execution_count="8">
+<div id="6cc8a500" class="cell" data-fig-height="6" data-fig-width="12" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
@@ -4653,7 +4659,7 @@ G(x,y), &amp; \text{si } G(x,y) \text{ es máximo local en } \theta(x,y)\\
 </li>
 <li>Visión en medicina, industria y satélites.</li>
 </ul>
-<div id="d6a6101f" class="cell" data-fig-height="3.5" data-fig-width="12" data-execution_count="9">
+<div id="4aa91fd2" class="cell" data-fig-height="3.5" data-fig-width="12" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

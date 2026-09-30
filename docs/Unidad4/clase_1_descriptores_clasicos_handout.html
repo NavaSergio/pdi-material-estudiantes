@@ -4285,6 +4285,12 @@ window.Quarto = {
  <span class="menu-text">Segmentación por K-means</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad3/Unidad3_Practica_Integradora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Práctica integradora</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -4457,7 +4463,7 @@ window.Quarto = {
 </section>
 <section id="preparación-del-entorno-en-python" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Preparación del entorno en Python</h1>
-<div id="f50f6960" class="cell" data-execution_count="1">
+<div id="835ff628" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -4470,7 +4476,7 @@ window.Quarto = {
 <section id="imágenes-de-ejemplo" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Imágenes de ejemplo</h1>
 <p>Usaremos imágenes de ejemplo incluidas en <code>scikit-image</code> para ilustrar los cálculos.</p>
-<div id="8be95c77" class="cell" data-execution_count="2">
+<div id="54f8c62d" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>img_color_1 <span class="op">=</span> data.astronaut()</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>img_color_2 <span class="op">=</span> data.coffee()</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>img_gray_1 <span class="op">=</span> img_as_ubyte(color.rgb2gray(img_color_1))</span>
@@ -4535,7 +4541,7 @@ window.Quarto = {
 </section>
 <section id="ejemplo-básico-con-graycomatrix" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="ejemplo-básico-con-graycomatrix"><span class="header-section-number">7.4</span> Ejemplo básico con <code>graycomatrix</code></h2>
-<div id="9fee8946" class="cell" data-execution_count="3">
+<div id="00c19c91" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cuantización simple a 32 niveles</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>levels <span class="op">=</span> <span class="dv">32</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>img_q <span class="op">=</span> (img_gray_1 <span class="op">/</span> <span class="dv">256</span> <span class="op">*</span> levels).astype(np.uint8)</span>
@@ -4571,7 +4577,7 @@ window.Quarto = {
 <li><code>energy</code></li>
 <li><code>correlation</code></li>
 </ul>
-<div id="f32aeae1" class="cell" data-execution_count="4">
+<div id="330b9b21" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>props <span class="op">=</span> [<span class="st">&quot;contrast&quot;</span>, <span class="st">&quot;dissimilarity&quot;</span>, <span class="st">&quot;homogeneity&quot;</span>, <span class="st">&quot;ASM&quot;</span>, <span class="st">&quot;energy&quot;</span>, <span class="st">&quot;correlation&quot;</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>features_glcm <span class="op">=</span> {}</span>
@@ -4657,7 +4663,7 @@ window.Quarto = {
 </section>
 <section id="función-reusable-para-extraer-glcm" class="level2" data-number="7.8">
 <h2 data-number="7.8" class="anchored" data-anchor-id="función-reusable-para-extraer-glcm"><span class="header-section-number">7.8</span> Función reusable para extraer GLCM</h2>
-<div id="74a82978" class="cell" data-execution_count="5">
+<div id="4885527b" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_glcm_features(</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    image_gray,</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    levels<span class="op">=</span><span class="dv">32</span>,</span>
@@ -4689,7 +4695,7 @@ window.Quarto = {
 <span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(feats, dtype<span class="op">=</span><span class="bu">float</span>), names</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="ef5b7dad" class="cell" data-execution_count="6">
+<div id="c853a1af" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>glcm_vec, glcm_names <span class="op">=</span> extract_glcm_features(img_gray_1)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(glcm_vec), glcm_names[:<span class="dv">5</span>]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -4727,7 +4733,7 @@ window.Quarto = {
 <section id="construcción-de-una-máscara-simple" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="construcción-de-una-máscara-simple"><span class="header-section-number">8.2</span> Construcción de una máscara simple</h2>
 <p>Para ilustrar la idea, segmentaremos aproximadamente el objeto principal mediante umbralización en escala de grises.</p>
-<div id="bc22f5e5" class="cell" data-execution_count="7">
+<div id="73b988ab" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>_, mask <span class="op">=</span> cv2.threshold(img_gray_1, <span class="dv">110</span>, <span class="dv">255</span>, cv2.THRESH_BINARY)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
@@ -4752,7 +4758,7 @@ window.Quarto = {
 </section>
 <section id="cálculo-de-momentos-de-hu" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="cálculo-de-momentos-de-hu"><span class="header-section-number">8.3</span> Cálculo de momentos de Hu</h2>
-<div id="18fff49f" class="cell" data-execution_count="8">
+<div id="061126fc" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>moments <span class="op">=</span> cv2.moments(mask)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>hu <span class="op">=</span> cv2.HuMoments(moments).flatten()</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>hu</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -4765,7 +4771,7 @@ window.Quarto = {
 <p><span class="math display">
 h&#39;_k = -\operatorname{sign}(h_k) \log_{10}(|h_k| + \varepsilon)
 </span></p>
-<div id="1833e465" class="cell" data-execution_count="9">
+<div id="88423539" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> log_transform_hu(hu, eps<span class="op">=</span><span class="fl">1e-12</span>):</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    hu <span class="op">=</span> np.asarray(hu, dtype<span class="op">=</span><span class="bu">float</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span>np.sign(hu) <span class="op">*</span> np.log10(np.<span class="bu">abs</span>(hu) <span class="op">+</span> eps)</span>
@@ -4780,7 +4786,7 @@ h&#39;_k = -\operatorname{sign}(h_k) \log_{10}(|h_k| + \varepsilon)
 </section>
 <section id="función-reusable-para-hu" class="level2" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="función-reusable-para-hu"><span class="header-section-number">8.4</span> Función reusable para Hu</h2>
-<div id="f3a3bda8" class="cell" data-execution_count="10">
+<div id="ed74be85" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_hu_features(image_gray, threshold<span class="op">=</span><span class="dv">110</span>):</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    _, mask <span class="op">=</span> cv2.threshold(image_gray, threshold, <span class="dv">255</span>, cv2.THRESH_BINARY)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    moments <span class="op">=</span> cv2.moments(mask)</span>
@@ -4789,7 +4795,7 @@ h&#39;_k = -\operatorname{sign}(h_k) \log_{10}(|h_k| + \varepsilon)
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    names <span class="op">=</span> [<span class="ss">f&quot;hu_</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">&quot;</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">7</span>)]</span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> hu_log.astype(<span class="bu">float</span>), names</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="2fbfc998" class="cell" data-execution_count="11">
+<div id="864d4c05" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>hu_vec, hu_names <span class="op">=</span> extract_hu_features(img_gray_1)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">zip</span>(hu_names, hu_vec))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
@@ -4988,7 +4994,7 @@ h_i = -\operatorname{sign}(\phi_i)\log_{10}(|\phi_i|)
 </section>
 <section id="implementación-en-python" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="implementación-en-python"><span class="header-section-number">9.2</span> Implementación en Python</h2>
-<div id="87f4fab1" class="cell" data-execution_count="12">
+<div id="26c79450" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_color_moments(image_rgb):</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    feats <span class="op">=</span> []</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    names <span class="op">=</span> []</span>
@@ -5009,7 +5015,7 @@ h_i = -\operatorname{sign}(\phi_i)\log_{10}(|\phi_i|)
 <span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(feats, dtype<span class="op">=</span><span class="bu">float</span>), names</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="cc2e3faa" class="cell" data-execution_count="13">
+<div id="a0e4616a" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>color_vec, color_names <span class="op">=</span> extract_color_moments(img_color_1)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">zip</span>(color_names, np.<span class="bu">round</span>(color_vec, <span class="dv">4</span>)))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
@@ -5033,7 +5039,7 @@ h_i = -\operatorname{sign}(\phi_i)\log_{10}(|\phi_i|)
 <li>anchura de la distribución (relacionada con la desviación estándar);</li>
 <li>presencia de colas (relacionada con la asimetría).</li>
 </ol>
-<div id="1498ad7b" class="cell" data-execution_count="14">
+<div id="06cdca61" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_rgb_histograms_with_moments(image_rgb, title<span class="op">=</span><span class="st">&quot;Imagen&quot;</span>):</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="fl">3.8</span>))</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -5116,7 +5122,7 @@ h_i = -\operatorname{sign}(\phi_i)\log_{10}(|\phi_i|)
 <section id="variante-en-hsv" class="level2" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="variante-en-hsv"><span class="header-section-number">9.4</span> Variante en HSV</h2>
 <p>En varias aplicaciones resulta más interpretable usar HSV o Lab en lugar de RGB, sobre todo cuando interesa separar tono, saturación e intensidad.</p>
-<div id="6661f818" class="cell" data-execution_count="15">
+<div id="5a08d5a1" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>img_hsv <span class="op">=</span> cv2.cvtColor(img_color_1, cv2.COLOR_RGB2HSV)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>img_hsv.shape</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
@@ -5128,7 +5134,7 @@ h_i = -\operatorname{sign}(\phi_i)\log_{10}(|\phi_i|)
 <section id="comparación-rápida-entre-imágenes" class="level1" data-number="10">
 <h1 data-number="10"><span class="header-section-number">10</span> 4. Comparación rápida entre imágenes</h1>
 <p>Ahora comparemos dos imágenes de ejemplo usando los tres tipos de descriptores.</p>
-<div id="cd2cd45f" class="cell" data-execution_count="16">
+<div id="4de604bf" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>g1, _ <span class="op">=</span> extract_glcm_features(img_gray_1)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>g2, _ <span class="op">=</span> extract_glcm_features(img_gray_2)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -5151,7 +5157,7 @@ Distancia Euclidiana Color: 62.80109738866211</code></pre>
 </section>
 <section id="un-extractor-unificado-por-imagen" class="level1" data-number="11">
 <h1 data-number="11"><span class="header-section-number">11</span> 5. Un extractor unificado por imagen</h1>
-<div id="0f6e8ee6" class="cell" data-execution_count="17">
+<div id="abe3e472" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_classic_descriptors(image_rgb):</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    image_gray <span class="op">=</span> img_as_ubyte(color.rgb2gray(image_rgb))</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -5163,7 +5169,7 @@ Distancia Euclidiana Color: 62.80109738866211</code></pre>
 <span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    names <span class="op">=</span> glcm_names <span class="op">+</span> hu_names <span class="op">+</span> color_names</span>
 <span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> vec, names</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="e9e12c5b" class="cell" data-execution_count="18">
+<div id="80096054" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>vec, names <span class="op">=</span> extract_classic_descriptors(img_color_1)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(vec), names[<span class="op">-</span><span class="dv">10</span>:]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
@@ -5229,7 +5235,7 @@ Distancia Euclidiana Color: 62.80109738866211</code></pre>
 <li>cada columna corresponda a una característica.</li>
 </ul>
 <p>Sugerencia:</p>
-<div id="4564d523" class="cell" data-execution_count="19">
+<div id="bf49f98f" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_feature_matrix(images):</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    rows <span class="op">=</span> []</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> img <span class="kw">in</span> images:</span>
@@ -5245,7 +5251,7 @@ Distancia Euclidiana Color: 62.80109738866211</code></pre>
 <li><a href="ejemplo_real_clase_1_descriptores_handout.html">ejemplo_real_clase_1_descriptores_handout.html</a></li>
 </ul>
 <p>Vista compacta de muestras por clase (con <code>datos_ejemplo/flower_photos</code> disponible):</p>
-<div id="c3d9e38c" class="cell" data-execution_count="20">
+<div id="3efc90ea" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>FLOWERS_DIR <span class="op">=</span> Path(<span class="st">&quot;datos_ejemplo&quot;</span>) <span class="op">/</span> <span class="st">&quot;flower_photos&quot;</span></span>

@@ -4205,6 +4205,12 @@ vertical-align: -.125em;
  <span class="menu-text">Segmentación por K-means</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad3/Unidad3_Practica_Integradora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Práctica integradora</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -4298,7 +4304,7 @@ vertical-align: -.125em;
 </section>
 <section id="librerías-y-configuración" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> 0. Librerías y configuración</h1>
-<div id="50727394" class="cell" data-execution_count="1">
+<div id="b81c54df" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tarfile</span>
@@ -4338,7 +4344,7 @@ vertical-align: -.125em;
 </section>
 <section id="descargar-y-preparar-dataset-de-flores" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> 1. Descargar y preparar dataset de flores</h1>
-<div id="cb177cd7" class="cell" data-execution_count="2">
+<div id="8089bcb2" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>DATA_DIR <span class="op">=</span> Path(<span class="st">&quot;datos_ejemplo&quot;</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>FLOWERS_DIR <span class="op">=</span> DATA_DIR <span class="op">/</span> <span class="st">&quot;flower_photos&quot;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FLOWERS_URL <span class="op">=</span> <span class="st">&quot;https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz&quot;</span></span>
@@ -4361,7 +4367,7 @@ vertical-align: -.125em;
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>ensure_flowers_dataset()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="2292a0ff" class="cell" data-execution_count="3">
+<div id="2f4dc448" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_flower_paths(classes<span class="op">=</span>(<span class="st">&quot;daisy&quot;</span>, <span class="st">&quot;sunflowers&quot;</span>, <span class="st">&quot;roses&quot;</span>, <span class="st">&quot;tulips&quot;</span>), </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                      max_per_class<span class="op">=</span><span class="dv">180</span>, seed<span class="op">=</span><span class="dv">42</span>):</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Carga rutas de imágenes y etiquetas de clases de flores.&quot;&quot;&quot;</span></span>
@@ -4396,7 +4402,7 @@ vertical-align: -.125em;
 <section id="funciones-de-extracción-de-características" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> 2. Funciones de extracción de características</h1>
 <p>Reutilizamos las funciones de la Unidad 4, pero las copiamos aquí para reproducibilidad.</p>
-<div id="f4339c76" class="cell" data-execution_count="4">
+<div id="81cb5481" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_glcm_features(image_gray, levels<span class="op">=</span><span class="dv">32</span>, distances<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>),</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                          angles<span class="op">=</span>(<span class="dv">0</span>, np.pi<span class="op">/</span><span class="dv">4</span>, np.pi<span class="op">/</span><span class="dv">2</span>, <span class="dv">3</span><span class="op">*</span>np.pi<span class="op">/</span><span class="dv">4</span>)):</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Extrae características GLCM para textura.&quot;&quot;&quot;</span></span>
@@ -4460,7 +4466,7 @@ vertical-align: -.125em;
 </section>
 <section id="extraer-características-de-todas-las-imágenes" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> 3. Extraer características de todas las imágenes</h1>
-<div id="b6748e13" class="cell" data-execution_count="5">
+<div id="7eb04221" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Extrayendo características...&quot;</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>X_list <span class="op">=</span> []</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>y_list <span class="op">=</span> []</span>
@@ -4487,7 +4493,7 @@ vertical-align: -.125em;
 </section>
 <section id="división-train-test-y-escalamiento" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> 4. División train-test y escalamiento</h1>
-<div id="f9271562" class="cell" data-execution_count="6">
+<div id="6bcdc708" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dividir datos: 70% entrenamiento, 30% prueba</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    X, y, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">42</span>, stratify<span class="op">=</span>y</span>
@@ -4513,7 +4519,7 @@ vertical-align: -.125em;
 <h1 data-number="7"><span class="header-section-number">7</span> 5. Entrenar modelos supervisados</h1>
 <section id="logistic-regression" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="logistic-regression"><span class="header-section-number">7.1</span> 5.1 Logistic Regression</h2>
-<div id="1e2614c9" class="cell" data-execution_count="7">
+<div id="4006a18f" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;1. LOGISTIC REGRESSION&quot;</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
@@ -4534,7 +4540,7 @@ vertical-align: -.125em;
 </section>
 <section id="svm" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="svm"><span class="header-section-number">7.2</span> 5.2 SVM</h2>
-<div id="9a31783d" class="cell" data-execution_count="8">
+<div id="83d9fce7" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span> <span class="op">+</span> <span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;2. SUPPORT VECTOR MACHINE (SVM)&quot;</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
@@ -4555,7 +4561,7 @@ vertical-align: -.125em;
 </section>
 <section id="random-forest" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="random-forest"><span class="header-section-number">7.3</span> 5.3 Random Forest</h2>
-<div id="0f8e4520" class="cell" data-execution_count="9">
+<div id="fc4c371c" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span> <span class="op">+</span> <span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;3. RANDOM FOREST&quot;</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
@@ -4584,7 +4590,7 @@ vertical-align: -.125em;
 </section>
 <section id="decision-tree" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="decision-tree"><span class="header-section-number">7.4</span> 5.4 Decision Tree</h2>
-<div id="823c31ee" class="cell" data-execution_count="10">
+<div id="fc5e9d8d" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span> <span class="op">+</span> <span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;4. DECISION TREE&quot;</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
@@ -4609,7 +4615,7 @@ vertical-align: -.125em;
 <h1 data-number="8"><span class="header-section-number">8</span> 6. Entrenar modelos no-supervisados</h1>
 <section id="k-means-con-etiquetado-posterior" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="k-means-con-etiquetado-posterior"><span class="header-section-number">8.1</span> 6.1 K-means con etiquetado posterior</h2>
-<div id="57e96d89" class="cell" data-execution_count="11">
+<div id="475144fb" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span> <span class="op">+</span> <span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;5. K-MEANS (NO-SUPERVISADO)&quot;</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
@@ -4648,7 +4654,7 @@ vertical-align: -.125em;
 </section>
 <section id="comparación-global-de-modelos" class="level1" data-number="9">
 <h1 data-number="9"><span class="header-section-number">9</span> 7. Comparación global de modelos</h1>
-<div id="a52ce098" class="cell" data-execution_count="12">
+<div id="0af46342" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span> <span class="op">+</span> <span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;COMPARACIÓN GLOBAL DE MODELOS&quot;</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
@@ -4691,7 +4697,7 @@ vertical-align: -.125em;
 </section>
 <section id="validación-cruzada-estratificada" class="level1" data-number="10">
 <h1 data-number="10"><span class="header-section-number">10</span> 8. Validación cruzada estratificada</h1>
-<div id="8b830079" class="cell" data-execution_count="13">
+<div id="6b93357e" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span> <span class="op">+</span> <span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;VALIDACIÓN CRUZADA (5-Fold Estratificado)&quot;</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
@@ -4738,7 +4744,7 @@ vertical-align: -.125em;
 </section>
 <section id="matriz-de-confusión-para-modelos-seleccionados" class="level1" data-number="11">
 <h1 data-number="11"><span class="header-section-number">11</span> 9. Matriz de confusión para modelos seleccionados</h1>
-<div id="f3465548" class="cell" data-execution_count="14">
+<div id="395fd814" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span> <span class="op">+</span> <span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;MATRICES DE CONFUSIÓN&quot;</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
@@ -4767,7 +4773,7 @@ vertical-align: -.125em;
 </section>
 <section id="curvas-roc-problema-multiclase" class="level1" data-number="12">
 <h1 data-number="12"><span class="header-section-number">12</span> 10. Curvas ROC (problema multiclase)</h1>
-<div id="df883430" class="cell" data-execution_count="15">
+<div id="72c933f4" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span> <span class="op">+</span> <span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;CURVAS ROC (ONE-VS-REST)&quot;</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
@@ -4807,7 +4813,7 @@ vertical-align: -.125em;
 </section>
 <section id="análisis-de-características-importantes" class="level1" data-number="13">
 <h1 data-number="13"><span class="header-section-number">13</span> 11. Análisis de características importantes</h1>
-<div id="cb445f24" class="cell" data-execution_count="16">
+<div id="0fdcafb6" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span> <span class="op">+</span> <span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;ANÁLISIS DE CARACTERÍSTICAS IMPORTANTES&quot;</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
@@ -4838,7 +4844,7 @@ vertical-align: -.125em;
 </section>
 <section id="conclusiones-y-recomendaciones" class="level1" data-number="14">
 <h1 data-number="14"><span class="header-section-number">14</span> 12. Conclusiones y recomendaciones</h1>
-<div id="82919265" class="cell" data-execution_count="17">
+<div id="51936aac" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span> <span class="op">+</span> <span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;CONCLUSIONES&quot;</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">60</span>)</span>

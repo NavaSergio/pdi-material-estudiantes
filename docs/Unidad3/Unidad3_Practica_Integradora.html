@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Curso de Procesamiento Digital de Imágenes">
+
+<title>Práctica integradora: comparación de métodos – Procesamiento Digital de Imágenes</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-4e663f3a4ff1a491e18bd6a28adf0390.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Procesamiento Digital de Imágenes</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Inicio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../programa.html"> 
+<span class="menu-text">Programa</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../calendario.html"> 
+<span class="menu-text">Calendario</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../actividades.html"> 
+<span class="menu-text">Actividades</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../recursos.html"> 
+<span class="menu-text">Recursos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../datasets.html"> 
+<span class="menu-text">Datasets</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../Unidad1/lectura_imagenes_opencv.html" aria-current="page"> 
+<span class="menu-text">Unidades</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Unidad3/Unidad3_01_Deteccion_Bordes.html">Unidad 3</a></li><li class="breadcrumb-item"><a href="../Unidad3/Unidad3_Practica_Integradora.html">Práctica integradora</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad1/Unidad1_00_Conceptos_Basicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conceptos básicos de imágenes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad1/lectura_imagenes_opencv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lectura de imagenes con OpenCV</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad1/Operaciones_Basicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Operaciones basicas</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad2/Unidad2_01_Realce_Imagenes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Realce de imágenes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad2/Unidad2_02_Transformaciones_Intensidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transformaciones de intensidad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad2/Unidad2_04_Operaciones_Morfologicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Operadores morfológicos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad2/metricas_procesamiento_imagenes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Métricas de procesamiento</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad2/Unidad2_Practica_Integradora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Práctica integradora</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad3/Unidad3_01_Deteccion_Bordes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Detección de bordes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad3/Unidad3_02_Umbralizacion_y_Mascaras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Umbralización y máscaras</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad3/Unidad3_03_Agrupamiento_KMeans.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Segmentación por K-means</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad3/Unidad3_Practica_Integradora.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Práctica integradora</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad3/Unidad3_Practica_Integradora.ipynb" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebook descargable</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#propósito" id="toc-propósito" class="nav-link active" data-scroll-target="#propósito"><span class="header-section-number">1</span> Propósito</a></li>
+  <li><a href="#banco-de-imágenes" id="toc-banco-de-imágenes" class="nav-link" data-scroll-target="#banco-de-imágenes"><span class="header-section-number">2</span> Banco de imágenes</a></li>
+  <li><a href="#flujo-común-de-comparación" id="toc-flujo-común-de-comparación" class="nav-link" data-scroll-target="#flujo-común-de-comparación"><span class="header-section-number">3</span> Flujo común de comparación</a></li>
+  <li><a href="#comparación-cuantitativa-sencilla" id="toc-comparación-cuantitativa-sencilla" class="nav-link" data-scroll-target="#comparación-cuantitativa-sencilla"><span class="header-section-number">4</span> Comparación cuantitativa sencilla</a></li>
+  <li><a href="#caso-aplicado-identificación-de-frutas" id="toc-caso-aplicado-identificación-de-frutas" class="nav-link" data-scroll-target="#caso-aplicado-identificación-de-frutas"><span class="header-section-number">5</span> Caso aplicado: identificación de frutas</a>
+  <ul class="collapse">
+  <li><a href="#por-qué-segmentar-por-color" id="toc-por-qué-segmentar-por-color" class="nav-link" data-scroll-target="#por-qué-segmentar-por-color"><span class="header-section-number">5.1</span> ¿Por qué segmentar por color?</a></li>
+  <li><a href="#segmentación-no-supervisada-por-color-con-k-means" id="toc-segmentación-no-supervisada-por-color-con-k-means" class="nav-link" data-scroll-target="#segmentación-no-supervisada-por-color-con-k-means"><span class="header-section-number">5.2</span> Segmentación no supervisada por color con k-means</a></li>
+  <li><a href="#de-la-segmentación-a-la-identificación" id="toc-de-la-segmentación-a-la-identificación" class="nav-link" data-scroll-target="#de-la-segmentación-a-la-identificación"><span class="header-section-number">5.3</span> De la segmentación a la identificación</a></li>
+  <li><a href="#limitaciones-y-preguntas" id="toc-limitaciones-y-preguntas" class="nav-link" data-scroll-target="#limitaciones-y-preguntas"><span class="header-section-number">5.4</span> Limitaciones y preguntas</a></li>
+  </ul></li>
+  <li><a href="#caso-aplicado-radiografía" id="toc-caso-aplicado-radiografía" class="nav-link" data-scroll-target="#caso-aplicado-radiografía"><span class="header-section-number">6</span> Caso aplicado: radiografía</a></li>
+  <li><a href="#caso-aplicado-satélite-e-imágenes-aéreas" id="toc-caso-aplicado-satélite-e-imágenes-aéreas" class="nav-link" data-scroll-target="#caso-aplicado-satélite-e-imágenes-aéreas"><span class="header-section-number">7</span> Caso aplicado: satélite e imágenes aéreas</a></li>
+  <li><a href="#otras-aplicaciones" id="toc-otras-aplicaciones" class="nav-link" data-scroll-target="#otras-aplicaciones"><span class="header-section-number">8</span> Otras aplicaciones</a></li>
+  <li><a href="#actividad-de-análisis" id="toc-actividad-de-análisis" class="nav-link" data-scroll-target="#actividad-de-análisis"><span class="header-section-number">9</span> Actividad de análisis</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Unidad3/Unidad3_01_Deteccion_Bordes.html">Unidad 3</a></li><li class="breadcrumb-item"><a href="../Unidad3/Unidad3_Practica_Integradora.html">Práctica integradora</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Práctica integradora: comparación de métodos</h1>
+<p class="subtitle lead">De los bordes a la segmentación aplicada</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Curso de Procesamiento Digital de Imágenes </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="propósito" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="propósito"><span class="header-section-number">1</span> Propósito</h2>
+<p>Esta práctica reúne los temas de la Unidad 3 en un solo flujo: detección de bordes, umbralización global y adaptativa, agrupamiento por k-means y morfología. La meta no es encontrar un método universalmente mejor, sino explicar qué información aprovecha cada método y en qué tipo de imagen resulta más útil.</p>
+<p>Se compararán imágenes de objetos, escenas naturales, una radiografía, muestras clásicas de OpenCV y ejemplos de scikit-image. Todas las figuras se generan al renderizar este documento.</p>
+<p><strong>Recurso descargable:</strong> <a href="Unidad3_Practica_Integradora.ipynb">notebook ejecutable de la práctica</a></p>
+</section>
+<section id="banco-de-imágenes" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="banco-de-imágenes"><span class="header-section-number">2</span> Banco de imágenes</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Grupo</th>
+<th>Imagen</th>
+<th>Pregunta guía</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Objetos</td>
+<td><code>frutas.jpg</code></td>
+<td>¿El color separa mejor que la intensidad?</td>
+</tr>
+<tr class="even">
+<td>Documento</td>
+<td><code>carta.jpg</code></td>
+<td>¿Qué bordes y regiones ayudan a localizar caracteres?</td>
+</tr>
+<tr class="odd">
+<td>Anatomía</td>
+<td><code>radiografia.jpg</code></td>
+<td>¿Cómo afectan el bajo contraste y las estructuras superpuestas?</td>
+</tr>
+<tr class="even">
+<td>OpenCV</td>
+<td><code>messi5.jpg</code>, <code>lena.jpg</code></td>
+<td>¿Qué ocurre con textura, piel, cabello y objetos?</td>
+</tr>
+<tr class="odd">
+<td>scikit-image</td>
+<td><code>astronaut</code>, <code>coins</code></td>
+<td>¿Funciona igual un método en una escena y en objetos separados?</td>
+</tr>
+</tbody>
+</table>
+<p><code>messi5.jpg</code> y <code>lena.jpg</code> son muestras oficiales de OpenCV. <code>astronaut</code> y <code>coins</code> se cargan desde <code>skimage.data</code>, por lo que no es necesario copiar esos archivos al repositorio.</p>
+<div id="275c2025" class="cell" data-fig-height="8" data-fig-width="14" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage <span class="im">import</span> data</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>carpeta_imagenes <span class="op">=</span> Path(<span class="st">"imagenes"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Cada entrada devuelve una imagen RGB y un nombre legible.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cargar_banco():</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    banco <span class="op">=</span> {}</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> nombre <span class="kw">in</span> [<span class="st">"frutas.jpg"</span>, <span class="st">"carta.jpg"</span>, <span class="st">"radiografia.jpg"</span>, <span class="st">"messi5.jpg"</span>, <span class="st">"lena.jpg"</span>]:</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        imagen_bgr <span class="op">=</span> cv2.imread(<span class="bu">str</span>(carpeta_imagenes <span class="op">/</span> nombre), cv2.IMREAD_COLOR)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> imagen_bgr <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">FileNotFoundError</span>(<span class="ss">f"No se encontro la imagen: </span><span class="sc">{</span>nombre<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        banco[nombre] <span class="op">=</span> cv2.cvtColor(imagen_bgr, cv2.COLOR_BGR2RGB)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    banco[<span class="st">"astronaut"</span>] <span class="op">=</span> data.astronaut()</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    banco[<span class="st">"coins"</span>] <span class="op">=</span> data.coins()</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> banco</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>banco <span class="op">=</span> cargar_banco()</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">8</span>))</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, (nombre, imagen) <span class="kw">in</span> <span class="bu">zip</span>(axs.ravel(), banco.items()):</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    ax.imshow(imagen, cmap<span class="op">=</span><span class="st">"gray"</span> <span class="cf">if</span> imagen.ndim <span class="op">==</span> <span class="dv">2</span> <span class="cf">else</span> <span class="va">None</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    ax.set_title(nombre, fontweight<span class="op">=</span><span class="st">"bold"</span>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    ax.axis(<span class="st">"off"</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Unidad3_Practica_Integradora_files/figure-html/cell-2-output-1.png" width="1285" height="758" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="flujo-común-de-comparación" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="flujo-común-de-comparación"><span class="header-section-number">3</span> Flujo común de comparación</h2>
+<p>Para cada imagen se calculan:</p>
+<ol type="1">
+<li><strong>Canny</strong>, para localizar cambios bruscos.</li>
+<li><strong>Otsu</strong>, para separar clases globales de intensidad.</li>
+<li><strong>Umbral adaptativo</strong>, para compensar iluminación no uniforme.</li>
+<li><strong>K-means</strong>, con <span class="math inline">\(K=3\)</span> grupos de intensidad.</li>
+<li><strong>Apertura y cierre</strong>, para refinar la máscara del grupo más oscuro.</li>
+</ol>
+<p>La elección del grupo más oscuro es solo una hipótesis de trabajo. En una aplicación real se debe seleccionar el grupo según el objetivo y la imagen.</p>
+<div id="bb43a18d" class="cell" data-fig-height="9" data-fig-width="14" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> comparar_metodos(imagen_rgb):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> imagen_rgb.ndim <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        gris <span class="op">=</span> imagen_rgb.copy()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        imagen_visual <span class="op">=</span> cv2.cvtColor(imagen_rgb, cv2.COLOR_GRAY2RGB)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        imagen_visual <span class="op">=</span> imagen_rgb.copy()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        gris <span class="op">=</span> cv2.cvtColor(imagen_rgb, cv2.COLOR_RGB2GRAY)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    suavizada <span class="op">=</span> cv2.GaussianBlur(gris, (<span class="dv">5</span>, <span class="dv">5</span>), <span class="fl">1.0</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    bordes <span class="op">=</span> cv2.Canny(suavizada, <span class="dv">60</span>, <span class="dv">140</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    umbral_otsu, mascara_otsu <span class="op">=</span> cv2.threshold(</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        gris, <span class="dv">0</span>, <span class="dv">255</span>, cv2.THRESH_BINARY <span class="op">+</span> cv2.THRESH_OTSU</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    mascara_adaptativa <span class="op">=</span> cv2.adaptiveThreshold(</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        gris, <span class="dv">255</span>, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        cv2.THRESH_BINARY, <span class="dv">31</span>, <span class="dv">5</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    datos <span class="op">=</span> gris.reshape((<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)).astype(np.float32)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    criterio <span class="op">=</span> (cv2.TERM_CRITERIA_EPS <span class="op">+</span> cv2.TERM_CRITERIA_MAX_ITER, <span class="dv">40</span>, <span class="fl">0.1</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    compactness, etiquetas, centros <span class="op">=</span> cv2.kmeans(</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        datos, <span class="dv">3</span>, <span class="va">None</span>, criterio, <span class="dv">10</span>, cv2.KMEANS_PP_CENTERS</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    centros <span class="op">=</span> centros.ravel()</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    etiquetas_2d <span class="op">=</span> etiquetas.reshape(gris.shape)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    cuantizada <span class="op">=</span> centros[etiquetas.ravel()].reshape(gris.shape).astype(np.uint8)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    grupo_oscuro <span class="op">=</span> <span class="bu">int</span>(np.argmin(centros))</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    mascara_kmeans <span class="op">=</span> (etiquetas_2d <span class="op">==</span> grupo_oscuro).astype(np.uint8) <span class="op">*</span> <span class="dv">255</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    kernel <span class="op">=</span> cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (<span class="dv">5</span>, <span class="dv">5</span>))</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    mascara_refinada <span class="op">=</span> cv2.morphologyEx(</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        mascara_kmeans, cv2.MORPH_OPEN, kernel, iterations<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    mascara_refinada <span class="op">=</span> cv2.morphologyEx(</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        mascara_refinada, cv2.MORPH_CLOSE, kernel, iterations<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>        <span class="st">"original"</span>: imagen_visual,</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>        <span class="st">"gris"</span>: gris,</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        <span class="st">"bordes"</span>: bordes,</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>        <span class="st">"otsu"</span>: mascara_otsu,</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        <span class="st">"adaptativa"</span>: mascara_adaptativa,</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        <span class="st">"kmeans"</span>: cuantizada,</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>        <span class="st">"refinada"</span>: mascara_refinada,</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>        <span class="st">"otsu_valor"</span>: <span class="bu">float</span>(umbral_otsu),</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>        <span class="st">"centros"</span>: np.sort(centros),</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>        <span class="st">"compactness"</span>: <span class="bu">float</span>(compactness),</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mostrar_comparacion(nombre, resultados):</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    vistas <span class="op">=</span> [</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>        (resultados[<span class="st">"original"</span>], <span class="st">"Original"</span>, <span class="va">None</span>),</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>        (resultados[<span class="st">"gris"</span>], <span class="st">"Escala de grises"</span>, <span class="st">"gray"</span>),</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>        (resultados[<span class="st">"bordes"</span>], <span class="st">"Canny"</span>, <span class="st">"gray"</span>),</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>        (resultados[<span class="st">"otsu"</span>], <span class="ss">f"Otsu (T=</span><span class="sc">{</span>resultados[<span class="st">'otsu_valor'</span>]<span class="sc">:.0f}</span><span class="ss">)"</span>, <span class="st">"gray"</span>),</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>        (resultados[<span class="st">"adaptativa"</span>], <span class="st">"Umbral adaptativo"</span>, <span class="st">"gray"</span>),</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>        (resultados[<span class="st">"kmeans"</span>], <span class="st">"K-means (K=3)"</span>, <span class="st">"gray"</span>),</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>        (resultados[<span class="st">"refinada"</span>], <span class="st">"K-means + morfologia"</span>, <span class="st">"gray"</span>),</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>    fig, axs <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">4</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">9</span>))</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ax, (imagen, titulo, mapa) <span class="kw">in</span> <span class="bu">zip</span>(axs.ravel(), vistas):</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>        ax.imshow(imagen, cmap<span class="op">=</span>mapa)</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>        ax.set_title(titulo, fontweight<span class="op">=</span><span class="st">"bold"</span>)</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>        ax.axis(<span class="st">"off"</span>)</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>    axs[<span class="dv">1</span>, <span class="dv">3</span>].axis(<span class="st">"off"</span>)</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>    fig.suptitle(nombre, fontsize<span class="op">=</span><span class="dv">16</span>, fontweight<span class="op">=</span><span class="st">"bold"</span>)</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>resultados_banco <span class="op">=</span> {}</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nombre, imagen <span class="kw">in</span> banco.items():</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>    resultados_banco[nombre] <span class="op">=</span> comparar_metodos(imagen)</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>    mostrar_comparacion(nombre, resultados_banco[nombre])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Unidad3_Practica_Integradora_files/figure-html/cell-3-output-1.png" width="1334" height="852" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Unidad3_Practica_Integradora_files/figure-html/cell-3-output-2.png" width="1301" height="852" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Unidad3_Practica_Integradora_files/figure-html/cell-3-output-3.png" width="1304" height="852" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Unidad3_Practica_Integradora_files/figure-html/cell-3-output-4.png" width="1334" height="852" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Unidad3_Practica_Integradora_files/figure-html/cell-3-output-5.png" width="1334" height="852" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Unidad3_Practica_Integradora_files/figure-html/cell-3-output-6.png" width="1334" height="852" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Unidad3_Practica_Integradora_files/figure-html/cell-3-output-7.png" width="1334" height="852" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="comparación-cuantitativa-sencilla" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="comparación-cuantitativa-sencilla"><span class="header-section-number">4</span> Comparación cuantitativa sencilla</h2>
+<p>Estas medidas no dicen por sí solas cuál resultado es correcto, porque no contamos con una máscara de referencia. Ayudan a detectar resultados extremos: una máscara casi completamente blanca puede incluir demasiado fondo y una máscara con muchos componentes pequeños puede estar capturando ruido.</p>
+<div id="0e512868" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> resumen_mascara(mascara):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    binaria <span class="op">=</span> (mascara <span class="op">&gt;</span> <span class="dv">0</span>).astype(np.uint8)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    componentes, _, estadisticas, _ <span class="op">=</span> cv2.connectedComponentsWithStats(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        binaria, connectivity<span class="op">=</span><span class="dv">8</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    area_mayor <span class="op">=</span> (</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">int</span>(np.<span class="bu">max</span>(estadisticas[<span class="dv">1</span>:, cv2.CC_STAT_AREA]))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> componentes <span class="op">&gt;</span> <span class="dv">1</span> <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">100</span> <span class="op">*</span> <span class="bu">float</span>(np.mean(binaria)), componentes <span class="op">-</span> <span class="dv">1</span>, area_mayor</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>filas <span class="op">=</span> []</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nombre, resultados <span class="kw">in</span> resultados_banco.items():</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> metodo <span class="kw">in</span> [<span class="st">"otsu"</span>, <span class="st">"adaptativa"</span>, <span class="st">"refinada"</span>]:</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        porcentaje, componentes, area_mayor <span class="op">=</span> resumen_mascara(resultados[metodo])</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        filas.append({</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"imagen"</span>: nombre,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"metodo"</span>: metodo,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"porcentaje blanco"</span>: porcentaje,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">"componentes"</span>: componentes,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">"area mayor"</span>: area_mayor,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>tabla_mascaras <span class="op">=</span> pd.DataFrame(filas)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>tabla_mascaras.<span class="bu">round</span>({<span class="st">"porcentaje blanco"</span>: <span class="dv">2</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">imagen</th>
+<th data-quarto-table-cell-role="th">metodo</th>
+<th data-quarto-table-cell-role="th">porcentaje blanco</th>
+<th data-quarto-table-cell-role="th">componentes</th>
+<th data-quarto-table-cell-role="th">area mayor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>frutas.jpg</td>
+<td>otsu</td>
+<td>43.13</td>
+<td>1338</td>
+<td>140744</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>frutas.jpg</td>
+<td>adaptativa</td>
+<td>69.43</td>
+<td>1095</td>
+<td>123181</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>frutas.jpg</td>
+<td>refinada</td>
+<td>41.22</td>
+<td>78</td>
+<td>122266</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>carta.jpg</td>
+<td>otsu</td>
+<td>87.44</td>
+<td>367</td>
+<td>246990</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>carta.jpg</td>
+<td>adaptativa</td>
+<td>81.51</td>
+<td>361</td>
+<td>230420</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>carta.jpg</td>
+<td>refinada</td>
+<td>0.00</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>radiografia.jpg</td>
+<td>otsu</td>
+<td>27.95</td>
+<td>474</td>
+<td>480917</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>radiografia.jpg</td>
+<td>adaptativa</td>
+<td>89.02</td>
+<td>351</td>
+<td>1531985</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>radiografia.jpg</td>
+<td>refinada</td>
+<td>65.10</td>
+<td>1</td>
+<td>1198267</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>messi5.jpg</td>
+<td>otsu</td>
+<td>45.85</td>
+<td>228</td>
+<td>59219</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">10</th>
+<td>messi5.jpg</td>
+<td>adaptativa</td>
+<td>65.73</td>
+<td>316</td>
+<td>92949</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">11</th>
+<td>messi5.jpg</td>
+<td>refinada</td>
+<td>45.36</td>
+<td>20</td>
+<td>67323</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">12</th>
+<td>lena.jpg</td>
+<td>otsu</td>
+<td>58.43</td>
+<td>329</td>
+<td>128556</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">13</th>
+<td>lena.jpg</td>
+<td>adaptativa</td>
+<td>73.59</td>
+<td>425</td>
+<td>184086</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">14</th>
+<td>lena.jpg</td>
+<td>refinada</td>
+<td>24.28</td>
+<td>36</td>
+<td>21308</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">15</th>
+<td>astronaut</td>
+<td>otsu</td>
+<td>60.82</td>
+<td>130</td>
+<td>154951</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">16</th>
+<td>astronaut</td>
+<td>adaptativa</td>
+<td>70.95</td>
+<td>254</td>
+<td>132514</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">17</th>
+<td>astronaut</td>
+<td>refinada</td>
+<td>30.48</td>
+<td>33</td>
+<td>40335</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">18</th>
+<td>coins</td>
+<td>otsu</td>
+<td>38.78</td>
+<td>96</td>
+<td>8792</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">19</th>
+<td>coins</td>
+<td>adaptativa</td>
+<td>64.21</td>
+<td>235</td>
+<td>36932</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">20</th>
+<td>coins</td>
+<td>refinada</td>
+<td>42.19</td>
+<td>3</td>
+<td>49046</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="caso-aplicado-identificación-de-frutas" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="caso-aplicado-identificación-de-frutas"><span class="header-section-number">5</span> Caso aplicado: identificación de frutas</h2>
+<p><code>frutas.jpg</code> permite estudiar una situación muy frecuente en visión por computadora: primero se separan los objetos del fondo (<strong>segmentación</strong>) y después se calculan características para decidir qué objeto es cada uno (<strong>identificación</strong>). Estas tareas no son iguales. Una máscara puede estar bien delimitada y aun así no permitir distinguir una manzana de una naranja.</p>
+<section id="por-qué-segmentar-por-color" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="por-qué-segmentar-por-color"><span class="header-section-number">5.1</span> ¿Por qué segmentar por color?</h3>
+<p>En escala de grises, dos frutas de colores distintos pueden tener intensidades parecidas. Los espacios de color conservan información adicional:</p>
+<ul>
+<li><strong>RGB:</strong> representa directamente los canales capturados por la cámara, pero mezcla color e iluminación en los tres canales.</li>
+<li><strong>HSV:</strong> separa aproximadamente el tono (<code>H</code>), la saturación (<code>S</code>) y el brillo (<code>V</code>). Es útil para formular reglas como “colores intensos y no demasiado oscuros”.</li>
+<li><strong>Lab:</strong> separa una luminosidad (<code>L</code>) de dos componentes cromáticas. Puede ser más estable cuando cambia la iluminación, aunque sus umbrales requieren más calibración.</li>
+</ul>
+<p>No existe un espacio de color que siempre sea mejor. La elección depende del fondo, la iluminación y de si las frutas están maduras, manchadas o parcialmente ocultas.</p>
+<div id="7c0e7974" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>frutas_rgb <span class="op">=</span> banco[<span class="st">"frutas.jpg"</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>frutas_hsv <span class="op">=</span> cv2.cvtColor(frutas_rgb, cv2.COLOR_RGB2HSV)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>frutas_lab <span class="op">=</span> cv2.cvtColor(frutas_rgb, cv2.COLOR_RGB2LAB)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">4</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">7</span>))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>vistas_color <span class="op">=</span> [</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    (frutas_rgb, <span class="st">"RGB"</span>, <span class="va">None</span>),</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    (frutas_hsv[:, :, <span class="dv">0</span>], <span class="st">"HSV: tono"</span>, <span class="st">"hsv"</span>),</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    (frutas_hsv[:, :, <span class="dv">1</span>], <span class="st">"HSV: saturacion"</span>, <span class="st">"gray"</span>),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    (frutas_hsv[:, :, <span class="dv">2</span>], <span class="st">"HSV: brillo"</span>, <span class="st">"gray"</span>),</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    (frutas_lab[:, :, <span class="dv">0</span>], <span class="st">"Lab: luminosidad"</span>, <span class="st">"gray"</span>),</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    (frutas_lab[:, :, <span class="dv">1</span>], <span class="st">"Lab: canal a"</span>, <span class="st">"RdBu"</span>),</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    (frutas_lab[:, :, <span class="dv">2</span>], <span class="st">"Lab: canal b"</span>, <span class="st">"RdBu"</span>),</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    (resultados_banco[<span class="st">"frutas.jpg"</span>][<span class="st">"refinada"</span>], <span class="st">"Mascara por intensidad"</span>, <span class="st">"gray"</span>),</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, (imagen, titulo, mapa) <span class="kw">in</span> <span class="bu">zip</span>(axs.ravel(), vistas_color):</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    ax.imshow(imagen, cmap<span class="op">=</span>mapa, vmin<span class="op">=</span><span class="dv">0</span> <span class="cf">if</span> mapa <span class="op">==</span> <span class="st">"hsv"</span> <span class="cf">else</span> <span class="va">None</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>              vmax<span class="op">=</span><span class="dv">179</span> <span class="cf">if</span> mapa <span class="op">==</span> <span class="st">"hsv"</span> <span class="cf">else</span> <span class="va">None</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    ax.set_title(titulo)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axs.ravel():</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    ax.axis(<span class="st">"off"</span>)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Unidad3_Practica_Integradora_files/figure-html/cell-5-output-1.png" width="1334" height="530" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="segmentación-no-supervisada-por-color-con-k-means" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="segmentación-no-supervisada-por-color-con-k-means"><span class="header-section-number">5.2</span> Segmentación no supervisada por color con k-means</h3>
+<p>En lugar de fijar manualmente los colores, k-means puede encontrar grupos de píxeles en el espacio HSV. Aquí usamos tono, saturación y brillo como variables. Los centroides no reciben nombres como “manzana” o “naranja” de manera automática: primero hay que observarlos y relacionarlos con las regiones de la imagen.</p>
+<div id="b7486b88" class="cell" data-fig-height="5" data-fig-width="14" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pixeles_hsv <span class="op">=</span> frutas_hsv.reshape((<span class="op">-</span><span class="dv">1</span>, <span class="dv">3</span>)).astype(np.float32)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>criterio_color <span class="op">=</span> (</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    cv2.TERM_CRITERIA_EPS <span class="op">+</span> cv2.TERM_CRITERIA_MAX_ITER,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="dv">50</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.2</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>_, etiquetas_color, centros_color <span class="op">=</span> cv2.kmeans(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    pixeles_hsv,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="dv">4</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="va">None</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    criterio_color,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="dv">12</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    cv2.KMEANS_PP_CENTERS,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>etiquetas_color <span class="op">=</span> etiquetas_color.reshape(frutas_hsv.shape[:<span class="dv">2</span>])</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>paleta <span class="op">=</span> np.array([</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">230</span>, <span class="dv">30</span>, <span class="dv">30</span>],</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">30</span>, <span class="dv">180</span>, <span class="dv">70</span>],</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">245</span>, <span class="dv">190</span>, <span class="dv">35</span>],</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">150</span>, <span class="dv">70</span>, <span class="dv">190</span>],</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>], dtype<span class="op">=</span>np.uint8)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>segmentacion_color <span class="op">=</span> paleta[etiquetas_color]</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">5</span>))</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].imshow(frutas_rgb)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].set_title(<span class="st">"Original"</span>)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].imshow(segmentacion_color)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_title(<span class="st">"K-means en HSV (K=4)"</span>)</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">2</span>].imshow(etiquetas_color, cmap<span class="op">=</span><span class="st">"tab10"</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">2</span>].set_title(<span class="st">"Etiquetas de los grupos"</span>)</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axs:</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    ax.axis(<span class="st">"off"</span>)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Centros HSV [H, S, V]:"</span>)</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.<span class="bu">round</span>(centros_color, <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Unidad3_Practica_Integradora_files/figure-html/cell-6-output-1.png" width="1334" height="307" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Centros HSV [H, S, V]:
+[[ 16.4 234.5  97.4]
+ [173.5 231.  117.7]
+ [ 27.5 137.9 199.4]
+ [ 17.5 242.2 212.3]]</code></pre>
+</div>
+</div>
+<p>Una estrategia reproducible consiste en seleccionar grupos con saturación alta. Eso suele excluir fondos grises o blancos, pero no necesariamente separa una fruta de otra si comparten colores. La selección siguiente es una regla de segmentación, no una identificación semántica.</p>
+<div id="24d0b74f" class="cell" data-fig-height="5" data-fig-width="14" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>saturaciones <span class="op">=</span> centros_color[:, <span class="dv">1</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>grupos_color <span class="op">=</span> np.flatnonzero(saturaciones <span class="op">&gt;</span> np.median(saturaciones))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>mascara_color <span class="op">=</span> np.isin(etiquetas_color, grupos_color).astype(np.uint8) <span class="op">*</span> <span class="dv">255</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>kernel_color <span class="op">=</span> cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (<span class="dv">7</span>, <span class="dv">7</span>))</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>mascara_color_refinada <span class="op">=</span> cv2.morphologyEx(</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    mascara_color, cv2.MORPH_OPEN, kernel_color, iterations<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>mascara_color_refinada <span class="op">=</span> cv2.morphologyEx(</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    mascara_color_refinada, cv2.MORPH_CLOSE, kernel_color, iterations<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">5</span>))</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].imshow(mascara_color, cmap<span class="op">=</span><span class="st">"gray"</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].set_title(<span class="st">"Mascara por saturacion"</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].imshow(mascara_color_refinada, cmap<span class="op">=</span><span class="st">"gray"</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_title(<span class="st">"Mascara refinada"</span>)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">2</span>].imshow(frutas_rgb)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">2</span>].imshow(mascara_color_refinada, cmap<span class="op">=</span><span class="st">"Reds"</span>, alpha<span class="op">=</span><span class="fl">0.35</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">2</span>].set_title(<span class="st">"Superposicion sobre RGB"</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axs:</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    ax.axis(<span class="st">"off"</span>)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>porcentaje_color <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> np.mean(mascara_color_refinada <span class="op">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Porcentaje segmentado por color: </span><span class="sc">{</span>porcentaje_color<span class="sc">:.2f}</span><span class="ss">%"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Unidad3_Practica_Integradora_files/figure-html/cell-7-output-1.png" width="1334" height="307" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Porcentaje segmentado por color: 82.85%</code></pre>
+</div>
+</div>
+</section>
+<section id="de-la-segmentación-a-la-identificación" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="de-la-segmentación-a-la-identificación"><span class="header-section-number">5.3</span> De la segmentación a la identificación</h3>
+<p>Después de obtener una máscara, se pueden separar regiones conectadas y calcular descriptores. Una primera tabla puede incluir:</p>
+<ul>
+<li><strong>Área:</strong> cantidad de píxeles de cada región.</li>
+<li><strong>Centroide:</strong> posición de la región en la imagen.</li>
+<li><strong>Color medio:</strong> promedio de <code>H</code>, <code>S</code> y <code>V</code> dentro de la región.</li>
+<li><strong>Circularidad:</strong> <span class="math inline">\(4\pi A/P^2\)</span>, donde <span class="math inline">\(A\)</span> es el área y <span class="math inline">\(P\)</span> el perímetro.</li>
+</ul>
+<div id="08cdb1a3" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>num_componentes, etiquetas_objetos, estadisticas, centroides <span class="op">=</span> (</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    cv2.connectedComponentsWithStats(mascara_color_refinada, connectivity<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>filas_objetos <span class="op">=</span> []</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> objeto <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, num_componentes):</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    area <span class="op">=</span> <span class="bu">int</span>(estadisticas[objeto, cv2.CC_STAT_AREA])</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> area <span class="op">&lt;</span> <span class="dv">100</span>:</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    region <span class="op">=</span> etiquetas_objetos <span class="op">==</span> objeto</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    tono_medio <span class="op">=</span> <span class="bu">float</span>(np.mean(frutas_hsv[:, :, <span class="dv">0</span>][region]))</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    saturacion_media <span class="op">=</span> <span class="bu">float</span>(np.mean(frutas_hsv[:, :, <span class="dv">1</span>][region]))</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    contornos, _ <span class="op">=</span> cv2.findContours(</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        region.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    perimetro <span class="op">=</span> cv2.arcLength(<span class="bu">max</span>(contornos, key<span class="op">=</span>cv2.contourArea), <span class="va">True</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    circularidad <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> np.pi <span class="op">*</span> area <span class="op">/</span> (perimetro <span class="op">**</span> <span class="dv">2</span>) <span class="cf">if</span> perimetro <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    x_centro, y_centro <span class="op">=</span> centroides[objeto]</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    filas_objetos.append({</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">"objeto"</span>: objeto,</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"area"</span>: area,</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"centroide x"</span>: x_centro,</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">"centroide y"</span>: y_centro,</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">"tono medio"</span>: tono_medio,</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">"saturacion media"</span>: saturacion_media,</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">"circularidad"</span>: circularidad,</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>tabla_objetos <span class="op">=</span> pd.DataFrame(filas_objetos)</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>tabla_objetos.<span class="bu">round</span>({</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"centroide x"</span>: <span class="dv">1</span>,</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">"centroide y"</span>: <span class="dv">1</span>,</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tono medio"</span>: <span class="dv">1</span>,</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"saturacion media"</span>: <span class="dv">1</span>,</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"circularidad"</span>: <span class="dv">3</span>,</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">objeto</th>
+<th data-quarto-table-cell-role="th">area</th>
+<th data-quarto-table-cell-role="th">centroide x</th>
+<th data-quarto-table-cell-role="th">centroide y</th>
+<th data-quarto-table-cell-role="th">tono medio</th>
+<th data-quarto-table-cell-role="th">saturacion media</th>
+<th data-quarto-table-cell-role="th">circularidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>1</td>
+<td>593736</td>
+<td>534.7</td>
+<td>349.3</td>
+<td>21.3</td>
+<td>236.2</td>
+<td>0.304</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>8</td>
+<td>248</td>
+<td>464.8</td>
+<td>276.4</td>
+<td>15.9</td>
+<td>224.0</td>
+<td>0.418</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>9</td>
+<td>266</td>
+<td>178.8</td>
+<td>279.8</td>
+<td>12.6</td>
+<td>222.0</td>
+<td>0.577</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>10</td>
+<td>143</td>
+<td>425.4</td>
+<td>290.4</td>
+<td>14.4</td>
+<td>219.5</td>
+<td>0.657</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>12</td>
+<td>221</td>
+<td>367.9</td>
+<td>299.7</td>
+<td>15.6</td>
+<td>226.6</td>
+<td>0.467</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Esta tabla todavía no clasifica frutas por sí sola. Para identificar tipos de fruta se necesitaría un conjunto de entrenamiento con ejemplos etiquetados y características comparables. Por ejemplo, se podrían usar color medio, circularidad, textura y descriptores de forma para entrenar un clasificador.</p>
+</section>
+<section id="limitaciones-y-preguntas" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="limitaciones-y-preguntas"><span class="header-section-number">5.4</span> Limitaciones y preguntas</h3>
+<ul>
+<li>¿Qué ocurre si una fruta tiene zonas verdes y maduras al mismo tiempo?</li>
+<li>¿Qué pasa si el fondo tiene un color parecido al de la fruta?</li>
+<li>¿La iluminación modifica el tono, la saturación o principalmente el brillo?</li>
+<li>¿Qué frutas se tocan y por eso aparecen como una sola componente?</li>
+<li>¿Es mejor elegir los grupos por saturación, por tono o manualmente?</li>
+<li>¿Qué errores serían más graves: perder una fruta o incluir parte del fondo?</li>
+</ul>
+<p>Como extensión, compara k-means en gris, RGB, HSV y Lab usando el mismo valor de <span class="math inline">\(K\)</span>. Después justifica qué representación usarías para un sistema de conteo y qué representación usarías para un sistema de identificación.</p>
+</section>
+</section>
+<section id="caso-aplicado-radiografía" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="caso-aplicado-radiografía"><span class="header-section-number">6</span> Caso aplicado: radiografía</h2>
+<p>La radiografía es útil para estudiar bajo contraste y estructuras internas. Canny puede resaltar corticales y articulaciones, pero también textura ósea. Otsu o k-means pueden producir una primera máscara de las zonas radiopacas, pero no garantizan aislar una estructura anatómica concreta.</p>
+<p>Es importante distinguir dos objetivos:</p>
+<ul>
+<li><strong>Segmentar la mano completa:</strong> una máscara global o k-means puede ser un punto de partida.</li>
+<li><strong>Localizar una fractura o una articulación:</strong> se necesita analizar regiones, bordes y contexto; no basta con elegir automáticamente el grupo más oscuro o más claro.</li>
+</ul>
+<p>Este ejemplo es educativo y no constituye diagnóstico médico.</p>
+</section>
+<section id="caso-aplicado-satélite-e-imágenes-aéreas" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="caso-aplicado-satélite-e-imágenes-aéreas"><span class="header-section-number">7</span> Caso aplicado: satélite e imágenes aéreas</h2>
+<p>Para estudiar una aplicación satelital se necesitaría una imagen RGB con al menos agua, vegetación, suelo desnudo y zona urbana. Con ella se podría:</p>
+<ul>
+<li>usar k-means para agrupar coberturas;</li>
+<li>usar umbralización para extraer agua o vegetación;</li>
+<li>usar bordes para localizar carreteras y límites de parcelas;</li>
+<li>usar morfología para eliminar regiones pequeñas.</li>
+</ul>
+<p>Una extensión especialmente interesante sería añadir una imagen multiespectral con banda roja e infrarrojo cercano. En ese caso se puede calcular el NDVI y comparar una clasificación basada en color/intensidad con una basada en un índice físico. La variación atmosférica y de iluminación hace importante comparar umbrales globales y locales.</p>
+</section>
+<section id="otras-aplicaciones" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="otras-aplicaciones"><span class="header-section-number">8</span> Otras aplicaciones</h2>
+<p><strong>Inspección industrial.</strong> Canny permite localizar grietas y contornos; la umbralización separa defectos del material y la morfología limpia partículas pequeñas. El criterio de éxito debe indicar si es peor perder un defecto o marcar una región correcta como defectuosa.</p>
+<p><strong>Documentos y texto.</strong> Otsu puede separar tinta y papel cuando el histograma es bimodal. El umbral adaptativo suele ser mejor con sombras, arrugas o iluminación desigual.</p>
+<p><strong>Microscopía.</strong> K-means puede separar células o niveles de tinción cuando existen grupos distinguibles de intensidad o color. Apertura y cierre ayudan a quitar partículas y rellenar huecos.</p>
+<p><strong>Robótica.</strong> Los bordes y máscaras permiten localizar piezas, estimar orientación y calcular área, centroide o perímetro antes de una etapa de reconocimiento.</p>
+</section>
+<section id="actividad-de-análisis" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="actividad-de-análisis"><span class="header-section-number">9</span> Actividad de análisis</h2>
+<p>Para cada grupo de imágenes, responde:</p>
+<ol type="1">
+<li>¿Qué método produce la representación más útil para el objetivo elegido?</li>
+<li>¿Qué errores aparecen: ruido, pérdida de regiones, huecos, fragmentación o inclusión del fondo?</li>
+<li>¿Qué relación existe entre el histograma y el resultado de Otsu?</li>
+<li>¿Es razonable elegir siempre el grupo más oscuro en k-means?</li>
+<li>¿Qué cambió después de la apertura y el cierre?</li>
+<li>¿Qué método usarías en una aplicación real y qué parámetro validarías?</li>
+</ol>
+<p>Como reto, repite k-means con <span class="math inline">\(K=2\)</span> y <span class="math inline">\(K=4\)</span>, cambia los umbrales de Canny y compara <code>blockSize=15</code> frente a <code>blockSize=51</code> en el umbral adaptativo.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
