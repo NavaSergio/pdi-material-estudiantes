@@ -4309,7 +4309,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Unidad2/Unidad2_Practica_Integradora.html" class="sidebar-item-text sidebar-link">
+  <a href="../Unidad2/Unidad2_Practica_Integradora.ipynb" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Práctica integradora</span></a>
   </div>
 </li>
@@ -4346,6 +4346,47 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../Unidad3/Unidad3_Practica_Integradora.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Práctica integradora</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad3/Unidad3_Practica_Integradora.ipynb" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebook descargable</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 4</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad4/clase_1_descriptores_clasicos_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descriptores clásicos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad4/clase_2_feature_fusion_pca_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fusión de características y PCA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad4/ejemplo_real_clase_2_fusion_pca_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ejemplo real de fusión y PCA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad4/actividad_integral_mascotas_unidad4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Actividad integradora: mascotas</span></a>
   </div>
 </li>
       </ul>
@@ -4423,7 +4464,7 @@ Estas operaciones son esenciales en el preprocesamiento de imágenes antes de ap
 </section>
 <section id="configuración-inicial" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="configuración-inicial"><span class="header-section-number">2</span> Configuración inicial</h2>
-<div id="6e07b1fa" class="cell" data-execution_count="1">
+<div id="a8c713da" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
@@ -4638,7 +4679,7 @@ y=\frac{15}{1.5}=10.
 <li>el mapeo inverso determina qué posición original corresponde a cada celda nueva;</li>
 <li>la interpolación decide qué intensidad o color debe asignarse.</li>
 </ul>
-<div id="66adcd64" class="cell" data-execution_count="2">
+<div id="9f57ebe0" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Imagen al doble de tamaño</span></span>
@@ -4741,7 +4782,7 @@ h&#39; = y_1 - y_0,\qquad w&#39; = x_1 - x_0
 \]</span></p>
 <section id="implementación-numpyopencv" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="implementación-numpyopencv"><span class="header-section-number">4.1</span> Implementación (NumPy/OpenCV)</h3>
-<div id="c849928a" class="cell" data-execution_count="3">
+<div id="c08e8069" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recorte de una región específica (y1:y2, x1:x2)</span></span>
@@ -4816,7 +4857,7 @@ c = -s\sin\theta,\quad d = s\cos\theta
 t_x = (1-a)c_x - b c_y,\qquad
 t_y = b c_x + (1-d)c_y
 \]</span></p>
-<div id="f88041c2" class="cell" data-execution_count="4">
+<div id="51aacc21" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtener dimensiones</span></span>
@@ -4853,7 +4894,7 @@ M =
 0 &amp; 1 &amp; 30
 \end{bmatrix}
 \]</span></p>
-<div id="05c73cd7" class="cell" data-execution_count="5">
+<div id="2ac9067f" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de traslación: mover 50 px a la derecha y 30 px abajo</span></span>
@@ -4881,7 +4922,7 @@ C(x,y)=A(x,y)+B(x,y)
 \]</span></p>
 <p>En OpenCV conviene utilizar <code>cv2.add()</code> en lugar del operador <code>+</code>. La función de OpenCV realiza una suma saturada: si el resultado supera el máximo permitido por el tipo de dato, se conserva ese máximo en lugar de producir un desbordamiento.</p>
 <p>Para observar el efecto, se combinan una imagen original y una versión más clara de la misma imagen.</p>
-<div id="1603cd94" class="cell" data-execution_count="6">
+<div id="b86cacc5" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adición píxel a píxel con saturación</span></span>
@@ -4913,7 +4954,7 @@ C(x,y)=A(x,y)+B(x,y)
 <p><span class="math display">\[
 C(x,y)=\alpha A(x,y)+\beta B(x,y)+\gamma
 \]</span></p>
-<div id="30a892b9" class="cell" data-execution_count="7">
+<div id="4b2518bd" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mezcla <span class="op">=</span> cv2.addWeighted(imagen_a, <span class="fl">0.5</span>, imagen_b, <span class="fl">0.5</span>, <span class="dv">0</span>)</span>
@@ -4946,7 +4987,7 @@ C(x,y)=\alpha A(x,y)+\beta B(x,y)+\gamma
 C(x,y)=A(x,y)-B(x,y)
 \]</span></p>
 <p><code>cv2.subtract()</code> también utiliza saturación: los resultados negativos se llevan a cero. Para visualizar cambios independientemente de su signo, suele ser más conveniente utilizar <code>cv2.absdiff()</code>.</p>
-<div id="fb041626" class="cell" data-execution_count="8">
+<div id="dfb58644" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos una segunda captura desplazando ligeramente la imagen original.</span></span>
@@ -4990,7 +5031,7 @@ C(x,y)=A(x,y)-B(x,y)
 <li><code>cv2.bitwise_not()</code> invierte una máscara.</li>
 </ul>
 <p>El siguiente ejemplo utiliza un círculo y un rectángulo para hacer visibles las regiones de intersección, unión y diferencia.</p>
-<div id="798ec629" class="cell" data-execution_count="9">
+<div id="b742295e" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Máscaras binarias sintéticas para visualizar las operaciones lógicas.</span></span>

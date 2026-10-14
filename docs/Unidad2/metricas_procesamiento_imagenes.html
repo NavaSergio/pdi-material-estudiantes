@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Curso Tratamiento Digital de Imágenes">
-<meta name="dcterms.date" content="2026-09-17">
+<meta name="dcterms.date" content="2026-09-30">
 
 <title>Una revisión de las métricas aplicadas en el procesamiento de imágenes – Procesamiento Digital de Imágenes</title>
 <style>
@@ -275,7 +275,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Unidad2/Unidad2_Practica_Integradora.html" class="sidebar-item-text sidebar-link">
+  <a href="../Unidad2/Unidad2_Practica_Integradora.ipynb" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Práctica integradora</span></a>
   </div>
 </li>
@@ -312,6 +312,47 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../Unidad3/Unidad3_Practica_Integradora.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Práctica integradora</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad3/Unidad3_Practica_Integradora.ipynb" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebook descargable</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 4</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad4/clase_1_descriptores_clasicos_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descriptores clásicos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad4/clase_2_feature_fusion_pca_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fusión de características y PCA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad4/ejemplo_real_clase_2_fusion_pca_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ejemplo real de fusión y PCA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad4/actividad_integral_mascotas_unidad4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Actividad integradora: mascotas</span></a>
   </div>
 </li>
       </ul>
@@ -402,7 +443,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 17, 2026</p>
+      <p class="date">September 30, 2026</p>
     </div>
   </div>
   
@@ -447,7 +488,7 @@ window.Quarto = {
 </ul>
 </section>
 </div><div class="column" style="width:40%;">
-<div id="c2f7041e" class="cell" data-fig-height="3" data-fig-width="4" data-execution_count="2">
+<div id="adf929de" class="cell" data-fig-height="3" data-fig-width="4" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -474,7 +515,7 @@ window.Quarto = {
 </section>
 <section id="ejemplo-base-en-python" class="level2" data-number="0.3">
 <h2 data-number="0.3" class="anchored" data-anchor-id="ejemplo-base-en-python"><span class="header-section-number">0.3</span> Ejemplo base en Python</h2>
-<div id="4b27eb5b" class="cell" data-execution_count="3">
+<div id="c1971079" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
@@ -504,7 +545,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="802bb966" class="cell" data-execution_count="4">
+<div id="87389ad3" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mse <span class="op">=</span> mean_squared_error(original, ruido)</span>
@@ -513,8 +554,8 @@ window.Quarto = {
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"PSNR: </span><span class="sc">{</span>psnr<span class="sc">:.2f}</span><span class="ss"> dB"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>MSE: 0.002415
-PSNR: 26.17 dB</code></pre>
+<pre><code>MSE: 0.002411
+PSNR: 26.18 dB</code></pre>
 </div>
 </div>
 <hr>
@@ -591,7 +632,7 @@ PSNR = 10 \cdot \log_{10}\left(\frac{(maxI)^2}{MSE}\right)
 </section>
 <section id="ejemplo-compresión-jpeg" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="ejemplo-compresión-jpeg"><span class="header-section-number">1.3</span> Ejemplo: Compresión JPEG</h2>
-<div id="11d891b4" class="cell" data-execution_count="5">
+<div id="a932b8e7" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardamos y leemos con compresión JPEG</span></span>
@@ -670,7 +711,7 @@ J(A,B) = \frac{|A \cap B|}{|A \cup B|}
 </section>
 <section id="ejemplo-práctico-coeficiente-de-jaccard" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="ejemplo-práctico-coeficiente-de-jaccard"><span class="header-section-number">1.5</span> Ejemplo práctico: Coeficiente de Jaccard</h2>
-<div id="2641c17b" class="cell" data-execution_count="6">
+<div id="606ee20b" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -707,7 +748,7 @@ J(A,B) = \frac{|A \cap B|}{|A \cup B|}
 </div>
 </div>
 <hr>
-<div id="c6e0258b" class="cell" data-execution_count="7">
+<div id="47848190" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage.filters <span class="im">import</span> threshold_otsu</span>
@@ -739,7 +780,7 @@ J(A,B) = \frac{|A \cap B|}{|A \cup B|}
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Coeficiente de Jaccard: 0.9864</code></pre>
+<pre><code>Coeficiente de Jaccard: 0.9868</code></pre>
 </div>
 </div>
 <hr>
@@ -779,7 +820,7 @@ SSIM(x,y) = \frac{(2\mu_x\mu_y + c_1)(2\sigma_{xy} + c_2)}{(\mu_x^2 + \mu_y^2 + 
 <section id="ejmplo-práctico-calidad-perceptual-ssim" class="level2 smaller scrollable" data-number="1.7">
 <h2 class="smaller scrollable anchored" data-number="1.7" data-anchor-id="ejmplo-práctico-calidad-perceptual-ssim"><span class="header-section-number">1.7</span> Ejmplo práctico calidad perceptual: SSIM</h2>
 <p>Calidad perceptual entre original y jpeg</p>
-<div id="2c88e0bb" class="cell" data-execution_count="8">
+<div id="a6d9c438" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ssim, diff <span class="op">=</span> structural_similarity(original, jpeg, full<span class="op">=</span><span class="va">True</span>, data_range<span class="op">=</span><span class="fl">1.0</span>)</span>
@@ -789,7 +830,7 @@ SSIM(x,y) = \frac{(2\mu_x\mu_y + c_1)(2\sigma_{xy} + c_2)}{(\mu_x^2 + \mu_y^2 + 
 <pre><code>np.float64(0.8545161159906697)</code></pre>
 </div>
 </div>
-<div id="80cd722b" class="cell" data-execution_count="9">
+<div id="5a1cc15f" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar mapa de diferencias SSIM</span></span>
@@ -812,7 +853,7 @@ SSIM(x,y) = \frac{(2\mu_x\mu_y + c_1)(2\sigma_{xy} + c_2)}{(\mu_x^2 + \mu_y^2 + 
 <h2 class="smaller scrollable anchored" data-number="1.8" data-anchor-id="limitaciones-del-mse-y-psnr"><span class="header-section-number">1.8</span> Limitaciones del MSE y PSNR</h2>
 <div class="columns">
 <div class="column" style="width:25%;">
-<div id="425ae3e2" class="cell" data-execution_count="10">
+<div id="13b46a27" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear dos imágenes con mismo MSE pero distinta percepción</span></span>
@@ -836,12 +877,12 @@ SSIM(x,y) = \frac{(2\mu_x\mu_y + c_1)(2\sigma_{xy} + c_2)}{(\mu_x^2 + \mu_y^2 + 
 <span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"MSE desplazamiento: </span><span class="sc">{</span>mse2<span class="sc">:.6f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>MSE ruido: 0.004949
+<pre><code>MSE ruido: 0.005241
 MSE desplazamiento: 0.010000</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:75%;">
-<div id="02c2de1c" class="cell" data-execution_count="11">
+<div id="9fdf1bc6" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>))</span>
@@ -932,7 +973,7 @@ Recall = \frac{TP}{TP+FN}
 </section>
 <section id="matriz-de-confusión" class="level3" data-number="2.1.3">
 <h3 data-number="2.1.3" class="anchored" data-anchor-id="matriz-de-confusión"><span class="header-section-number">2.1.3</span> Matriz de confusión</h3>
-<div id="4f793718" class="cell" data-execution_count="12">
+<div id="203c82e3" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix, classification_report</span>
@@ -971,9 +1012,9 @@ Recall = \frac{TP}{TP+FN}
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Precisión: 0.9947
-Sensibilidad (Recall): 0.9917
-F1-Score: 0.9932</code></pre>
+<pre><code>Precisión: 0.9949
+Sensibilidad (Recall): 0.9918
+F1-Score: 0.9933</code></pre>
 </div>
 </div>
 <hr>
@@ -981,7 +1022,7 @@ F1-Score: 0.9932</code></pre>
 </section>
 <section id="comparación-de-métricas" class="level2 smaller" data-number="2.2">
 <h2 class="smaller anchored" data-number="2.2" data-anchor-id="comparación-de-métricas"><span class="header-section-number">2.2</span> Comparación de Métricas</h2>
-<div id="d38dd99f" class="cell" data-execution_count="13">
+<div id="4f87e95f" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla comparativa de diferentes degradaciones</span></span>
@@ -1006,7 +1047,7 @@ F1-Score: 0.9932</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Degradación    MSE  PSNR (dB)   SSIM
-Ruido Gaussiano 0.0024    26.1706 0.5217
+Ruido Gaussiano 0.0024    26.1772 0.5210
       JPEG Q=20 0.0009    30.2380 0.8545
            Blur 0.0050    22.9801 0.6454</code></pre>
 </div>

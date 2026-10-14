@@ -277,7 +277,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Unidad2/Unidad2_Practica_Integradora.html" class="sidebar-item-text sidebar-link">
+  <a href="../Unidad2/Unidad2_Practica_Integradora.ipynb" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Práctica integradora</span></a>
   </div>
 </li>
@@ -320,6 +320,41 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../Unidad3/Unidad3_Practica_Integradora.ipynb" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Notebook descargable</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 4</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad4/clase_1_descriptores_clasicos_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descriptores clásicos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad4/clase_2_feature_fusion_pca_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fusión de características y PCA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad4/ejemplo_real_clase_2_fusion_pca_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ejemplo real de fusión y PCA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad4/actividad_integral_mascotas_unidad4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Actividad integradora: mascotas</span></a>
   </div>
 </li>
       </ul>
@@ -431,7 +466,7 @@ window.Quarto = {
 </tbody>
 </table>
 <p><code>messi5.jpg</code> y <code>lena.jpg</code> son muestras oficiales de OpenCV. <code>astronaut</code> y <code>coins</code> se cargan desde <code>skimage.data</code>, por lo que no es necesario copiar esos archivos al repositorio.</p>
-<div id="275c2025" class="cell" data-fig-height="8" data-fig-width="14" data-execution_count="1">
+<div id="88d6ee45" class="cell" data-fig-height="8" data-fig-width="14" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
@@ -486,7 +521,7 @@ window.Quarto = {
 <li><strong>Apertura y cierre</strong>, para refinar la máscara del grupo más oscuro.</li>
 </ol>
 <p>La elección del grupo más oscuro es solo una hipótesis de trabajo. En una aplicación real se debe seleccionar el grupo según el objetivo y la imagen.</p>
-<div id="bb43a18d" class="cell" data-fig-height="9" data-fig-width="14" data-execution_count="2">
+<div id="103bfb66" class="cell" data-fig-height="9" data-fig-width="14" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> comparar_metodos(imagen_rgb):</span>
@@ -620,7 +655,7 @@ window.Quarto = {
 <section id="comparación-cuantitativa-sencilla" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="comparación-cuantitativa-sencilla"><span class="header-section-number">4</span> Comparación cuantitativa sencilla</h2>
 <p>Estas medidas no dicen por sí solas cuál resultado es correcto, porque no contamos con una máscara de referencia. Ayudan a detectar resultados extremos: una máscara casi completamente blanca puede incluir demasiado fondo y una máscara con muchos componentes pequeños puede estar capturando ruido.</p>
-<div id="0e512868" class="cell" data-execution_count="3">
+<div id="b9b4f44c" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> resumen_mascara(mascara):</span>
@@ -649,7 +684,7 @@ window.Quarto = {
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>tabla_mascaras <span class="op">=</span> pd.DataFrame(filas)</span>
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>tabla_mascaras.<span class="bu">round</span>({<span class="st">"porcentaje blanco"</span>: <span class="dv">2</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -685,9 +720,9 @@ window.Quarto = {
 <th data-quarto-table-cell-role="th">2</th>
 <td>frutas.jpg</td>
 <td>refinada</td>
-<td>41.22</td>
-<td>78</td>
-<td>122266</td>
+<td>40.77</td>
+<td>75</td>
+<td>121478</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">3</th>
@@ -757,9 +792,9 @@ window.Quarto = {
 <th data-quarto-table-cell-role="th">11</th>
 <td>messi5.jpg</td>
 <td>refinada</td>
-<td>45.36</td>
-<td>20</td>
-<td>67323</td>
+<td>43.86</td>
+<td>22</td>
+<td>65040</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">12</th>
@@ -829,9 +864,9 @@ window.Quarto = {
 <th data-quarto-table-cell-role="th">20</th>
 <td>coins</td>
 <td>refinada</td>
-<td>42.19</td>
+<td>42.76</td>
 <td>3</td>
-<td>49046</td>
+<td>49709</td>
 </tr>
 </tbody>
 </table>
@@ -852,7 +887,7 @@ window.Quarto = {
 <li><strong>Lab:</strong> separa una luminosidad (<code>L</code>) de dos componentes cromáticas. Puede ser más estable cuando cambia la iluminación, aunque sus umbrales requieren más calibración.</li>
 </ul>
 <p>No existe un espacio de color que siempre sea mejor. La elección depende del fondo, la iluminación y de si las frutas están maduras, manchadas o parcialmente ocultas.</p>
-<div id="7c0e7974" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="4">
+<div id="c136ddb3" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>frutas_rgb <span class="op">=</span> banco[<span class="st">"frutas.jpg"</span>]</span>
@@ -891,7 +926,7 @@ window.Quarto = {
 <section id="segmentación-no-supervisada-por-color-con-k-means" class="level3" data-number="5.2">
 <h3 data-number="5.2" class="anchored" data-anchor-id="segmentación-no-supervisada-por-color-con-k-means"><span class="header-section-number">5.2</span> Segmentación no supervisada por color con k-means</h3>
 <p>En lugar de fijar manualmente los colores, k-means puede encontrar grupos de píxeles en el espacio HSV. Aquí usamos tono, saturación y brillo como variables. Los centroides no reciben nombres como “manzana” o “naranja” de manera automática: primero hay que observarlos y relacionarlos con las regiones de la imagen.</p>
-<div id="b7486b88" class="cell" data-fig-height="5" data-fig-width="14" data-execution_count="5">
+<div id="4cb2df80" class="cell" data-fig-height="5" data-fig-width="14" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pixeles_hsv <span class="op">=</span> frutas_hsv.reshape((<span class="op">-</span><span class="dv">1</span>, <span class="dv">3</span>)).astype(np.float32)</span>
@@ -942,14 +977,14 @@ window.Quarto = {
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Centros HSV [H, S, V]:
-[[ 16.4 234.5  97.4]
- [173.5 231.  117.7]
- [ 27.5 137.9 199.4]
- [ 17.5 242.2 212.3]]</code></pre>
+[[ 17.5 242.2 212.2]
+ [ 27.5 137.7 199.5]
+ [ 16.4 234.5  97.3]
+ [173.5 231.1 117.6]]</code></pre>
 </div>
 </div>
 <p>Una estrategia reproducible consiste en seleccionar grupos con saturación alta. Eso suele excluir fondos grises o blancos, pero no necesariamente separa una fruta de otra si comparten colores. La selección siguiente es una regla de segmentación, no una identificación semántica.</p>
-<div id="24d0b74f" class="cell" data-fig-height="5" data-fig-width="14" data-execution_count="6">
+<div id="08c03fe0" class="cell" data-fig-height="5" data-fig-width="14" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>saturaciones <span class="op">=</span> centros_color[:, <span class="dv">1</span>]</span>
@@ -988,7 +1023,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Porcentaje segmentado por color: 82.85%</code></pre>
+<pre><code>Porcentaje segmentado por color: 82.90%</code></pre>
 </div>
 </div>
 </section>
@@ -1001,7 +1036,7 @@ window.Quarto = {
 <li><strong>Color medio:</strong> promedio de <code>H</code>, <code>S</code> y <code>V</code> dentro de la región.</li>
 <li><strong>Circularidad:</strong> <span class="math inline">\(4\pi A/P^2\)</span>, donde <span class="math inline">\(A\)</span> es el área y <span class="math inline">\(P\)</span> el perímetro.</li>
 </ul>
-<div id="08cdb1a3" class="cell" data-execution_count="7">
+<div id="e3f71b7f" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>num_componentes, etiquetas_objetos, estadisticas, centroides <span class="op">=</span> (</span>
@@ -1041,7 +1076,7 @@ window.Quarto = {
 <span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"circularidad"</span>: <span class="dv">3</span>,</span>
 <span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
 
@@ -1062,10 +1097,10 @@ window.Quarto = {
 <tr class="odd">
 <th data-quarto-table-cell-role="th">0</th>
 <td>1</td>
-<td>593736</td>
-<td>534.7</td>
-<td>349.3</td>
-<td>21.3</td>
+<td>594103</td>
+<td>534.8</td>
+<td>349.2</td>
+<td>21.4</td>
 <td>236.2</td>
 <td>0.304</td>
 </tr>
@@ -1092,12 +1127,12 @@ window.Quarto = {
 <tr class="even">
 <th data-quarto-table-cell-role="th">3</th>
 <td>10</td>
-<td>143</td>
-<td>425.4</td>
-<td>290.4</td>
-<td>14.4</td>
-<td>219.5</td>
-<td>0.657</td>
+<td>154</td>
+<td>425.6</td>
+<td>290.5</td>
+<td>14.5</td>
+<td>219.6</td>
+<td>0.755</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">4</th>
