@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>flujo – Procesamiento Digital de Imágenes</title>
+<title>Notebook en Google Colab: Pipeline interactivo – Procesamiento Digital de Imágenes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,23 +29,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4e663f3a4ff1a491e18bd6a28adf0390.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-4e663f3a4ff1a491e18bd6a28adf0390.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Procesamiento Digital de Imágenes</span>
     </a>
   </div>
@@ -95,31 +95,31 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./programa.html"> 
+    <a class="nav-link" href="../programa.html"> 
 <span class="menu-text">Programa</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./calendario.html"> 
+    <a class="nav-link" href="../calendario.html"> 
 <span class="menu-text">Calendario</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./actividades.html"> 
+    <a class="nav-link" href="../actividades.html"> 
 <span class="menu-text">Actividades</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./recursos.html"> 
+    <a class="nav-link" href="../recursos.html"> 
 <span class="menu-text">Recursos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./datasets.html"> 
+    <a class="nav-link" href="../datasets.html"> 
 <span class="menu-text">Datasets</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./Unidad1/lectura_imagenes_opencv.html" aria-current="page"> 
+    <a class="nav-link active" href="../Unidad1/lectura_imagenes_opencv.html" aria-current="page"> 
 <span class="menu-text">Unidades</span></a>
   </li>  
 </ul>
@@ -133,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Unidad5/Unidad5_Notebook_Colab_Pipeline_Interactivo.html">Unidad 5</a></li><li class="breadcrumb-item"><a href="../Unidad5/Unidad5_Notebook_Colab_Pipeline_Interactivo.html">Notebook en Colab (pipeline interactivo)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -156,19 +156,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Unidad1/Unidad1_00_Conceptos_Basicos.html" class="sidebar-item-text sidebar-link">
+  <a href="../Unidad1/Unidad1_00_Conceptos_Basicos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conceptos básicos de imágenes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Unidad1/lectura_imagenes_opencv.html" class="sidebar-item-text sidebar-link">
+  <a href="../Unidad1/lectura_imagenes_opencv.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lectura de imagenes con OpenCV</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Unidad1/Operaciones_Basicas.html" class="sidebar-item-text sidebar-link">
+  <a href="../Unidad1/Operaciones_Basicas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Operaciones basicas</span></a>
   </div>
 </li>
@@ -185,31 +185,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Unidad2/Unidad2_01_Realce_Imagenes.html" class="sidebar-item-text sidebar-link">
+  <a href="../Unidad2/Unidad2_01_Realce_Imagenes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Realce de imágenes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Unidad2/Unidad2_02_Transformaciones_Intensidad.html" class="sidebar-item-text sidebar-link">
+  <a href="../Unidad2/Unidad2_02_Transformaciones_Intensidad.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Transformaciones de intensidad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Unidad2/Unidad2_04_Operaciones_Morfologicas.html" class="sidebar-item-text sidebar-link">
+  <a href="../Unidad2/Unidad2_04_Operaciones_Morfologicas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Operadores morfológicos</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Unidad2/metricas_procesamiento_imagenes.html" class="sidebar-item-text sidebar-link">
+  <a href="../Unidad2/metricas_procesamiento_imagenes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Métricas de procesamiento</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Unidad2/Unidad2_Practica_Integradora.html" class="sidebar-item-text sidebar-link">
+  <a href="../Unidad2/Unidad2_Practica_Integradora.ipynb" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Práctica integradora</span></a>
   </div>
 </li>
@@ -226,26 +226,108 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Unidad3/Unidad3_01_Deteccion_Bordes.html" class="sidebar-item-text sidebar-link">
+  <a href="../Unidad3/Unidad3_01_Deteccion_Bordes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Detección de bordes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Unidad3/Unidad3_02_Umbralizacion_y_Mascaras.html" class="sidebar-item-text sidebar-link">
+  <a href="../Unidad3/Unidad3_02_Umbralizacion_y_Mascaras.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Umbralización y máscaras</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Unidad3/Unidad3_03_Agrupamiento_KMeans.html" class="sidebar-item-text sidebar-link">
+  <a href="../Unidad3/Unidad3_03_Agrupamiento_KMeans.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Segmentación por K-means</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Unidad3/Unidad3_Practica_Integradora.html" class="sidebar-item-text sidebar-link">
+  <a href="../Unidad3/Unidad3_Practica_Integradora.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Práctica integradora</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad3/Unidad3_Practica_Integradora.ipynb" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebook descargable</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 4</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad4/clase_1_descriptores_clasicos_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descriptores clásicos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad4/clase_2_feature_fusion_pca_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fusión de características y PCA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad4/ejemplo_real_clase_2_fusion_pca_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ejemplo real de fusión y PCA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad4/actividad_integral_mascotas_unidad4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Actividad integradora: mascotas</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 5</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad5/Unidad5_Notebook_Colab_Pipeline_Interactivo.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Notebook en Colab (pipeline interactivo)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad5/Unidad5_Introduccion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introducción al reconocimiento</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad5/Unidad5_01_Algoritmos_Supervisados_NoSupervisados_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algoritmos supervisados y no supervisados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad5/Unidad5_02_Evaluacion_Desempeno_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evaluación del desempeño</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad5/ejemplo_real_Unidad5_clasificacion_flores_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ejemplo de clasificación de flores</span></a>
   </div>
 </li>
       </ul>
@@ -260,28 +342,87 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#flujo-de-actualización-durante-el-semestre" id="toc-flujo-de-actualización-durante-el-semestre" class="nav-link active" data-scroll-target="#flujo-de-actualización-durante-el-semestre"><span class="header-section-number">1</span> Flujo de actualización durante el semestre</a></li>
+  <li><a href="#notebook-en-google-colab-flujo-completo" id="toc-notebook-en-google-colab-flujo-completo" class="nav-link active" data-scroll-target="#notebook-en-google-colab-flujo-completo"><span class="header-section-number">1</span> Notebook en Google Colab (flujo completo)</a>
+  <ul class="collapse">
+  <li><a href="#objetivo-didáctico" id="toc-objetivo-didáctico" class="nav-link" data-scroll-target="#objetivo-didáctico"><span class="header-section-number">1.1</span> Objetivo didáctico</a></li>
+  <li><a href="#abrir-en-colab" id="toc-abrir-en-colab" class="nav-link" data-scroll-target="#abrir-en-colab"><span class="header-section-number">1.2</span> Abrir en Colab</a></li>
+  <li><a href="#archivos" id="toc-archivos" class="nav-link" data-scroll-target="#archivos"><span class="header-section-number">1.3</span> Archivos</a></li>
+  <li><a href="#actividad-en-clase" id="toc-actividad-en-clase" class="nav-link" data-scroll-target="#actividad-en-clase"><span class="header-section-number">1.4</span> Actividad en clase</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Unidad5/Unidad5_Notebook_Colab_Pipeline_Interactivo.html">Unidad 5</a></li><li class="breadcrumb-item"><a href="../Unidad5/Unidad5_Notebook_Colab_Pipeline_Interactivo.html">Notebook en Colab (pipeline interactivo)</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Notebook en Google Colab: Pipeline interactivo</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="flujo-de-actualización-durante-el-semestre" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Flujo de actualización durante el semestre</h1>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="notebook-en-google-colab-flujo-completo" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Notebook en Google Colab (flujo completo)</h1>
+<p>En esta actividad podrás <strong>modificar el pipeline en vivo</strong> y observar el impacto de los cambios en:</p>
+<ul>
+<li><strong>Elección de algoritmo supervisado</strong> (Regresión Logística, SVM, Random Forest, kNN).</li>
+<li><strong>Selección de características</strong>:
+<ul>
+<li><strong>Color</strong> (histograma HSV)</li>
+<li><strong>Textura</strong> (GLCM)</li>
+<li><strong>Forma</strong> (momentos de Hu)</li>
+<li><strong>Fusión</strong> (concatenación de descriptores)</li>
+</ul></li>
+<li>Parámetros del modelo (por ejemplo: C en SVM, número de árboles en RF, k en kNN).</li>
+</ul>
+<section id="objetivo-didáctico" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="objetivo-didáctico"><span class="header-section-number">1.1</span> Objetivo didáctico</h2>
 <ol type="1">
-<li>Editas los .qmd en pdi-fuente.</li>
-<li>Ejecutas quarto render.</li>
-<li>Revisas la carpeta docs.</li>
-<li>Copias la salida a pdi-material-estudiantes/docs.</li>
-<li>Haces commit y push.</li>
-<li>GitHub Pages actualiza el sitio.</li>
+<li>Reforzar el concepto de <strong>pipeline completo</strong>: extracción → preprocesado → modelo → evaluación.</li>
+<li>Ilustrar <strong>trade-offs</strong> típicos (overfitting/underfitting) al variar parámetros.</li>
+<li>Comparar cómo cada familia de descriptores se comporta ante diferentes clases.</li>
+</ol>
+</section>
+<section id="abrir-en-colab" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="abrir-en-colab"><span class="header-section-number">1.2</span> Abrir en Colab</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://colab.research.google.com/github/navasergio/pdi-material-estudiantes/blob/main/pdi-fuente/Unidad5/Unidad5_Colab_Pipeline_Interactivo.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" class="img-fluid figure-img"></a></p>
+<figcaption>Open In Colab</figcaption>
+</figure>
+</div>
+</section>
+<section id="archivos" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="archivos"><span class="header-section-number">1.3</span> Archivos</h2>
+<ul>
+<li>Notebook: <a href="Unidad5_Colab_Pipeline_Interactivo.ipynb">Unidad5_Colab_Pipeline_Interactivo.ipynb</a></li>
+</ul>
+</section>
+<section id="actividad-en-clase" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="actividad-en-clase"><span class="header-section-number">1.4</span> Actividad en clase</h2>
+<ol type="1">
+<li>Comienza con <code>feature_set = fusion</code> y <code>model = svm</code> como referencia inicial.</li>
+<li>Cambia a solo color y discute qué clases se separan mejor.</li>
+<li>Cambia a textura y discute cuándo ayuda y cuándo no.</li>
+<li>Cambia a forma y analiza la sensibilidad a la segmentación y los bordes.</li>
+<li>Cambia el modelo (logreg → svm → rf → knn) y ajusta sus parámetros.</li>
 </ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

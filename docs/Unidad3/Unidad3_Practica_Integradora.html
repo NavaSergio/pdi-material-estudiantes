@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -78,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-4e663f3a4ff1a491e18bd6a28adf0390.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -359,6 +359,47 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 5</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad5/Unidad5_Notebook_Colab_Pipeline_Interactivo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebook en Colab (pipeline interactivo)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad5/Unidad5_Introduccion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introducción al reconocimiento</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad5/Unidad5_01_Algoritmos_Supervisados_NoSupervisados_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algoritmos supervisados y no supervisados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad5/Unidad5_02_Evaluacion_Desempeno_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evaluación del desempeño</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Unidad5/ejemplo_real_Unidad5_clasificacion_flores_handout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ejemplo de clasificación de flores</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -420,7 +461,7 @@ window.Quarto = {
 <h2 data-number="1" class="anchored" data-anchor-id="propósito"><span class="header-section-number">1</span> Propósito</h2>
 <p>Esta práctica reúne los temas de la Unidad 3 en un solo flujo: detección de bordes, umbralización global y adaptativa, agrupamiento por k-means y morfología. La meta no es encontrar un método universalmente mejor, sino explicar qué información aprovecha cada método y en qué tipo de imagen resulta más útil.</p>
 <p>Se compararán imágenes de objetos, escenas naturales, una radiografía, muestras clásicas de OpenCV y ejemplos de scikit-image. Todas las figuras se generan al renderizar este documento.</p>
-<p><strong>Recurso descargable:</strong> <a href="Unidad3_Practica_Integradora.ipynb">notebook ejecutable de la práctica</a></p>
+<p><strong>Recursos:</strong> - 📓 <a href="Unidad3_Practica_Integradora.ipynb">notebook ejecutable de la práctica</a> - 🚀 <a href="https://colab.research.google.com/github/NavaSergio/Curso_PDI/blob/main/pdi-fuente/Unidad3/Unidad3_Practica_Integradora.ipynb" target="_blank">Abrir en Google Colab</a></p>
 </section>
 <section id="banco-de-imágenes" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="banco-de-imágenes"><span class="header-section-number">2</span> Banco de imágenes</h2>
@@ -466,7 +507,7 @@ window.Quarto = {
 </tbody>
 </table>
 <p><code>messi5.jpg</code> y <code>lena.jpg</code> son muestras oficiales de OpenCV. <code>astronaut</code> y <code>coins</code> se cargan desde <code>skimage.data</code>, por lo que no es necesario copiar esos archivos al repositorio.</p>
-<div id="88d6ee45" class="cell" data-fig-height="8" data-fig-width="14" data-execution_count="1">
+<div id="e5b06028" class="cell" data-fig-height="8" data-fig-width="14" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
@@ -521,7 +562,7 @@ window.Quarto = {
 <li><strong>Apertura y cierre</strong>, para refinar la máscara del grupo más oscuro.</li>
 </ol>
 <p>La elección del grupo más oscuro es solo una hipótesis de trabajo. En una aplicación real se debe seleccionar el grupo según el objetivo y la imagen.</p>
-<div id="103bfb66" class="cell" data-fig-height="9" data-fig-width="14" data-execution_count="2">
+<div id="ead37162" class="cell" data-fig-height="9" data-fig-width="14" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> comparar_metodos(imagen_rgb):</span>
@@ -655,7 +696,7 @@ window.Quarto = {
 <section id="comparación-cuantitativa-sencilla" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="comparación-cuantitativa-sencilla"><span class="header-section-number">4</span> Comparación cuantitativa sencilla</h2>
 <p>Estas medidas no dicen por sí solas cuál resultado es correcto, porque no contamos con una máscara de referencia. Ayudan a detectar resultados extremos: una máscara casi completamente blanca puede incluir demasiado fondo y una máscara con muchos componentes pequeños puede estar capturando ruido.</p>
-<div id="b9b4f44c" class="cell" data-execution_count="3">
+<div id="16b8514b" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> resumen_mascara(mascara):</span>
@@ -887,7 +928,7 @@ window.Quarto = {
 <li><strong>Lab:</strong> separa una luminosidad (<code>L</code>) de dos componentes cromáticas. Puede ser más estable cuando cambia la iluminación, aunque sus umbrales requieren más calibración.</li>
 </ul>
 <p>No existe un espacio de color que siempre sea mejor. La elección depende del fondo, la iluminación y de si las frutas están maduras, manchadas o parcialmente ocultas.</p>
-<div id="c136ddb3" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="4">
+<div id="b7b41155" class="cell" data-fig-height="7" data-fig-width="14" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>frutas_rgb <span class="op">=</span> banco[<span class="st">"frutas.jpg"</span>]</span>
@@ -926,7 +967,7 @@ window.Quarto = {
 <section id="segmentación-no-supervisada-por-color-con-k-means" class="level3" data-number="5.2">
 <h3 data-number="5.2" class="anchored" data-anchor-id="segmentación-no-supervisada-por-color-con-k-means"><span class="header-section-number">5.2</span> Segmentación no supervisada por color con k-means</h3>
 <p>En lugar de fijar manualmente los colores, k-means puede encontrar grupos de píxeles en el espacio HSV. Aquí usamos tono, saturación y brillo como variables. Los centroides no reciben nombres como “manzana” o “naranja” de manera automática: primero hay que observarlos y relacionarlos con las regiones de la imagen.</p>
-<div id="4cb2df80" class="cell" data-fig-height="5" data-fig-width="14" data-execution_count="5">
+<div id="583d00db" class="cell" data-fig-height="5" data-fig-width="14" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pixeles_hsv <span class="op">=</span> frutas_hsv.reshape((<span class="op">-</span><span class="dv">1</span>, <span class="dv">3</span>)).astype(np.float32)</span>
@@ -984,7 +1025,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Una estrategia reproducible consiste en seleccionar grupos con saturación alta. Eso suele excluir fondos grises o blancos, pero no necesariamente separa una fruta de otra si comparten colores. La selección siguiente es una regla de segmentación, no una identificación semántica.</p>
-<div id="08c03fe0" class="cell" data-fig-height="5" data-fig-width="14" data-execution_count="6">
+<div id="5803880d" class="cell" data-fig-height="5" data-fig-width="14" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>saturaciones <span class="op">=</span> centros_color[:, <span class="dv">1</span>]</span>
@@ -1036,7 +1077,7 @@ window.Quarto = {
 <li><strong>Color medio:</strong> promedio de <code>H</code>, <code>S</code> y <code>V</code> dentro de la región.</li>
 <li><strong>Circularidad:</strong> <span class="math inline">\(4\pi A/P^2\)</span>, donde <span class="math inline">\(A\)</span> es el área y <span class="math inline">\(P\)</span> el perímetro.</li>
 </ul>
-<div id="e3f71b7f" class="cell" data-execution_count="7">
+<div id="a6344836" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>num_componentes, etiquetas_objetos, estadisticas, centroides <span class="op">=</span> (</span>
