@@ -4325,6 +4325,15 @@ vertical-align: -.125em;
   <ul class="collapse">
   <li><a href="#qué-debe-cambiar-en-el-código" id="toc-qué-debe-cambiar-en-el-código" class="nav-link" data-scroll-target="#qué-debe-cambiar-en-el-código"><span class="header-section-number">5.4.1</span> Qué debe cambiar en el código</a></li>
   </ul></li>
+  <li><a href="#tres-enfoques-para-una-misma-tarea-de-clasificación" id="toc-tres-enfoques-para-una-misma-tarea-de-clasificación" class="nav-link" data-scroll-target="#tres-enfoques-para-una-misma-tarea-de-clasificación"><span class="header-section-number">5.5</span> Tres enfoques para una misma tarea de clasificación</a>
+  <ul class="collapse">
+  <li><a href="#descriptores-clásicos-la-persona-define-qué-medir" id="toc-descriptores-clásicos-la-persona-define-qué-medir" class="nav-link" data-scroll-target="#descriptores-clásicos-la-persona-define-qué-medir"><span class="header-section-number">5.5.1</span> 1. Descriptores clásicos: la persona define qué medir</a></li>
+  <li><a href="#extracción-profunda-la-red-define-una-representación-fija" id="toc-extracción-profunda-la-red-define-una-representación-fija" class="nav-link" data-scroll-target="#extracción-profunda-la-red-define-una-representación-fija"><span class="header-section-number">5.5.2</span> 2. Extracción profunda: la red define una representación fija</a></li>
+  <li><a href="#fine-tuning-la-red-adapta-parte-de-sus-filtros" id="toc-fine-tuning-la-red-adapta-parte-de-sus-filtros" class="nav-link" data-scroll-target="#fine-tuning-la-red-adapta-parte-de-sus-filtros"><span class="header-section-number">5.5.3</span> 3. Fine-tuning: la red adapta parte de sus filtros</a></li>
+  <li><a href="#comparación-práctica" id="toc-comparación-práctica" class="nav-link" data-scroll-target="#comparación-práctica"><span class="header-section-number">5.5.4</span> Comparación práctica</a></li>
+  <li><a href="#cómo-comparar-los-tres-enfoques-con-rigor" id="toc-cómo-comparar-los-tres-enfoques-con-rigor" class="nav-link" data-scroll-target="#cómo-comparar-los-tres-enfoques-con-rigor"><span class="header-section-number">5.5.5</span> Cómo comparar los tres enfoques con rigor</a></li>
+  <li><a href="#regla-de-decisión-inicial" id="toc-regla-de-decisión-inicial" class="nav-link" data-scroll-target="#regla-de-decisión-inicial"><span class="header-section-number">5.5.6</span> Regla de decisión inicial</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#diseño-experimental-una-comparación-justa" id="toc-diseño-experimental-una-comparación-justa" class="nav-link" data-scroll-target="#diseño-experimental-una-comparación-justa"><span class="header-section-number">6</span> 5. Diseño experimental: una comparación justa</a>
   <ul class="collapse">
@@ -4747,6 +4756,144 @@ vertical-align: -.125em;
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> parameter <span class="kw">in</span> model.parameters():</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    parameter.requires_grad <span class="op">=</span> <span class="va">False</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Guarda las características de cada red en archivos de caché distintos. Si comparas extractores, una sola caché puede mezclar vectores incompatibles y producir conclusiones erróneas.</p>
+</section>
+</section>
+<section id="tres-enfoques-para-una-misma-tarea-de-clasificación" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="tres-enfoques-para-una-misma-tarea-de-clasificación"><span class="header-section-number">5.5</span> Tres enfoques para una misma tarea de clasificación</h2>
+<p>Una misma colección de imágenes de flores puede convertirse en un problema de clasificación de tres maneras. Las tres terminan con una predicción de clase, pero difieren en dónde colocan el conocimiento visual y qué parámetros se ajustan con los datos de la nueva tarea.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Enfoque</th>
+<th>Representación que llega al clasificador</th>
+<th>Qué aprende con las flores</th>
+<th>Papel del modelo preentrenado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Descriptores clásicos</td>
+<td>Histogramas, GLCM, momentos de color y Hu</td>
+<td>Solo la regresión logística</td>
+<td>No se usa</td>
+</tr>
+<tr class="even">
+<td>Extracción profunda</td>
+<td>Vector producido por ResNet18 congelada</td>
+<td>Solo la regresión logística</td>
+<td>Genera características fijas</td>
+</tr>
+<tr class="odd">
+<td>Fine-tuning</td>
+<td>Características que cambian durante el entrenamiento</td>
+<td>Clasificador final y una parte o toda la red</td>
+<td>Se inicializa con pesos preentrenados y luego se ajusta</td>
+</tr>
+</tbody>
+</table>
+<section id="descriptores-clásicos-la-persona-define-qué-medir" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="descriptores-clásicos-la-persona-define-qué-medir"><span class="header-section-number">5.5.1</span> 1. Descriptores clásicos: la persona define qué medir</h3>
+<p>La ruta clásica transforma cada imagen en medidas explícitas. Elegimos cuántos bins tendrá el histograma, qué distancias y ángulos usar en GLCM, cómo segmentar la región de interés y qué momentos de forma calcular. Después estandarizamos esos valores y ajustamos una regresión logística.</p>
+<p>Esta opción es especialmente valiosa cuando sabemos qué propiedad visual distingue las clases y necesitamos explicar una decisión. Por ejemplo, si las clases cambian principalmente en el color, podemos inspeccionar el histograma y entender qué parte del vector influyó en el resultado. Su costo no depende de descargar ni ejecutar una red grande, pero la calidad depende de que nuestros descriptores capturen la variación importante.</p>
+</section>
+<section id="extracción-profunda-la-red-define-una-representación-fija" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="extracción-profunda-la-red-define-una-representación-fija"><span class="header-section-number">5.5.2</span> 2. Extracción profunda: la red define una representación fija</h3>
+<p>Con ResNet18 preentrenada, la imagen pasa por filtros aprendidos en ImageNet y obtenemos un vector de 512 componentes. Los pesos de ResNet18 permanecen congelados. El único modelo que aprende con las flores es la regresión logística situada después de ese vector.</p>
+<p>Este enfoque reduce el trabajo de diseñar color, textura y forma por separado. También suele aprovechar patrones visuales más complejos que una sola familia de descriptores. Sin embargo, todavía existe una frontera clara entre conocimiento de origen y tarea de destino: ResNet18 no adapta sus filtros a las flores del curso.</p>
+</section>
+<section id="fine-tuning-la-red-adapta-parte-de-sus-filtros" class="level3" data-number="5.5.3">
+<h3 data-number="5.5.3" class="anchored" data-anchor-id="fine-tuning-la-red-adapta-parte-de-sus-filtros"><span class="header-section-number">5.5.3</span> 3. Fine-tuning: la red adapta parte de sus filtros</h3>
+<p>Fine-tuning parte de los mismos pesos preentrenados, pero permite que el error de clasificación de flores actualice algunos parámetros. Una práctica habitual consiste en reemplazar el clasificador de ImageNet por una nueva capa con cinco salidas, entrenar primero esa capa y después descongelar los últimos bloques de la red con una tasa de aprendizaje pequeña.</p>
+<p>Al ajustar pesos internos, la representación deja de ser fija y puede especializarse en pétalos, fondos, escalas o texturas de la tarea de destino. Esa flexibilidad también introduce riesgos: si hay pocos datos o muchas épocas, la red puede memorizar detalles del entrenamiento y empeorar en imágenes nuevas.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Alcance del notebook actual
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El notebook de esta clase implementa <strong>descriptores clásicos</strong> y <strong>extracción profunda con ResNet18 congelada</strong>. No realiza fine-tuning. Se presenta aquí como una tercera estrategia para comparar conceptos y para una extensión posterior, no como un resultado ya obtenido en el experimento.</p>
+</div>
+</div>
+</section>
+<section id="comparación-práctica" class="level3" data-number="5.5.4">
+<h3 data-number="5.5.4" class="anchored" data-anchor-id="comparación-práctica"><span class="header-section-number">5.5.4</span> Comparación práctica</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criterio</th>
+<th>Descriptores clásicos</th>
+<th>Extracción profunda</th>
+<th>Fine-tuning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Interpretabilidad de las características</td>
+<td>Alta</td>
+<td>Media a baja</td>
+<td>Media a baja</td>
+</tr>
+<tr class="even">
+<td>Datos requeridos</td>
+<td>Puede funcionar con pocos, si los descriptores son adecuados</td>
+<td>Moderados</td>
+<td>Usualmente más datos y mayor diversidad</td>
+</tr>
+<tr class="odd">
+<td>Cómputo para entrenar</td>
+<td>Bajo</td>
+<td>Bajo después de extraer vectores</td>
+<td>Mayor, porque calcula gradientes en la red</td>
+</tr>
+<tr class="even">
+<td>Riesgo principal</td>
+<td>Medir algo poco relevante o segmentar mal</td>
+<td>Que ImageNet no represente bien el dominio destino</td>
+<td>Sobreajuste y selección inadecuada de capas o tasa de aprendizaje</td>
+</tr>
+<tr class="odd">
+<td>Modelo que se ajusta con las flores</td>
+<td>Regresión logística</td>
+<td>Regresión logística</td>
+<td>Clasificador final y capas descongeladas</td>
+</tr>
+<tr class="even">
+<td>Uso de GPU</td>
+<td>No necesaria</td>
+<td>Opcional para extraer más rápido</td>
+<td>Recomendable</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cómo-comparar-los-tres-enfoques-con-rigor" class="level3" data-number="5.5.5">
+<h3 data-number="5.5.5" class="anchored" data-anchor-id="cómo-comparar-los-tres-enfoques-con-rigor"><span class="header-section-number">5.5.5</span> Cómo comparar los tres enfoques con rigor</h3>
+<p>La comparación debe cambiar una sola decisión a la vez. Conserva las mismas particiones estratificadas 70/15/15 y el mismo conjunto de prueba. Para los dos primeros enfoques, usa la misma búsqueda de <code>C</code> de la regresión logística. Para fine-tuning, selecciona en validación la tasa de aprendizaje, el número de bloques descongelados y la época de detención. El conjunto de prueba sigue reservado para una única evaluación final.</p>
+<p>No interpretes un mejor resultado de fine-tuning como evidencia automática de que “las redes profundas son mejores”. Puede deberse a más parámetros ajustados, a más tiempo de entrenamiento o a una configuración que consultó demasiadas veces el conjunto de prueba. Reporta siempre cuántas imágenes, épocas, capas desbloqueadas y recursos de cómputo usaste.</p>
+</section>
+<section id="regla-de-decisión-inicial" class="level3" data-number="5.5.6">
+<h3 data-number="5.5.6" class="anchored" data-anchor-id="regla-de-decisión-inicial"><span class="header-section-number">5.5.6</span> Regla de decisión inicial</h3>
+<ul>
+<li>Elige <strong>descriptores clásicos</strong> cuando la propiedad visual está bien definida, se requiere explicación directa o el conjunto es pequeño y controlado.</li>
+<li>Elige <strong>extracción profunda</strong> como primera línea cuando necesitas una representación sólida sin entrenar una red y quieres una práctica reproducible en CPU o Colab.</li>
+<li>Considera <strong>fine-tuning</strong> cuando la extracción congelada se queda corta, tienes suficientes imágenes diversas y puedes validar cuidadosamente los hiperparámetros de entrenamiento.</li>
+</ul>
 </section>
 </section>
 </section>
