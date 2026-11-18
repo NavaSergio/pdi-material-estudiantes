@@ -4321,6 +4321,10 @@ vertical-align: -.125em;
   <li><a href="#ficha-técnica-de-resnet18" id="toc-ficha-técnica-de-resnet18" class="nav-link" data-scroll-target="#ficha-técnica-de-resnet18"><span class="header-section-number">5.1</span> Ficha técnica de ResNet18</a></li>
   <li><a href="#qué-aporta-una-conexión-residual" id="toc-qué-aporta-una-conexión-residual" class="nav-link" data-scroll-target="#qué-aporta-una-conexión-residual"><span class="header-section-number">5.2</span> ¿Qué aporta una conexión residual?</a></li>
   <li><a href="#del-archivo-al-vector-de-512-componentes" id="toc-del-archivo-al-vector-de-512-componentes" class="nav-link" data-scroll-target="#del-archivo-al-vector-de-512-componentes"><span class="header-section-number">5.3</span> Del archivo al vector de 512 componentes</a></li>
+  <li><a href="#otras-redes-para-extracción-de-características" id="toc-otras-redes-para-extracción-de-características" class="nav-link" data-scroll-target="#otras-redes-para-extracción-de-características"><span class="header-section-number">5.4</span> Otras redes para extracción de características</a>
+  <ul class="collapse">
+  <li><a href="#qué-debe-cambiar-en-el-código" id="toc-qué-debe-cambiar-en-el-código" class="nav-link" data-scroll-target="#qué-debe-cambiar-en-el-código"><span class="header-section-number">5.4.1</span> Qué debe cambiar en el código</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#diseño-experimental-una-comparación-justa" id="toc-diseño-experimental-una-comparación-justa" class="nav-link" data-scroll-target="#diseño-experimental-una-comparación-justa"><span class="header-section-number">6</span> 5. Diseño experimental: una comparación justa</a>
   <ul class="collapse">
@@ -4658,6 +4662,93 @@ vertical-align: -.125em;
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    vector <span class="op">=</span> model(batch)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>El resultado tiene una fila por imagen y 512 columnas. No contiene todavía las etiquetas de flores ni una predicción. Por eso podemos usarlo con un clasificador tradicional de scikit-learn.</p>
 </section>
+<section id="otras-redes-para-extracción-de-características" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="otras-redes-para-extracción-de-características"><span class="header-section-number">5.4</span> Otras redes para extracción de características</h2>
+<p>ResNet18 es una buena primera opción porque su estructura es conocida, sus pesos están disponibles y puede ejecutarse en CPU. No es la única alternativa. La misma estrategia puede aplicarse a otras redes preentrenadas: quitamos o evitamos su clasificador final, congelamos los pesos, extraemos un vector por imagen y entrenamos el mismo clasificador externo.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 30%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Red</th>
+<th>Familia e idea central</th>
+<th style="text-align: right;">Tamaño aproximado</th>
+<th>Cuándo conviene considerarla</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MobileNetV3-Large</td>
+<td>Convoluciones diseñadas para dispositivos con recursos limitados</td>
+<td style="text-align: right;">5.5 M parámetros, 0.22 GFLOPS</td>
+<td>Demostraciones rápidas, CPU o dispositivos móviles</td>
+</tr>
+<tr class="even">
+<td>EfficientNet-B0</td>
+<td>Escala de manera conjunta profundidad, anchura y resolución</td>
+<td style="text-align: right;">5.3 M parámetros, 0.39 GFLOPS</td>
+<td>Buen punto de comparación cuando se busca eficiencia</td>
+</tr>
+<tr class="odd">
+<td>DenseNet121</td>
+<td>Cada bloque recibe características de capas anteriores</td>
+<td style="text-align: right;">8.0 M parámetros, 2.83 GFLOPS</td>
+<td>Comparar conexiones densas contra conexiones residuales</td>
+</tr>
+<tr class="even">
+<td>ResNet50</td>
+<td>Variante más profunda de la misma familia residual</td>
+<td style="text-align: right;">25.6 M parámetros, 4.09 GFLOPS</td>
+<td>Más capacidad cuando el tiempo de extracción no es una limitación</td>
+</tr>
+<tr class="odd">
+<td>ConvNeXt-Tiny</td>
+<td>CNN moderna inspirada en prácticas recientes de visión</td>
+<td style="text-align: right;">28.6 M parámetros, 4.46 GFLOPS</td>
+<td>Comparar una convolucional moderna con ResNet</td>
+</tr>
+<tr class="even">
+<td>ViT-B/16</td>
+<td>Transformer visual que procesa parches de imagen</td>
+<td style="text-align: right;">86.6 M parámetros, 17.56 GFLOPS</td>
+<td>Experimentos con GPU y discusión sobre atención visual</td>
+</tr>
+</tbody>
+</table>
+<p>Los parámetros y GFLOPS de la tabla describen configuraciones preentrenadas de TorchVision sobre ImageNet-1K. Sirven para anticipar memoria y tiempo de cómputo, pero no predicen directamente cuál red clasificará mejor las flores. Un modelo con mejor exactitud en ImageNet puede transferirse peor si sus supuestos de preprocesamiento o el dominio visual no coinciden con la nueva tarea.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Recomendación para esta clase
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Después de ResNet18, prueba <strong>EfficientNet-B0</strong>. Es una comparación instructiva porque tiene menos parámetros y menor costo de cómputo, pero sus pesos reportan mayor exactitud en ImageNet-1K. Mantén las mismas particiones 70/15/15, el mismo procedimiento de selección de <code>C</code> y la misma regresión logística. Cambia únicamente el extractor y usa siempre <code>weights.transforms()</code> de la red elegida.</p>
+</div>
+</div>
+<section id="qué-debe-cambiar-en-el-código" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="qué-debe-cambiar-en-el-código"><span class="header-section-number">5.4.1</span> Qué debe cambiar en el código</h3>
+<p>Cada arquitectura tiene su propio preprocesamiento y su propia capa clasificadora. No conviene reutilizar a ciegas <code>model.fc = nn.Identity()</code>, porque ese atributo pertenece a ResNet. La idea general es la misma, pero el punto donde se obtiene el vector depende del modelo.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo conceptual con EfficientNet-B0</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torchvision.models <span class="im">import</span> efficientnet_b0, EfficientNet_B0_Weights</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>weights <span class="op">=</span> EfficientNet_B0_Weights.DEFAULT</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>transform <span class="op">=</span> weights.transforms()     <span class="co"># preprocesamiento específico de los pesos</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> efficientnet_b0(weights<span class="op">=</span>weights)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>model.classifier <span class="op">=</span> nn.Identity()     <span class="co"># salida de características, no etiquetas ImageNet</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">eval</span>().to(DEVICE)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> parameter <span class="kw">in</span> model.parameters():</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    parameter.requires_grad <span class="op">=</span> <span class="va">False</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Guarda las características de cada red en archivos de caché distintos. Si comparas extractores, una sola caché puede mezclar vectores incompatibles y producir conclusiones erróneas.</p>
+</section>
+</section>
 </section>
 <section id="diseño-experimental-una-comparación-justa" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> 5. Diseño experimental: una comparación justa</h1>
@@ -4760,6 +4851,7 @@ vertical-align: -.125em;
 <li>He, K., Zhang, X., Ren, S. y Sun, J. (2016). <em>Deep Residual Learning for Image Recognition</em>. CVPR. <a href="https://doi.org/10.1109/CVPR.2016.90" class="uri">https://doi.org/10.1109/CVPR.2016.90</a>.</li>
 <li>PyTorch / TorchVision. <em>ResNet18 weights and transforms</em>. <a href="https://pytorch.org/vision/stable/models/resnet.html" class="uri">https://pytorch.org/vision/stable/models/resnet.html</a>.</li>
 <li>PyTorch / TorchVision. <em>ResNet18 weights: parameters, transforms and ImageNet-1K performance</em>. <a href="https://docs.pytorch.org/vision/stable/models/generated/torchvision.models.resnet18.html" class="uri">https://docs.pytorch.org/vision/stable/models/generated/torchvision.models.resnet18.html</a>.</li>
+<li>PyTorch / TorchVision. <em>Models and pre-trained weights</em>. <a href="https://docs.pytorch.org/vision/stable/models.html" class="uri">https://docs.pytorch.org/vision/stable/models.html</a>.</li>
 <li>TensorFlow. <em>Flower Photos dataset</em>. <a href="https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz" class="uri">https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz</a>.</li>
 <li>Haralick, R. M., Shanmugam, K. y Dinstein, I. (1973). <em>Textural Features for Image Classification</em>. IEEE Transactions on Systems, Man, and Cybernetics, 3(6), 610–621.</li>
 <li>Hu, M.-K. (1962). <em>Visual Pattern Recognition by Moment Invariants</em>. IRE Transactions on Information Theory, 8(2), 179–187.</li>
